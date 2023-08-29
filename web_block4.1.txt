@@ -1,7 +1,7 @@
-# RPiList-Malware, parsed and mirrored by https://firebog.net
-# Updated 28AUG23 from https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware
 
-# List corrections can be requested upstream at https://github.com/RPiList/specials/issues
+
+
+
 
 0-800-email.com
 00.chatgpt004.com

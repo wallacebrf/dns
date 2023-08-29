@@ -37557,10 +37557,10 @@ zzychatgpt.top
 zzz.alie3ksgdd.com
 zzz.fhauiehgha.com
 zzzmen99.had.su
-# RPiList-Phishing, parsed and mirrored by https://firebog.net
-# Updated 28AUG23 from https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe
 
-# List corrections can be requested upstream at https://github.com/RPiList/specials/issues
+
+
+
 
 0-01x-merchandise.554217.xyz
 0-0llx.12313123.xyz

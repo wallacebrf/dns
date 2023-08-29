@@ -849,18 +849,18 @@ xnore.com
 xnspy.com
 xpcpanel.com
 zdalnakontrola.pl
-# Personal Blocklist by WaLLy3K (https://firebog.net/about)
-# Content added to this list has been manually verified, and is updated irregularly
 
-# Licensing: CC BY 4.0 (http://creativecommons.org/licenses/by/4.0/)
-## You are welcome to copy, redistibute, remix, transform and build upon this content
-## You must give appropriate credit and indicate if changes were made
 
-## Addtionally, you may even use this commercially
-## However in the spirit of open-source, I strongly urge a small reoccuring donation to help cover server costs:
-## https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HU4EDJZP2S9QA
 
-## Ads ##
+
+
+
+
+
+
+
+
+
 yt.moatads.com
 us.intellitxt.com
 evolveplatform.net
@@ -900,38 +900,38 @@ ads-eu.amillionads.com
 ad.mopub.com
 engine.fyber.com
 
-# Cydia/Bigboss
+
 quantummetric.com 
 cydia.saurik.com.cdngc.net
 
-# NewsCorp
-#production-ultimate-assets.ratecity.com.au
 
-# Tumblr
+
+
+
 saber.srvcs.tumblr.com 
 fd-fp3.wg1.b.yahoo.com
 pool.tumblr.iponweb.net
 
-# Snapchat
+
 usc.adserver.snapads.com 
 euw.adserver.snapads.com
 
-# LA Times
+
 ad-cdn.technoratimedia.com
 content.synapsys.us
 
-# Vungle
+
 www.vungle.com
 e5019.e2.akamaiedge.net 
 
 
-# In-browser Cryptocurrency (Bitcoin-like) miners
+
 coin-hive.com
 coinhiveproxy.com
 jsecoin.com
 crypto-loot.com
 
-# BlockAdBlock Trackers
+
 bannertrack.net
 serve.bannertrack.net
 yasni.bannertrack.net
@@ -939,7 +939,7 @@ adtrackers.net
 zoover.adtrackers.net
 serve.adtrackers.net
 
-# Instart Logic
+
 instartlogic.com
 www.instartlogic.com
 opencache.com
@@ -953,7 +953,7 @@ www.insnw.ne
 inscname.net
 www.inscname.net
 
-# SBS On Demand T&T
+
 thefilter.com
 www.thefilter.com
 api211.thefilter.com
@@ -965,13 +965,13 @@ docj27ko03fnu.cloudfront.net
 rpxnow.com
 nexus.ensighten.com
 
-# Unknown anti-adblock
+
 www.summerhamster.com
 summerhamster.com
 www.roosterfirework.com
 roosterfirework.com
 
-## Tracking & Telemetry ##
+
 cws.conviva.com
 metrics.plex.tv
 analytics.plex.tv
@@ -1058,16 +1058,16 @@ ls.srvcs.tumblr.com
 deliver.oztam.com.au
 collector.abc-host.net.au
 app-analytics.snapchat.com
-#gfwsl.geforce.com
-#gfe.geforce.com
+
+
 telemetry.nvidia.com
-#gfe.nvidia.com
+
 telemetry.gfe.nvidia.com
-#services.gfe.nvidia.com
-#images.nvidiagrid.net
-#rds-assets.nvidia.com 
-#assets.nvidiagrid.net
-#events.gfe.nvidia.com
+
+
+
+
+
 telemetry.malwarebytes.com
 tags.tiqcdn.com
 open.oneplus.net 
@@ -1088,34 +1088,34 @@ v7event.stats.avast.com
 gate.datacaciques.com
 static-assets-queue-it.net
 
-# "Get cookies.txt" extension https://redd.it/10ar7o7
+
 ck.getcookiestxt.com
 
-# HSTS Supercookie http://bit.ly/2xJJUPP
+
 ctoid.net 
 
-## Malware ##
+
 exclusive-vouchers.com
 specialdeals.g5e.com
 
-# Phishing
+
 aloseks.org 
 shortyz.co
 groceriesgiftcards.com
 campingforthefunofit.com
 
-# OSXMokes
+
 cameforcameand33212.com 
 jikenick12and67.com
 
-# DDE Exploit via @MalwareTechBlog
+
 startdigitaal.nl
 
-# Chrome User-Agent Switcher trojan
+
 uaswitcher.org 
 api.data-monitor.info
 
-# Ad servers used in German-speaking regions
+
 aax-eu.amazon-adsystem.com
 adnxs.com
 api.amplitude.com
@@ -1136,7 +1136,7 @@ pv.medialead.de
 securepubads.g.doubleclick.net
 wetter.pushwoosh.com
 
-# https://blog.confiant.com/tag-barnakle-one-year-later-120-more-revive-adserver-hacks-f3e5b3bc8e70
+
 ads.a2epub.com
 ads.fakulteti.mk
 ads.latinongroup.com
@@ -1269,13 +1269,13 @@ bibugal.network
 hoshiwa.com
 wetral.com
 galikos.com
-# AdguardDNS, parsed and mirrored by https://firebog.net
-# Updated 28AUG23 from https://filters.adtidy.org/extension/chromium/filters/15.txt
 
-# This is sourced from an "adblock" style list which may contain mistakes in how it is parsed
-# Please bring any such issues up at https://github.com/WaLLy3K/wally3k.github.io/issues
 
-# List corrections can be requested upstream at https://github.com/AdguardTeam/AdGuardSDNSFilter/issues
+
+
+
+
+
 
 0-000.store
 0001.best
@@ -56029,13 +56029,13 @@ zzxjlr.com
 zzxmcp.com
 zzzhuoxiaqu.online
 zzznews.ru
-# Admiral, parsed and mirrored by https://firebog.net
-# Updated 28AUG23 from https://raw.githubusercontent.com/LanikSJ/ubo-filters/main/filters/getadmiral-domains.txt
 
-# This is sourced from an "adblock" style list which may contain mistakes in how it is parsed
-# Please bring any such issues up at https://github.com/WaLLy3K/wally3k.github.io/issues
 
-# Please contact the original maintainer for any list corrections
+
+
+
+
+
 
 2znp09oa.com
 2znp09oa.com
@@ -57051,9 +57051,9 @@ zbwp6ghm.com
 zealousfield.com
 zippywind.com
 zlp6s.pw
-# Ad filter list by Disconnect
-# License: GPLv3
-# Contact: support [at] disconnect.me
+
+
+
 
 101com.com
 101order.com
@@ -59755,13 +59755,13 @@ zeus.developershed.com
 zeusclicks.com
 zintext.com
 zmedia.com
-zumobi.com# Easylist, parsed and mirrored by https://firebog.net
-# Updated 28AUG23 from https://easylist-downloads.adblockplus.org/easylist.txt
+zumobi.com
 
-# This is sourced from an "adblock" style list which may contain mistakes in how it is parsed
-# Please bring any such issues up at https://github.com/WaLLy3K/wally3k.github.io/issues
 
-# List corrections can be requested upstream at https://github.com/easylist/easylist#list-issues
+
+
+
+
 
 0-000.store
 0008d6ba2e.com
@@ -88643,13 +88643,13 @@ zyiis.net
 zylytavo.com
 zypenetwork.com
 zypy2h6rgfux.com
-# Easyprivacy, parsed and mirrored by https://firebog.net
-# Updated 28AUG23 from https://easylist-downloads.adblockplus.org/easyprivacy.txt
 
-# This is sourced from an "adblock" style list which may contain mistakes in how it is parsed
-# Please bring any such issues up at https://github.com/WaLLy3K/wally3k.github.io/issues
 
-# List corrections can be requested upstream at https://github.com/easylist/easylist#list-issues
+
+
+
+
+
 
 00px.net
 0d8is908gby1.www.terraform.com.ar
@@ -110034,10 +110034,10 @@ zum7cc.oui.sncf
 zxrnfc.drinco.jp
 zyq2.destinia.sk
 zz.bdstatic.com
-# Prigent-Ads, parsed and mirrored by https://firebog.net
-# Updated 28AUG23 from https://dsi.ut-capitole.fr/blacklists/download/publicite.tar.gz
 
-# List corrections can be requested upstream at https://dsi.ut-capitole.fr/cgi-bin/squidguard_modify.cgi
+
+
+
 
 0nlinemeds.com
 1-2-money.com
@@ -121872,9 +121872,9 @@ zynga-poker-hack.net
 zynga-poker-hacks.com
 zyngapoker.hackfree.us
 zyngapokerchips4free.com
-# Ad filter list by Disconnect
-# License: GPLv3
-# Contact: support [at] disconnect.me
+
+
+
 
 101com.com
 101order.com
@@ -124576,9 +124576,9 @@ zeus.developershed.com
 zeusclicks.com
 zintext.com
 zmedia.com
-zumobi.com# Basic tracking list by Disconnect
-# License: GPLv3
-# Contact: support [at] disconnect.me
+zumobi.com
+
+
 
 adjust.io
 airbrake.io

@@ -1,5 +1,3 @@
-www.inp0st.6455863.xyz
-www.inp0st.6455865.xyz
 www.inp0st.6455867.xyz
 www.inp0st.9098766.xyz
 www.inp0st.9877896.xyz
@@ -48041,11 +48039,11 @@ zzmalwo.pl
 zzpit.tomdeng.com
 zzx.gaznf.xyz
 zzxcbxnjaiwieue79.site
-#@ <<<<<<<< https://raw.githubusercontent.com/FiltersHeroes/KAD/master/sections/przekrety.txt => hosts
-#
-#
-# Blogspot
-#@ >>>>>>>> https://raw.githubusercontent.com/FiltersHeroes/KAD/master/sections/blogspot.txt => hosts
+
+
+
+
+
 5gb-internetu-pakiety.blogspot.com
 24moviess.blogspot.com
 123musicblend.blogspot.com
@@ -48758,11 +48756,11 @@ zmienkolorfejsazafree.blogspot.com
 zobaczktopodgladaa.blogspot.com
 zondaglobal.blogspot.com
 zuzu-criss.blogspot.com
-#@ <<<<<<<< https://raw.githubusercontent.com/FiltersHeroes/KAD/master/sections/blogspot.txt => hosts
-#
-#
-# Dodatki hosts
-#@ >>>>>>>> hostsplus => hosts
+
+
+
+
+
 00ed983688.kacwyb.pl
 1ec5e477ed.natrasiekorzysci.pl
 1f723c7faa.kacwyb.pl
@@ -49728,8 +49726,8 @@ zdjecienago2.c.pl
 zebywybielanie.c.pl
 zmienkolory.blogspot.com
 zoymwo.thousandquotientscience.top
-#@ <<<<<<<< hostsplus => hosts
-#@ >>>>>>>> hostsplus-cert => hosts
+
+
 0l-x-storeinform.12151522.xyz
 0l-xdispatch.8675434.xyz
 0lx-merchandise.1215431.xyz
@@ -54221,4 +54219,4 @@ zdjecie-facebook-zdj3425jeio.dkonto.pl
 zobaczteraz00001zawiadomienie.awesomeerictech.com
 zowjj.gazeta-regionalna.com
 zzzyyzzzyyyzyyzyyyzzyyzyzzzzzzzzyyzzyyyyyzyzyyzzyzpol7196.cmkaarten.nl
-#@ <<<<<<<< hostsplus-cert => hosts
+

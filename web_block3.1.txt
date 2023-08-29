@@ -55,18 +55,18 @@ www.tkdami.net
 www.unionleisurewear.com
 www.vntanktransport.com
 www.vydoxtrial.com
-# 
-# Phishing Army | The Blocklist to filter Phishing 
-# 
-# Last Update: Tue, 29 Aug 2023 16:57:09 UTC
-# 
-# This is the extended version, also contains domains without subdomains.
-# 
-# Project website: https://phishing.army 
-# Support the project with a donation:: https://www.buymeacoffee.com/andreadraghetti 
-# 
-# This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License. 
-# ======================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
 
 0-01x-merchandise.554217.xyz
 0-0llx.12313123.xyz
