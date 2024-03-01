@@ -59,3 +59,5 @@ https://asn.ipinfo.app/api/text/list/AS204286 #Invermae Solutions SL
 https://asn.ipinfo.app/api/text/list/AS202636 #Invermae Solutions SL
 https://asn.ipinfo.app/api/text/list/AS200908 #Invermae Solutions SL
 https://asn.ipinfo.app/api/text/list/AS17470 #HUTCHISON-LK
+https://asn.ipinfo.app/api/text/list/AS209372 #SIA "Singularity Telecom"
+https://asn.ipinfo.app/api/text/list/AS45887 #GPLHOST
