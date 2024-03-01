@@ -19,9 +19,9 @@
 149.40.0.0 - 149.40.255.255 #PSINet, Inc.
 99.217.105.0-99.217.105.255 #Rogers Communications Canada Inc.
 69.80.6.0-69.80.6.255 #Cable & Wireless (Barbados) Limited
+186.72.0.0/15 #Cable & Wireless Panama
 45.148.18.0-45.148.18.255 #Obe NOC
 5.153.182.0-5.153.183.255 #WELCOMENET
-186.72.0.0/15 #Cable & Wireless Panama
 80.94.95.0-80.94.95.255 #UNMANAGED-LTD
 166.0.0.0-166.1.255.255 #Ace Data Centers, Inc.
 50.114.0.0-50.114.255.255 #Ace Data Centers, Inc.
@@ -52,5 +52,10 @@
 45.147.244.0-45.147.247.255 #IT Hostline Ltd
 45.149.83.0-45.149.83.255 #IT Hostline Ltd
 185.128.43.255-185.128.43.255 #IT Hostline Ltd
+185.202.107.255-185.202.107.255 #IT Hostline Ltd
+185.244.161.255-185.244.161.255 #IT Hostline Ltd
+185.98.42.0-185.98.42.255 #Proline IT Ltd
 94.131.48.0-94.131.63.255 #My Tec Sa
 142.111.0.0-142.111.255.255
+138.36.94.0/23
+103.230.68.0-103.230.69.255 #GPLHOST
