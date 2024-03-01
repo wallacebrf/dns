@@ -21,3 +21,41 @@ https://asn.ipinfo.app/api/text/list/AS207990 #Hostroyale_Technologies
 https://asn.ipinfo.app/api/text/list/AS11878 #tzulo, inc.
 https://asn.ipinfo.app/api/text/list/AS6939 #Hurricane Electric LLC (HURC)
 https://asn.ipinfo.app/api/text/list/AS60068 #DataCamp Limited
+https://asn.ipinfo.app/api/text/list/AS212238 #DataCamp Limited
+https://asn.ipinfo.app/api/text/list/AS211612 #DataCamp Limited
+https://asn.ipinfo.app/api/text/list/AS50446 #DataCamp Limited
+https://asn.ipinfo.app/api/text/list/AS9009 #M247
+https://asn.ipinfo.app/api/text/list/AS16247 #M247
+https://asn.ipinfo.app/api/text/list/AS42973 M247
+https://asn.ipinfo.app/api/text/list/AS35536 #XTOM
+https://asn.ipinfo.app/api/text/list/AS9312 #XTOM
+https://asn.ipinfo.app/api/text/list/AS8888 #XTOM
+https://asn.ipinfo.app/api/text/list/AS6233 #XTOM
+https://asn.ipinfo.app/api/text/list/AS4785 #XTOM
+https://asn.ipinfo.app/api/text/list/AS3258 #XTOM
+https://asn.ipinfo.app/api/text/list/AS3214 #XTOM
+https://asn.ipinfo.app/api/text/list/AS949 #XTOM
+https://asn.ipinfo.app/AS14315 #1GSERVERS, LLC
+https://asn.ipinfo.app/api/text/list/AS18779 #EGIHosting
+https://asn.ipinfo.app/api/text/list/AS7005 #Interserver, Inc (INTER-83)
+https://asn.ipinfo.app/api/text/list/AS26666 #Interserver, Inc (INTER-83)
+https://asn.ipinfo.app/api/text/list/AS13335 #CLOUDFLARENET
+https://asn.ipinfo.app/api/text/list/AS202623 #CLOUDFLARENET
+https://asn.ipinfo.app/api/text/list/AS395747 #CLOUDFLARENET
+https://asn.ipinfo.app/api/text/list/AS62651 #NETPROTECT
+https://asn.ipinfo.app/api/text/list/AS54203 #NETPROTECT
+https://asn.ipinfo.app/api/text/list/AS54138 #NETPROTECT
+https://asn.ipinfo.app/api/text/list/AS50667 #NETPROTECT
+https://asn.ipinfo.app/api/text/list/AS31362 #NETPROTECT
+https://asn.ipinfo.app/api/text/list/AS13926 #NETPROTECT
+https://asn.ipinfo.app/api/text/list/AS24940 #Hetzner 
+https://asn.ipinfo.app/api/text/list/AS212317 #Hetzner 
+https://asn.ipinfo.app/api/text/list/AS213230 #Hetzner 
+https://asn.ipinfo.app/api/text/list/AS213006 #Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS213005 #Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS212862 #Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS212861 #Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS204286 #Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS202636 #Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS200908 #Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS17470 #HUTCHISON-LK
