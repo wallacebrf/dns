@@ -11,6 +11,7 @@ https://asn.ipinfo.app/api/text/list/AS394814 #ISP4Life
 https://asn.ipinfo.app/api/text/list/AS35478 #DATACENTER - Bunea TELECOM SRL
 https://asn.ipinfo.app/api/text/list/AS22384 #Performive LLC
 https://asn.ipinfo.app/api/text/list/AS46562 #Performive LLC
+https://asn.ipinfo.app/api/text/list/AS20093 #Performive LLC
 https://asn.ipinfo.app/api/text/list/AS39486 #Hostroyale_Technologies
 https://asn.ipinfo.app/api/text/list/AS44144 #Hostroyale_Technologies
 https://asn.ipinfo.app/api/text/list/AS133499 #Hostroyale_Technologies
@@ -61,3 +62,9 @@ https://asn.ipinfo.app/api/text/list/AS200908 #Invermae Solutions SL
 https://asn.ipinfo.app/api/text/list/AS17470 #HUTCHISON-LK
 https://asn.ipinfo.app/api/text/list/AS209372 #SIA "Singularity Telecom"
 https://asn.ipinfo.app/api/text/list/AS45887 #GPLHOST
+https://asn.ipinfo.app/api/text/list/AS48337 #LINODE
+https://asn.ipinfo.app/api/text/list/AS63949 #LINODE
+https://asn.ipinfo.app/api/text/list/AS61317 #Hivelocity Inc
+https://asn.ipinfo.app/api/text/list/AS263735 #Buena Hosting
+https://asn.ipinfo.app/api/text/list/AS263740 #Corporacion Laceibanetsociety
+https://asn.ipinfo.app/api/text/list/AS14061 #DigitalOcean
