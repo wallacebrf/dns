@@ -68,3 +68,21 @@ https://asn.ipinfo.app/api/text/list/AS61317 #Hivelocity Inc
 https://asn.ipinfo.app/api/text/list/AS263735 #Buena Hosting
 https://asn.ipinfo.app/api/text/list/AS263740 #Corporacion Laceibanetsociety
 https://asn.ipinfo.app/api/text/list/AS14061 #DigitalOcean
+https://asn.ipinfo.app/api/text/list/AS14576 #HostingSolution LTD
+https://asn.ipinfo.app/api/text/list/AS8075 #Microsoft
+https://asn.ipinfo.app/api/text/list/AS62240 #Clouvider
+https://asn.ipinfo.app/api/text/list/AS36352 #ColoCrossing
+https://asn.ipinfo.app/api/text/list/AS12876 #ScaleWay / ONLINE SAS / PONEYTELECOM
+https://asn.ipinfo.app/api/text/list/AS37518 #Fiber Grid INC
+https://asn.ipinfo.app/api/text/list/AS132203 #Shenzhen Tencent
+https://asn.ipinfo.app/api/text/list/AS45090 #Shenzhen Tencent
+https://asn.ipinfo.app/api/text/list/AS55286 #ServerMania / B2 Net Solutions Inc./ Blazing SEO
+https://asn.ipinfo.app/api/text/list/AS210558 #1337 Services GmbH (as210558.net)
+https://asn.ipinfo.app/api/text/list/AS206092 #IPXO LIMITED / Panq B.V.
+https://asn.ipinfo.app/api/text/list/AS26548 #PureVoltage Hosting Inc.
+https://asn.ipinfo.app/api/text/list/AS137409 #GSL Networks Pty LTD / M Nets SAL
+https://asn.ipinfo.app/api/text/list/AS14576 #Hosting Solution Ltd / TrafficTransitSolution LLC / king-servers.com
+https://asn.ipinfo.app/api/text/list/AS40861 #Paradise Networks LLC / Powehouse Management VPNs
+https://asn.ipinfo.app/api/text/list/AS36007 #Kamatera, Inc. / Cloud Web Manage
+https://asn.ipinfo.app/api/text/list/AS24961 #myLoc managed IT AG / webtropia
+https://asn.ipinfo.app/api/text/list/AS39572 #ADVANCEDHOSTERS-AS
