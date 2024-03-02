@@ -443,6 +443,60 @@ if ($refresh_data){
 	
 	$URL="https://asn.ipinfo.app/api/text/list/AS14061";
 	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS14576";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS8075";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS62240";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS36352";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS12876";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS37518";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS132203";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS45090";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS55286";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS210558";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS206092";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS26548";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS137409";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS14576";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS40861";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS36007";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS24961";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS39572";
+	download_data($outputfile, $URL);
 }
 
 $domains_blocked_counter=$domains_blocked_counter + process_data($outputfile, "web_block1", $debug, $theFiles, $email_address, $smtp_server, $SMTPAuth_type, $smtp_user, $smtp_pass, $SMTPSecure_type, $smtp_port, $from_email_address);
