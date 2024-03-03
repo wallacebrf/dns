@@ -86,3 +86,55 @@ https://asn.ipinfo.app/api/text/list/AS40861 #Paradise Networks LLC / Powehouse 
 https://asn.ipinfo.app/api/text/list/AS36007 #Kamatera, Inc. / Cloud Web Manage
 https://asn.ipinfo.app/api/text/list/AS24961 #myLoc managed IT AG / webtropia
 https://asn.ipinfo.app/api/text/list/AS39572 #ADVANCEDHOSTERS-AS
+#
+#
+https://asn.ipinfo.app/api/text/list/AS932 #XNNET
+https://asn.ipinfo.app/api/text/list/6134 #XNNET
+https://asn.ipinfo.app/api/text/list/15828 #SPACESHIPNETWORKS - Robat Blue Diamond Network Co., Ltd.
+https://asn.ipinfo.app/api/text/list/AS17048 #AWKNET
+https://asn.ipinfo.app/api/text/list/AS27524 #XEEX-COMMUNICATIONS
+https://asn.ipinfo.app/api/text/list/AS33333 #OBJX
+https://asn.ipinfo.app/api/text/list/AS35624 #SILVERSTAR-AS - Silverstar Invest Limited
+https://asn.ipinfo.app/api/text/list/AS3223 #VOXILITY - Voxility LLP
+https://asn.ipinfo.app/api/text/list/AS3842 #RAMNODE
+https://asn.ipinfo.app/api/text/list/AS4694 #IDCF IDC Frontier Inc.
+https://asn.ipinfo.app/api/text/list/AS5577 #ROOT - root SA
+https://asn.ipinfo.app/api/text/list/AS6724 #STRATO - Strato AG
+https://asn.ipinfo.app/api/text/list/AS7203 #LEASEWEB-USA-SFO
+https://asn.ipinfo.app/api/text/list/AS7489 #HOSTUS-GLOBAL-AS HostUS
+https://asn.ipinfo.app/api/text/list/AS7506 #INTERQ GMO Internet
+https://asn.ipinfo.app/api/text/list/AS7850 #CITYLINKFIBER
+https://asn.ipinfo.app/api/text/list/AS7979 #SERVERS-COM
+https://asn.ipinfo.app/api/text/list/AS8455 #ATOM86-AS - Schuberg Philis B.V.
+https://asn.ipinfo.app/api/text/list/AS8560 #IONOS-AS - IONOS SE
+https://asn.ipinfo.app/api/text/list/AS9370 #SAKURA-B SAKURA Internet Inc.
+https://asn.ipinfo.app/api/text/list/AS10297 #ENET-2
+https://asn.ipinfo.app/api/text/list/AS10439 #CARINET
+https://asn.ipinfo.app/api/text/list/AS11831 #ESECUREDATA
+https://asn.ipinfo.app/api/text/list/AS12586 #ASGHOSTNET - GHOSTnet GmbH
+https://asn.ipinfo.app/api/text/list/AS13213 #UK2NET-AS - UK-2 Limited
+https://asn.ipinfo.app/api/text/list/AS13739 #DATACENTER-IP
+https://asn.ipinfo.app/api/text/list/AS14127 #ILAND
+https://asn.ipinfo.app/api/text/list/AS14618 #AMAZON-AES
+https://asn.ipinfo.app/api/text/list/AS16509 #AMAZON-02
+https://asn.ipinfo.app/api/text/list/AS15083 #INFOLINK-MIA-
+https://asn.ipinfo.app/api/text/list/AS15169 #GOOGLE
+https://asn.ipinfo.app/api/text/list/AS15395 #RACKSPACE-LON - Rackspace Ltd.
+https://asn.ipinfo.app/api/text/list/AS15497 #COLOCALL - 1 Cloud Lab s.r.o.
+https://asn.ipinfo.app/api/text/list/AS15510 #CWCS-PS - Compuweb Communications Services Limited
+https://asn.ipinfo.app/api/text/list/AS15626 #ITLAS - ITL LLC
+https://asn.ipinfo.app/api/text/list/AS16125 #CHERRYSERVERS1-AS - UAB Cherry Servers
+https://asn.ipinfo.app/api/text/list/AS16262 #DATACHEAP-LLC-AS - Datacheap LLC
+https://asn.ipinfo.app/api/text/list/AS16628 #DEDICATED-FIBER-COMMUNICATIONS
+https://asn.ipinfo.app/api/text/list/AS17216 #DC74-AS
+https://asn.ipinfo.app/api/text/list/AS18450 #WEBNX
+https://asn.ipinfo.app/api/text/list/AS18978 #ENZUINC-
+https://asn.ipinfo.app/api/text/list/AS19084 #COLOUP
+https://asn.ipinfo.app/api/text/list/AS19318 #NJIIX-AS-1 - NEW JERSEY INTERNATIONAL INTERNET EXCHANGE LLC,
+https://asn.ipinfo.app/api/text/list/AS19437 #SS-ASH
+https://asn.ipinfo.app/api/text/list/AS19531 #NODESDIRECT
+https://asn.ipinfo.app/api/text/list/AS19624 #SERVERROOM
+https://asn.ipinfo.app/api/text/list/AS19871 #NETWORK-SOLUTIONS-HOSTING
+https://asn.ipinfo.app/api/text/list/AS19969 #JOESDATACENTER
+https://asn.ipinfo.app/api/text/list/20021 #LNH-INC
+https://asn.ipinfo.app/api/text/list/AS20264 #WEBAIR-INTERNET-2
