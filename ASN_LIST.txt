@@ -1,4 +1,4 @@
-https://asn.ipinfo.app/AS44477 #STARK-INDUSTRIES
+https://asn.ipinfo.app/api/text/list/AS44477 #STARK-INDUSTRIES
 https://asn.ipinfo.app/api/text/list/AS22612 #NAMEC-4
 https://asn.ipinfo.app/api/text/list/AS12312 #ECOTEL
 https://asn.ipinfo.app/api/text/list/AS64419 #ECOTEL
@@ -36,7 +36,7 @@ https://asn.ipinfo.app/api/text/list/AS4785 #XTOM
 https://asn.ipinfo.app/api/text/list/AS3258 #XTOM
 https://asn.ipinfo.app/api/text/list/AS3214 #XTOM
 https://asn.ipinfo.app/api/text/list/AS949 #XTOM
-https://asn.ipinfo.app/AS14315 #1GSERVERS, LLC
+https://asn.ipinfo.app/api/text/list/AS14315 #1GSERVERS, LLC
 https://asn.ipinfo.app/api/text/list/AS18779 #EGIHosting
 https://asn.ipinfo.app/api/text/list/AS7005 #Interserver, Inc (INTER-83)
 https://asn.ipinfo.app/api/text/list/AS26666 #Interserver, Inc (INTER-83)
@@ -87,10 +87,11 @@ https://asn.ipinfo.app/api/text/list/AS36007 #Kamatera, Inc. / Cloud Web Manage
 https://asn.ipinfo.app/api/text/list/AS24961 #myLoc managed IT AG / webtropia
 https://asn.ipinfo.app/api/text/list/AS39572 #ADVANCEDHOSTERS-AS
 #
+#NEED TO ADD
 #
 https://asn.ipinfo.app/api/text/list/AS932 #XNNET
-https://asn.ipinfo.app/api/text/list/6134 #XNNET
-https://asn.ipinfo.app/api/text/list/15828 #SPACESHIPNETWORKS - Robat Blue Diamond Network Co., Ltd.
+https://asn.ipinfo.app/api/text/list/AS6134 #XNNET
+https://asn.ipinfo.app/api/text/list/AS15828 #SPACESHIPNETWORKS - Robat Blue Diamond Network Co., Ltd.
 https://asn.ipinfo.app/api/text/list/AS17048 #AWKNET
 https://asn.ipinfo.app/api/text/list/AS27524 #XEEX-COMMUNICATIONS
 https://asn.ipinfo.app/api/text/list/AS33333 #OBJX
@@ -136,5 +137,64 @@ https://asn.ipinfo.app/api/text/list/AS19531 #NODESDIRECT
 https://asn.ipinfo.app/api/text/list/AS19624 #SERVERROOM
 https://asn.ipinfo.app/api/text/list/AS19871 #NETWORK-SOLUTIONS-HOSTING
 https://asn.ipinfo.app/api/text/list/AS19969 #JOESDATACENTER
-https://asn.ipinfo.app/api/text/list/20021 #LNH-INC
+https://asn.ipinfo.app/api/text/list/AS20021 #LNH-INC
 https://asn.ipinfo.app/api/text/list/AS20264 #WEBAIR-INTERNET-2
+https://asn.ipinfo.app/api/text/list/AS20454 #SSASN2 - SECURED SERVERS LLC, US
+https://asn.ipinfo.app/api/text/list/AS20473 #AS-CHOOPA - Choopa, LLC, US
+https://asn.ipinfo.app/api/text/list/AS20598 #CYBERSPACE-AS Autonomous System number for Cyber Space, IL
+https://asn.ipinfo.app/api/text/list/AS21859 #ZNET - Zenlayer Inc, US
+https://asn.ipinfo.app/api/text/list/AS22363 #PHMGMT-AS1 - Powerhouse Management, Inc., US
+https://asn.ipinfo.app/api/text/list/AS22552 #ESITED - eSited Solutions, US
+https://asn.ipinfo.app/api/text/list/AS22781 #RBLHST - Strong Technology, LLC., US
+https://asn.ipinfo.app/api/text/list/AS23033 #WOW - Wowrack.com, US
+https://asn.ipinfo.app/api/text/list/AS23342 #UNITEDLAYER - Unitedlayer, Inc., US
+https://asn.ipinfo.app/api/text/list/AS23352 #SERVERCENTRAL
+https://asn.ipinfo.app/api/text/list/AS25780 #HUGESERVER-NETWORKS - HugeServer Networks, LLC, US
+https://asn.ipinfo.app/api/text/list/AS29838 #AMC - Atlantic Metro Communications, US
+https://asn.ipinfo.app/api/text/list/AS29854 #WESTHOST - WestHost, Inc., US
+https://asn.ipinfo.app/api/text/list/AS30083 #SERVER4YOU - server4you Inc., US
+https://asn.ipinfo.app/api/text/list/AS30475 #WEHOSTWEBSITES-COM - Handy Networks, LLC, US
+https://asn.ipinfo.app/api/text/list/AS30633 #LEASEWEB-USA-WDC
+https://asn.ipinfo.app/api/text/list/AS32097 #WII-KC - WholeSale Internet, Inc., US
+https://asn.ipinfo.app/api/text/list/AS32181 #ASN-GIGENET - GigeNET, US
+https://asn.ipinfo.app/api/text/list/AS32244 #LIQUID-WEB-INC - Liquid Web, L.L.C, US
+https://asn.ipinfo.app/api/text/list/AS32475 #SINGLEHOP-LLC - SingleHop, Inc., US
+https://asn.ipinfo.app/api/text/list/AS32780 #HOSTINGSERVICES-INC - Hosting Services, Inc., US
+https://asn.ipinfo.app/api/text/list/AS33083 #AXCELX-NET - AxcelX Technologies LLC, US
+https://asn.ipinfo.app/api/text/list/AS33182 #DIMENOC - HostDime.com, Inc., US
+https://asn.ipinfo.app/api/text/list/AS33302 #ONS-COS - Data 102, LLC, US
+https://asn.ipinfo.app/api/text/list/AS33330 #CLOUDRADIUM-ASN - CloudRadium L.L.C, US
+https://asn.ipinfo.app/api/text/list/AS33480 #WEBWERKSAS1 - Web Werks, US
+https://asn.ipinfo.app/api/text/list/AS33724 #BIZNESSHOSTING - VOLICO, US
+https://asn.ipinfo.app/api/text/list/AS35908 #VPLSNET - Krypt Technologies, US
+https://asn.ipinfo.app/api/text/list/AS35916 #MULTA-ASN1 - MULTACOM CORPORATION, US
+https://asn.ipinfo.app/api/text/list/AS36114 #VERSAWEB-ASN
+https://asn.ipinfo.app/api/text/list/AS36351 #SOFTLAYER - SoftLayer Technologies Inc., US
+https://asn.ipinfo.app/api/text/list/AS36666 #GTCOMM - GloboTech Communications, CA
+https://asn.ipinfo.app/api/text/list/AS40156 #THEOPT-HOU - The Optimal Link Corporation, US
+https://asn.ipinfo.app/api/text/list/AS40244 #TURNKEY-INTERNET - Turnkey Internet Inc., US
+https://asn.ipinfo.app/api/text/list/AS40676 #AS40676 - Psychz Networks, US
+https://asn.ipinfo.app/api/text/list/AS40824 #WZCOM-US - WZ Communications Inc., US
+https://asn.ipinfo.app/api/text/list/AS46261 #QUICKPACKET - QuickPacket, LLC, US
+https://asn.ipinfo.app/api/text/list/AS46475 #LIMESTONENETWORKS - Limestone Networks, Inc., US
+https://asn.ipinfo.app/api/text/list/AS46664 #VOLUMEDRIVE - VolumeDrive, US
+https://asn.ipinfo.app/api/text/list/AS46816 #DSNETWORKS-001 - DirectSpace Networks, LLC., US
+https://asn.ipinfo.app/api/text/list/AS46844 #ST-BGP - Sharktech, US
+https://asn.ipinfo.app/api/text/list/AS53340 #FIBERHUB - VegasNAP, LLC, US
+https://asn.ipinfo.app/api/text/list/AS53559 #ANONYMIZER - Anonymizer Inc., US
+https://asn.ipinfo.app/api/text/list/AS53597 #HOYOS-CONSULTING-LLC - Hoyos Consulting LLC, US
+https://asn.ipinfo.app/api/text/list/AS53667 #PONYNET - FranTech Solutions, US
+https://asn.ipinfo.app/api/text/list/AS53755 #IOFLOOD - Input Output Flood LLC, US
+https://asn.ipinfo.app/api/text/list/AS53850 #GORILLASERVERS - GorillaServers, Inc., US
+https://asn.ipinfo.app/api/text/list/AS54455 #MADEIT - MadeIT inc., US
+https://asn.ipinfo.app/api/text/list/AS54489 #CORESPACE-DAL - CoreSpace, Inc., US
+https://asn.ipinfo.app/api/text/list/AS54500 #18779 - EGIHosting, US
+https://asn.ipinfo.app/api/text/list/AS62471 #SWITCHDATASOLUTIONS-AS - SupremeBytes, LLC, US
+https://asn.ipinfo.app/api/text/list/AS63018 #USDEDICATED - US Dedicated, US
+https://asn.ipinfo.app/api/text/list/AS63199 #CDSC-AS1 - Capitalonline Data Service Co.,LTD, US
+https://asn.ipinfo.app/api/text/list/AS63473 #HOSTHATCH-ASN - HostHatch, Inc, US
+https://asn.ipinfo.app/api/text/list/AS64245 #AS-DIGITALFYRE - DigitalFyre Internet Solutions, LLC., US
+https://asn.ipinfo.app/api/text/list/AS394380 #LEASEWEB-USA-DAL-10 - Leaseweb USA, Inc., US
+https://asn.ipinfo.app/api/text/list/AS395111 #KVCNET-2009 - KVCHOSTING.COM LLC, US
+https://asn.ipinfo.app/api/text/list/AS18450 #WEBNX
+https://asn.ipinfo.app/api/text/list/AS18450 #WEBNX
