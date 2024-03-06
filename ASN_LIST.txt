@@ -1,3 +1,4 @@
+#really good list here: https://github.com/brianhama/bad-asn-list/blob/master/bad-asn-list.csv#L353
 https://asn.ipinfo.app/api/text/list/AS44477 #STARK-INDUSTRIES
 https://asn.ipinfo.app/api/text/list/AS22612 #NAMEC-4
 https://asn.ipinfo.app/api/text/list/AS12312 #ECOTEL
@@ -196,5 +197,3 @@ https://asn.ipinfo.app/api/text/list/AS63473 #HOSTHATCH-ASN - HostHatch, Inc, US
 https://asn.ipinfo.app/api/text/list/AS64245 #AS-DIGITALFYRE - DigitalFyre Internet Solutions, LLC., US
 https://asn.ipinfo.app/api/text/list/AS394380 #LEASEWEB-USA-DAL-10 - Leaseweb USA, Inc., US
 https://asn.ipinfo.app/api/text/list/AS395111 #KVCNET-2009 - KVCHOSTING.COM LLC, US
-https://asn.ipinfo.app/api/text/list/AS18450 #WEBNX
-https://asn.ipinfo.app/api/text/list/AS18450 #WEBNX
