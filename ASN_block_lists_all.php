@@ -497,6 +497,336 @@ if ($refresh_data){
 	
 	$URL="https://asn.ipinfo.app/api/text/list/AS39572";
 	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS5384";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS8966";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS834";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS932";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS6134";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS15828";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS17048";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS27524";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS33333";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS35624";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS3223";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS3842";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS4694";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS5577";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS6724";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS7203";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS7489";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS7506";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS7850";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS7979";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS8455";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS8560";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS9370";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS10297";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS10439";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS11831";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS12586";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS13213";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS13739";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS14127";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS14618";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS16509";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS15083";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS15169";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS15395";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS15497";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS15510";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS15626";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS16125";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS16262";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS16628";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS17216";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS18450";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS18978";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS19084";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS19318";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS19437";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS19531";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS19624";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS19871";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS19969";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS20021";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS20264";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS20454";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS20473";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS20598";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS21859";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS22363";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS22552";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS22781";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS23033";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS23342";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS23352";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS25780";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS29838";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS29854";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS30083";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS30475";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS30633";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS32097";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS32181";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS32244";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS32475";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS32780";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS33083";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS33182";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS33302";
+	download_data($outputfile, $URL);
+	
+	//$URL="https://asn.ipinfo.app/api/text/list/AS33330";
+	//download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS33480";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS33724";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS35908";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS35916";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS36114";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS36351";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS36666";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS40156";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS40244";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS40676";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS40824";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS46261";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS46475";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS46664";
+	download_data($outputfile, $URL);
+	
+	//$URL="https://asn.ipinfo.app/api/text/list/AS46816";
+	//download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS46844";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS53340";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS53559";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS53597";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS53667";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS53755";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS53850";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS54455";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS54489";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS54500";
+	download_data($outputfile, $URL);
+	
+	//$URL="https://asn.ipinfo.app/api/text/list/AS62471";
+	//download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS63018";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS63199";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS63473";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS64245";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS394380";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS395111";
+	download_data($outputfile, $URL);
 }
 
 $domains_blocked_counter=$domains_blocked_counter + process_data($outputfile, "web_block1", $debug, $theFiles, $email_address, $smtp_server, $SMTPAuth_type, $smtp_user, $smtp_pass, $SMTPSecure_type, $smtp_port, $from_email_address);
