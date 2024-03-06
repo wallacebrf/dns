@@ -88,7 +88,7 @@ https://asn.ipinfo.app/api/text/list/AS36007 #Kamatera, Inc. / Cloud Web Manage
 https://asn.ipinfo.app/api/text/list/AS24961 #myLoc managed IT AG / webtropia
 https://asn.ipinfo.app/api/text/list/AS39572 #ADVANCEDHOSTERS-AS
 #
-#NEED TO ADD
+#\/\/\/\/\/\/BELOW ARE LATEST ADDED 3/6/2024\/\/\/\/\/\/\/\/\/\/\/
 #
 https://asn.ipinfo.app/api/text/list/AS932 #XNNET
 https://asn.ipinfo.app/api/text/list/AS6134 #XNNET
