@@ -154,26 +154,33 @@ $domains_blocked_counter=0;
 function download_data($outputfile_local, $URL_local){
 	if (urlExists($URL_local)){
 		$counter =0;
-		$myfile = fopen($URL_local, "r");
+		//$myfile = fopen($URL_local, "r");
+		if (($myfile = @fopen($URL_local, "r"))!==false ) {
+			if ( !$myfile ) {
+				print "<p style=\"color:red;\">".$URL_local." could be opened</p>";
+			}else{
+				while(!feof($myfile)) {
 
-		while(!feof($myfile)) {
+					//a lot of these lists are hosts lists so they have a IP address etc. prior to the domain name. this is going to search for and remove this information. 
+					//this needs to be done as the fortigate external threat connectors just wants a simple list of domain names and or IP addresses only. 
+					//they are not able to process the host file data format. 
+					$search = array("127.0.0.1 ", "localhost", "::1 ", "0.0.0.0 ", "0.0.0.0", "127.0.0.1	", ".localdomain", "255.255.255.255	broadcasthost", "::1");
+					$replace = array('', '', '', '', '', '', '', '', '');
+					$subject = fgets($myfile);
 
-			//a lot of these lists are hosts lists so they have a IP address etc. prior to the domain name. this is going to search for and remove this information. 
-			//this needs to be done as the fortigate external threat connectors just wants a simple list of domain names and or IP addresses only. 
-			//they are not able to process the host file data format. 
-			$search = array("127.0.0.1 ", "localhost", "::1 ", "0.0.0.0 ", "0.0.0.0", "127.0.0.1	", ".localdomain", "255.255.255.255	broadcasthost", "::1");
-			$replace = array('', '', '', '', '', '', '', '', '');
-			$subject = fgets($myfile);
-
-			//determine if we saved any bytes of data to the file. if we did, then something probably downloaded correctly, if there is no data in the file, then something must have went wrong. 
-			$counter = $counter + file_put_contents($outputfile_local,str_replace($search, $replace, $subject), FILE_APPEND);
+					//determine if we saved any bytes of data to the file. if we did, then something probably downloaded correctly, if there is no data in the file, then something must have went wrong. 
+					$counter = $counter + file_put_contents($outputfile_local,str_replace($search, $replace, $subject), FILE_APPEND);
+				}
+				if ($counter == 0){
+					print "<p style=\"color:red;\">".$URL_local." returned zero bytes</p>";
+				}
+				fclose($myfile);
+			}
+		}else{
+			print "<p style=\"color:red;\">".$URL_local." contents could be downloaded</p>";
 		}
-		if ($counter == 0){
-			print "<p style=\"color:red;\">".$URL_local." could be access but not processed</p>";
-		}
-		fclose($myfile);
 	}else{
-		print "<p style=\"color:red;\">".$URL_local." could not be accessed</p>";
+		print "<p style=\"color:red;\">".$URL_local." did not return as available</p>";
 	}
 }
 
