@@ -142,21 +142,27 @@ $domains_blocked_counter=0;
 function download_data($outputfile_local, $URL_local){
 	if (urlExists($URL_local)){
 		$counter =0;
-		$myfile = fopen($URL_local, "r");
+		if (($myfile = @fopen($URL_local, "r"))!==false ) {
+			if ( !$myfile ) {
+				print "<p style=\"color:red;\">".$URL_local." could not be opened</p>";
+			}else{
+				while(!feof($myfile)) {
+					
+					$subject = fgets($myfile);
 
-		while(!feof($myfile)) {
-
-			$subject = fgets($myfile);
-
-			//determine if we saved any bytes of data to the file. if we did, then something probably downloaded correctly, if there is no data in the file, then something must have went wrong. 
-			$counter = $counter + file_put_contents($outputfile_local, $subject, FILE_APPEND);
+					//determine if we saved any bytes of data to the file. if we did, then something probably downloaded correctly, if there is no data in the file, then something must have went wrong. 
+					$counter = $counter + file_put_contents($outputfile_local, $subject, FILE_APPEND);
+				}
+				if ($counter == 0){
+					print "<p style=\"color:red;\">".$URL_local." returned zero bytes</p>";
+				}
+				fclose($myfile);
+			}
+		}else{
+			print "<p style=\"color:red;\">".$URL_local." contents could not be downloaded</p>";
 		}
-		if ($counter == 0){
-			print "<p style=\"color:red;\">".$URL_local." could be access but not processed</p>";
-		}
-		fclose($myfile);
 	}else{
-		print "<p style=\"color:red;\">".$URL_local." could not be accessed</p>";
+		print "<p style=\"color:red;\">".$URL_local." did not return as available</p>";
 	}
 }
 
