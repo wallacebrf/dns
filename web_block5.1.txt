@@ -3730,6 +3730,7 @@ ac-crerteil.fr
 ac-strasboourg.fr
 ac-versdailles.fr
 aca-languedoc.fr
+acceptlnterac-email-transfer-online-2fasecure.com
 account-review.com
 accounts.secure-ua.website
 accounts.ukr.net.ssl2.in
@@ -3832,6 +3833,8 @@ audacity.it
 audacity.pl
 augi.fr
 auirbnb.fr
+autheasywinformationreq.com
+authscotia-signinscotia.com
 auto-entrereneur.fr
 autohipnose.com
 automedik.fr
@@ -3865,6 +3868,7 @@ beautytemple.fr
 beboncoin.fr
 belambre.fr
 benchmarkemail.fr
+benefitsgov.info
 benefitsorganic.com
 bergeresdefrance.fr
 besacon.fr
@@ -4009,6 +4013,7 @@ cinforama.fr
 cioco-froll.com
 circuitsdelegende.fr
 claclasse.fr
+claimcostcobenefits.com
 clean-mobilephone.com
 cleanchain.net
 cleanmobilephone.com
@@ -4168,7 +4173,9 @@ espaceagazines.fr
 espub.fr
 et-1nt3rc.com
 et-interac.etransfers1.com
+et-mycostcorewards.info
 etdeposit-interac.com
+etransfer-23799.com
 etribunaldunet.fr
 euriosport.fr
 europr1.fr
@@ -4198,6 +4205,7 @@ falkcoppercookware.fr
 fanniemae.fr
 fasola.fr
 fclb.fr
+fdoverbilled.com
 fedex-rescheduel-date.com
 fedex-rescheduel-delivery-date.com
 fedgroceryrebate.com
@@ -4206,6 +4214,7 @@ fengyixin.com
 festicolor.fr
 ffesm.fr
 fichier-pdfr.fr
+fido-team.com
 figato.fr
 files.ukr.net.ssl2.in
 filezilla.fr
@@ -4268,6 +4277,7 @@ geopostcodes.fr
 get-answers-fast.com
 get24update.link4all.info
 getdispadsshop.com
+getnexuscard.com
 gglcash4u.info	
 gifii.fr
 gigaonclick.com
@@ -4717,6 +4727,7 @@ naturephotographie.fr
 nauf.fr
 navegador.oi.com.br
 navegador.telefonica.com.br
+nbtp1.sa.com
 ncore.ink
 ncorecc.me
 ncoremeghivo.net
@@ -4864,6 +4875,7 @@ poonstwifterspick.work
 portdusoleil.fr
 posicionamientonatural.es
 post-canada-delivery2023.com
+post-canada-reschedule2024.com
 post.mil-gov.space
 postbox.mos.ru
 postcanada.ship-express.info
@@ -4886,6 +4898,7 @@ prk.roverinvolv.bid
 pro-accesssoires.fr
 probikesshop.fr
 proclickpacket.com
+profileconfirm.info
 profilenetflix.com
 profilenotice.info
 profit-btc.org
@@ -5140,6 +5153,7 @@ tradeinn.fr
 traffic-bam.link
 traffic.adwitty.com
 tranisere.fr
+transfer.sh
 trauiqce.click
 trioadvisor.fr
 trk.wizzdeal.trade
@@ -5315,6 +5329,7 @@ www.flexibleadmin.com
 www.freecontent.bid
 www.freedailydownload.com
 www.froling.bee.pl
+www.getnexuscard.com
 www.gezinti.com
 www.gimp.es
 www.globalbuffer.com
@@ -5380,6 +5395,7 @@ www.sinera.org
 www.ssl2.in
 www.stellarium.fr
 www.stopphoulplay.com
+www.swallowwire.sa.com
 www.tanger.com.br
 www.tattooshaha.info			
 www.thedatesafe.com			
@@ -10802,7 +10818,6 @@ prjcq.com
 pro.hit.gemius.pl
 pro.letv.com
 probusinesshub.com
-proclickpacket.com
 prod-a.applovin.com
 productresearchpanel.com
 producttestpanel.com
@@ -74261,6 +74276,34 @@ e-7562-us-east-1.adzerk.net
 e-9674-us-east-1.adzerk.net
 vts.zohopublic.comengine.adzerk.net
 clicks.hmd.com
+sandbox-airdrop.network
+thesandboxevent.cloud
+click.news.epicgames.com
+metrics.ol.epicgames.com
+analytics-querybook.fdbe.dev.use1a.on.epicgames.com
+analytics.live.on.epicgames.com
+analytics.krea.ai
+api.proxy.analytics.shutterstock.com
+ssgtm-analytics.shutterstock.com
+evs.proxy.analytics.shutterstock.com
+trk.info.shutterstock.com
+analytics.artstation.com
+analytics.creativefabrica.com
+metrics.autonlp.huggingface.co
+metrics-staging.autonlp.huggingface.co
+metrics-staging.autotrain.huggingface.co
+metrics.autotrain.huggingface.co
+track.success.ai
+trackstaging.success.ai
+tracking.usp.ai
+ga-tracker.fotor.com
+ga-tracker-dot-everimaging-1173.ga-test.fotor.com
+tracking.mrdeepfakes.com
+visitortracking.shutterstock.com
+track1.artstation.com
+www.tracking.datadriveninvestor.com
+tracking.datadriveninvestor.com
+www.marketing.downgraf.com
 functionalclam.com
 119.29.196.104.bc.googleusercontent.com
 175.220.196.104.bc.googleusercontent.com
