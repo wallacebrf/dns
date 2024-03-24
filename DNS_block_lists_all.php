@@ -157,7 +157,7 @@ function download_data($outputfile_local, $URL_local){
 		//$myfile = fopen($URL_local, "r");
 		if (($myfile = @fopen($URL_local, "r"))!==false ) {
 			if ( !$myfile ) {
-				print "<p style=\"color:red;\">".$URL_local." could be opened</p>";
+				print "<p style=\"color:red;\">".$URL_local." could not be opened</p>";
 			}else{
 				while(!feof($myfile)) {
 
@@ -177,7 +177,7 @@ function download_data($outputfile_local, $URL_local){
 				fclose($myfile);
 			}
 		}else{
-			print "<p style=\"color:red;\">".$URL_local." contents could be downloaded</p>";
+			print "<p style=\"color:red;\">".$URL_local." contents could not be downloaded</p>";
 		}
 	}else{
 		print "<p style=\"color:red;\">".$URL_local." did not return as available</p>";
