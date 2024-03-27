@@ -140,7 +140,7 @@ $domains_blocked_counter=0;
 
 //download the data from the desired URL block list
 function download_data($outputfile_local, $URL_local){
-	if (urlExists($URL_local)){
+	//if (urlExists($URL_local)){
 		$counter =0;
 		if (($myfile = @fopen($URL_local, "r"))!==false ) {
 			if ( !$myfile ) {
@@ -161,9 +161,9 @@ function download_data($outputfile_local, $URL_local){
 		}else{
 			print "<p style=\"color:red;\">".$URL_local." contents could not be downloaded</p>";
 		}
-	}else{
-		print "<p style=\"color:red;\">".$URL_local." did not return as available</p>";
-	}
+	//}else{
+	//	print "<p style=\"color:red;\">".$URL_local." did not return as available</p>";
+	//}
 }
 
 //this function is needed because the fortigate external thread connectors can handle only 131,072 entries per list
