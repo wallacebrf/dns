@@ -87,9 +87,6 @@ https://asn.ipinfo.app/api/text/list/AS40861 #Paradise Networks LLC / Powehouse 
 https://asn.ipinfo.app/api/text/list/AS36007 #Kamatera, Inc. / Cloud Web Manage
 https://asn.ipinfo.app/api/text/list/AS24961 #myLoc managed IT AG / webtropia
 https://asn.ipinfo.app/api/text/list/AS39572 #ADVANCEDHOSTERS-AS
-#
-#\/\/\/\/\/\/BELOW ARE LATEST ADDED 3/6/2024\/\/\/\/\/\/\/\/\/\/\/
-#
 https://asn.ipinfo.app/api/text/list/AS932 #XNNET
 https://asn.ipinfo.app/api/text/list/AS6134 #XNNET
 https://asn.ipinfo.app/api/text/list/AS15828 #SPACESHIPNETWORKS - Robat Blue Diamond Network Co., Ltd.
@@ -197,3 +194,4 @@ https://asn.ipinfo.app/api/text/list/AS63473 #HOSTHATCH-ASN - HostHatch, Inc, US
 https://asn.ipinfo.app/api/text/list/AS64245 #AS-DIGITALFYRE - DigitalFyre Internet Solutions, LLC., US
 https://asn.ipinfo.app/api/text/list/AS394380 #LEASEWEB-USA-DAL-10 - Leaseweb USA, Inc., US
 https://asn.ipinfo.app/api/text/list/AS395111 #KVCNET-2009 - KVCHOSTING.COM LLC, US
+https://asn.ipinfo.app/api/text/list/AS35830 #BTTGROUP-AS - BTT Group Finance Ltd
