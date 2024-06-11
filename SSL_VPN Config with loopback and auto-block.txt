@@ -1,0 +1,1873 @@
+config system interface
+    edit "WAN_to_LOOPBACK"
+        set vdom "root"
+        set ip 10.10.20.1 255.255.255.255
+        set allowaccess ping
+        set type loopback
+        set role lan
+        set snmp-index 38
+        config ipv6
+            set ip6-address xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/128
+        end
+    next
+config system automation-trigger
+    edit "SSLVPN_Connection"
+        set event-type event-log
+        set logid 39947 39424
+    next
+    edit "SSL_LOGIN_FAIL_admin"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*dmin*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_fax"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ax*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_fortigate"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ortigate*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_fortinet"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ortinet*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_guest"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*uest*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_kiosk"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*iosk*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_printer"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*rinter*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_receiving"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*eceiving*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_scanner"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*canner*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_sslvpn"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*slvpn*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_teacher"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*eacher*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_test"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*est*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_voicemail"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*oicemail*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_NA"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "N/A"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_report"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*eport*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_general"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*eneral*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_frontdesk"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*rontdesk*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_tech"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ech*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_support"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*upport*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_security"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ecurity*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_host"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ost*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_store"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*tore*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_library"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ibrary*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_client"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*lient*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_dot"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*.*"
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_USER"
+        set description "SSL_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ser*"
+            next
+        end
+    next
+end
+config system automation-action
+    edit "SSL_Connection"
+        set action-type email
+        set email-to "email@email.com"
+        set email-from "from@email.com"
+        set email-subject "New SSL Connection"
+    next
+    edit "Block_SSL_Failed"
+        set description "Block_SSL_Failed"
+        set action-type cli-script
+        set script "config firewall address
+edit SSL_VPN_Block_%%log.remip%%
+set subnet %%log.remip%%/32
+end
+config firewall addrgrp
+edit Block_SSL_Failed
+append member SSL_VPN_Block_%%log.remip%%
+end"
+        set accprofile "super_admin"
+    next
+    edit "SSL_VPN_Block"
+        set description "SSL_VPN_Block"
+        set action-type email
+        set email-to "email@email.com"
+        set email-from "from@email.com"
+        set email-subject "SSL VPN IP Auto Blocked"
+        set message "%%log.remip%% address has been added to the address group \"Block_SSL_Failed\" while using the following username: \"%%log.user%%\". 
+The results of the CLI script were:
+%%results%%"
+    next
+end
+config system automation-stitch
+    edit "SSL_Connection"
+        set trigger "SSLVPN_Connection"
+        config actions
+            edit 1
+                set action "SSL_Connection"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_admin"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_admin"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_fax"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_fax"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_fortigate"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_fortigate"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_fortinet"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_fortinet"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_guest"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_guest"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_kiosk"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_kiosk"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_printer"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_printer"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_receiving"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_receiving"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_scanner"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_scanner"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_sslvpn"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_sslvpn"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_teacher"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_teacher"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_test"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_test"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_voicemail"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_voicemail"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_NA"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_NA"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_report"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_report"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_general"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_general"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_frontdesk"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_frontdesk"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_tech"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_tech"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_support"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_support"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_security"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_security"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_host"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_host"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_store"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_store"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_library"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_library"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_client"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_client"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_dot"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_dot"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+    edit "SSL_LOGIN_FAIL_USER"
+        set description "SSL_VPN_Block"
+        set status enable
+        set trigger "SSL_LOGIN_FAIL_USER"
+        config actions
+            edit 1
+                set action "Block_SSL_Failed"
+                set required enable
+            next
+            edit 2
+                set action "SSL_VPN_Block"
+                set required enable
+            next
+        end
+    next
+end
+config firewall address
+    edit "SSLVPN_TUNNEL_ADDR1"
+        set type iprange
+        set start-ip 10.212.134.200
+        set end-ip 10.212.134.210
+    next
+    edit "SSL_VPN_Block_China"
+        set type geography
+        set country "CN"
+    next
+    edit "SSL_VPN_Block_Russia"
+        set type geography
+        set country "RU"
+    next
+    edit "SSL_VPN_Block_Bangladesh"
+        set type geography
+        set country "BD"
+    next
+    edit "SSL_VPN_Block_Czech_Republic"
+        set type geography
+        set country "CZ"
+    next
+    edit "SSL_VPN_Block_Hong_Kong"
+        set type geography
+        set country "HK"
+    next
+    edit "SSL_VPN_Block_Indonesia"
+        set type geography
+        set country "ID"
+    next
+    edit "SSL_VPN_Block_Korea1"
+        set type geography
+        set country "KP"
+    next
+    edit "SSL_VPN_Block_Korea2"
+        set type geography
+        set country "KR"
+    next
+    edit "SSL_VPN_Block_USA"
+        set type geography
+        set country "US"
+    next
+    edit "SSL_VPN_Block_Afganistan"
+        set type geography
+        set country "AF"
+    next
+    edit "SSL_VPN_Block_Aland_Islands"
+        set type geography
+        set country "AX"
+    next
+    edit "SSL_VPN_Block_Albania"
+        set type geography
+        set country "AL"
+    next
+    edit "SSL_VPN_Block_Algeria"
+        set type geography
+        set country "DZ"
+    next
+    edit "SSL_VPN_Block_Austrialia"
+        set type geography
+        set country "AU"
+    next
+    edit "SSL_VPN_Block_Austria"
+        set type geography
+        set country "AT"
+    next
+    edit "SSL_VPN_Block_Belgium"
+        set type geography
+        set country "BE"
+    next
+    edit "SSL_VPN_Block_Belize"
+        set type geography
+        set country "BZ"
+    next
+    edit "SSL_VPN_Block_Brazil"
+        set type geography
+        set country "BR"
+    next
+    edit "SSL_VPN_Block_Cambodia"
+        set type geography
+        set country "KH"
+    next
+    edit "SSL_VPN_Block_Canada"
+        set type geography
+        set country "CA"
+    next
+    edit "SSL_VPN_Block_Denmark"
+        set type geography
+        set country "DK"
+    next
+    edit "SSL_VPN_Block_France"
+        set type geography
+        set country "FR"
+    next
+    edit "SSL_VPN_Block_Germany"
+        set type geography
+        set country "DE"
+    next
+    edit "SSL_VPN_Block_Greece"
+        set type geography
+        set country "GR"
+    next
+    edit "SSL_VPN_Block_Hungary"
+        set type geography
+        set country "HU"
+    next
+    edit "SSL_VPN_Block_India"
+        set type geography
+        set country "IN"
+    next
+    edit "SSL_VPN_Block_Iran"
+        set type geography
+        set country "IR"
+    next
+    edit "SSL_VPN_Block_Iraq"
+        set type geography
+        set country "IQ"
+    next
+    edit "SSL_VPN_Block_Ireland"
+        set type geography
+        set country "IE"
+    next
+    edit "SSL_VPN_Block_Isreal"
+        set type geography
+        set country "IL"
+    next
+    edit "SSL_VPN_Block_Italy"
+        set type geography
+        set country "IT"
+    next
+    edit "SSL_VPN_Block_Japan"
+        set type geography
+        set country "JP"
+    next
+    edit "SSL_VPN_Block_Liberia"
+        set type geography
+        set country "LR"
+    next
+    edit "SSL_VPN_Block_Luxembourg"
+        set type geography
+        set country "LU"
+    next
+    edit "SSL_VPN_Block_Malaysia"
+        set type geography
+        set country "MY"
+    next
+    edit "SSL_VPN_Block_Mexico"
+        set type geography
+        set country "MX"
+    next
+    edit "SSL_VPN_Block_Singapore"
+        set type geography
+        set country "SG"
+    next
+    edit "SSL_VPN_Block_Spain"
+        set type geography
+        set country "ES"
+    next
+    edit "SSL_VPN_Block_Sweeden"
+        set type geography
+        set country "SE"
+    next
+    edit "SSL_VPN_Block_Switzerland"
+        set type geography
+        set country "CH"
+    next
+    edit "SSL_VPN_Block_Taiwan"
+        set type geography
+        set country "TW"
+    next
+    edit "SSL_VPN_Block_United_Kingdom"
+        set type geography
+        set country "GB"
+    next
+    edit "SSL_VPN_Block_Netherlands"
+        set type geography
+        set country "NL"
+    next
+    edit "SSL_VPN_Block_Netherlands_Antilles"
+        set type geography
+        set country "AN"
+    next
+    edit "SSL_VPN_Block_American_Aamoa"
+        set type geography
+        set country "AS"
+    next
+    edit "SSL_VPN_Block_Andorra"
+        set type geography
+        set country "AD"
+    next
+    edit "SSL_VPN_Block_Angola"
+        set type geography
+        set country "AO"
+    next
+    edit "SSL_VPN_Block_Anguilla"
+        set type geography
+        set country "AI"
+    next
+    edit "SSL_VPN_Block_Antigua_Barbuda"
+        set type geography
+        set country "AG"
+    next
+    edit "SSL_VPN_Block_Argentina"
+        set type geography
+        set country "AR"
+    next
+    edit "SSL_VPN_Block_Armenia"
+        set type geography
+        set country "AM"
+    next
+    edit "SSL_VPN_Block_Aruba"
+        set type geography
+        set country "AW"
+    next
+    edit "SSL_VPN_Block_Azerbaijan"
+        set type geography
+        set country "AZ"
+    next
+    edit "SSL_VPN_Block_Bahamas"
+        set type geography
+        set country "BS"
+    next
+    edit "SSL_VPN_Block_Bahrain"
+        set type geography
+        set country "BH"
+    next
+    edit "SSL_VPN_Block_Barbados"
+        set type geography
+        set country "BB"
+    next
+    edit "SSL_VPN_Block_Belarus"
+        set type geography
+        set country "BY"
+    next
+    edit "SSL_VPN_Block_Benin"
+        set type geography
+        set country "BJ"
+    next
+    edit "SSL_VPN_Block_Bermuda"
+        set type geography
+        set country "BM"
+    next
+    edit "SSL_VPN_Block_Bhutan"
+        set type geography
+        set country "BT"
+    next
+    edit "SSL_VPN_Block_Bolvia"
+        set type geography
+        set country "BO"
+    next
+    edit "SSL_VPN_Block_Bosnia_Herzegovia"
+        set type geography
+        set country "BA"
+    next
+    edit "SSL_VPN_Block_Botswana"
+        set type geography
+        set country "BW"
+    next
+    edit "SSL_VPN_Block_Bouvet_Island"
+        set type geography
+        set country "BV"
+    next
+    edit "SSL_VPN_Block_British_Indian_ocean_terr"
+        set type geography
+        set country "IO"
+    next
+    edit "SSL_VPN_Block_Brunei_Darussalam"
+        set type geography
+        set country "BN"
+    next
+    edit "SSL_VPN_Block_Bulgaria"
+        set type geography
+        set country "BG"
+    next
+    edit "SSL_VPN_Block_Burkina_Faso"
+        set type geography
+        set country "BF"
+    next
+    edit "SSL_VPN_Block_Burundi"
+        set type geography
+        set country "BI"
+    next
+    edit "SSL_VPN_Block_Cameroon"
+        set type geography
+        set country "CM"
+    next
+    edit "SSL_VPN_Block_Cape_Verde"
+        set type geography
+        set country "CV"
+    next
+    edit "SSL_VPN_Block_Cayman_Islands"
+        set type geography
+        set country "KY"
+    next
+    edit "SSL_VPN_Block_Central_African_Republic"
+        set type geography
+        set country "CF"
+    next
+    edit "SSL_VPN_Block_Chad"
+        set type geography
+        set country "TD"
+    next
+    edit "SSL_VPN_Block_Chile"
+        set type geography
+        set country "CL"
+    next
+    edit "SSL_VPN_Block_Christams_Island"
+        set type geography
+        set country "CX"
+    next
+    edit "SSL_VPN_Block_Columbia"
+        set type geography
+        set country "CO"
+    next
+    edit "SSL_VPN_Block_Comonros"
+        set type geography
+        set country "KM"
+    next
+    edit "SSL_VPN_Block_Congo"
+        set type geography
+        set country "CG"
+    next
+    edit "SSL_VPN_Block_Congo_Replibic"
+        set type geography
+        set country "CD"
+    next
+    edit "SSL_VPN_Block_Cook_Islands"
+        set type geography
+        set country "CK"
+    next
+    edit "SSL_VPN_Block_Costa_Rica"
+        set type geography
+        set country "CR"
+    next
+    edit "SSL_VPN_Block_Cote_Dlvoire"
+        set type geography
+        set country "CI"
+    next
+    edit "SSL_VPN_Block_Croatia"
+        set type geography
+        set country "HR"
+    next
+    edit "SSL_VPN_Block_Cuba"
+        set type geography
+        set country "CU"
+    next
+    edit "SSL_VPN_Block_Curacao"
+        set type geography
+        set country "CW"
+    next
+    edit "SSL_VPN_Block_Djibouti"
+        set type geography
+        set country "DJ"
+    next
+    edit "SSL_VPN_Block_Dominica"
+        set type geography
+        set country "DM"
+    next
+    edit "SSL_VPN_Block_Dominican_Replublic"
+        set type geography
+        set country "DO"
+    next
+    edit "SSL_VPN_Block_Ecuador"
+        set type geography
+        set country "EC"
+    next
+    edit "SSL_VPN_Block_Egypt"
+        set type geography
+        set country "EG"
+    next
+    edit "SSL_VPN_Block_El_Salvador"
+        set type geography
+        set country "SV"
+    next
+    edit "SSL_VPN_Block_Equatorial_Guinea"
+        set type geography
+        set country "GQ"
+    next
+    edit "SSL_VPN_Block_Eritrea"
+        set type geography
+        set country "ER"
+    next
+    edit "SSL_VPN_Block_Estonia"
+        set type geography
+        set country "EE"
+    next
+    edit "SSL_VPN_Block_Ethiopia"
+        set type geography
+        set country "ET"
+    next
+    edit "SSL_VPN_Block_Falkland_Islands"
+        set type geography
+        set country "FK"
+    next
+    edit "SSL_VPN_Block_Faroe_Islands"
+        set type geography
+        set country "FO"
+    next
+    edit "SSL_VPN_Block_Fiji"
+        set type geography
+        set country "FJ"
+    next
+    edit "SSL_VPN_Block_Finland"
+        set type geography
+        set country "FI"
+    next
+    edit "SSL_VPN_Block_French_Guiana"
+        set type geography
+        set country "GF"
+    next
+    edit "SSL_VPN_Block_French_Polnesia"
+        set type geography
+        set country "PF"
+    next
+    edit "SSL_VPN_Block_FST"
+        set type geography
+        set country "TF"
+    next
+    edit "SSL_VPN_Block_Gabon"
+        set type geography
+        set country "GA"
+    next
+    edit "SSL_VPN_Block_Gambia"
+        set type geography
+        set country "GM"
+    next
+    edit "SSL_VPN_Block_Georgia"
+        set type geography
+        set country "GE"
+    next
+    edit "SSL_VPN_Block_Ghana"
+        set type geography
+        set country "GH"
+    next
+    edit "SSL_VPN_Block_Gibraltar"
+        set type geography
+        set country "GI"
+    next
+    edit "SSL_VPN_Block_Greenland"
+        set type geography
+        set country "GL"
+    next
+    edit "SSL_VPN_Block_Grenada"
+        set type geography
+        set country "GD"
+    next
+    edit "SSL_VPN_Block_Guadeloupe"
+        set type geography
+        set country "GP"
+    next
+    edit "SSL_VPN_Block_Palestinain_Territory"
+        set type geography
+        set country "PS"
+    next
+    edit "SSL_VPN_Block_guam"
+        set type geography
+        set country "GU"
+    next
+    edit "SSL_VPN_Block_Guatemala"
+        set type geography
+        set country "GT"
+    next
+    edit "SSL_VPN_Block_Guerney"
+        set type geography
+        set country "GG"
+    next
+    edit "SSL_VPN_Block_Guinea"
+        set type geography
+        set country "GN"
+    next
+    edit "SSL_VPN_Block_Ginea-Bissau"
+        set type geography
+        set country "GW"
+    next
+    edit "SSL_VPN_Block_Guyana"
+        set type geography
+        set country "GY"
+    next
+    edit "SSL_VPN_Block_Haiti"
+        set type geography
+        set country "HT"
+    next
+    edit "SSL_VPN_Block_Heard_Islands"
+        set type geography
+        set country "HM"
+    next
+    edit "SSL_VPN_Block_Holy_See"
+        set type geography
+        set country "VA"
+    next
+    edit "SSL_VPN_Block_Honduras"
+        set type geography
+        set country "HN"
+    next
+    edit "SSL_VPN_Block_Iceland"
+        set type geography
+        set country "IS"
+    next
+    edit "SSL_VPN_Block_Isle_of_man"
+        set type geography
+        set country "IM"
+    next
+    edit "SSL_VPN_Block_Jamacia"
+        set type geography
+        set country "JM"
+    next
+    edit "SSL_VPN_Block_Jersey"
+        set type geography
+        set country "JE"
+    next
+    edit "SSL_VPN_Block_Jordan"
+        set type geography
+        set country "JO"
+    next
+    edit "SSL_VPN_Block_Kazakhstan"
+        set type geography
+        set country "KZ"
+    next
+    edit "SSL_VPN_Block_Kenya"
+        set type geography
+        set country "KE"
+    next
+    edit "SSL_VPN_Block_Kiribati"
+        set type geography
+        set country "KI"
+    next
+    edit "SSL_VPN_Block_Korea"
+        set type geography
+        set country "KP"
+    next
+    edit "SSL_VPN_Block_Kosovo"
+        set type geography
+        set country "XK"
+    next
+    edit "SSL_VPN_Block_Kuwait"
+        set type geography
+        set country "KW"
+    next
+    edit "SSL_VPN_Block_Kyrgyzstan"
+        set type geography
+        set country "KG"
+    next
+    edit "SSL_VPN_Block_Lao"
+        set type geography
+        set country "LA"
+    next
+    edit "SSL_VPN_Block_Latvia"
+        set type geography
+        set country "LV"
+    next
+    edit "SSL_VPN_Block_Lebanon"
+        set type geography
+        set country "LB"
+    next
+    edit "SSL_VPN_Block_Lesotho"
+        set type geography
+        set country "LS"
+    next
+    edit "SSL_VPN_Block_Libyan"
+        set type geography
+        set country "LY"
+    next
+    edit "SSL_VPN_Block_Liechtenstein"
+        set type geography
+        set country "LI"
+    next
+    edit "SSL_VPN_Block_Lithuania"
+        set type geography
+        set country "LT"
+    next
+    edit "SSL_VPN_Block_Macao"
+        set type geography
+        set country "MO"
+    next
+    edit "SSL_VPN_Block_Macedonia"
+        set type geography
+        set country "MK"
+    next
+    edit "SSL_VPN_Block_Madagascar"
+        set type geography
+        set country "MG"
+    next
+    edit "SSL_VPN_Block_Malawi"
+        set type geography
+        set country "MW"
+    next
+    edit "SSL_VPN_Block_Maldives"
+        set type geography
+        set country "MV"
+    next
+    edit "SSL_VPN_Block_Mali"
+        set type geography
+        set country "ML"
+    next
+    edit "SSL_VPN_Block_Malta"
+        set type geography
+        set country "MT"
+    next
+    edit "SSL_VPN_Block_Marshall_Islands"
+        set type geography
+        set country "MH"
+    next
+    edit "SSL_VPN_Block_Martinique"
+        set type geography
+        set country "MQ"
+    next
+    edit "SSL_VPN_Block_Mauritania"
+        set type geography
+        set country "MR"
+    next
+    edit "SSL_VPN_Block_Mauritius"
+        set type geography
+        set country "MU"
+    next
+    edit "SSL_VPN_Block_Mayotte"
+        set type geography
+        set country "YT"
+    next
+    edit "SSL_VPN_Block_Micronedia"
+        set type geography
+        set country "FM"
+    next
+    edit "SSL_VPN_Block_Moldova"
+        set type geography
+        set country "MD"
+    next
+    edit "SSL_VPN_Block_Monaco"
+        set type geography
+        set country "MC"
+    next
+    edit "SSL_VPN_Block_Mongolia"
+        set type geography
+        set country "MN"
+    next
+    edit "SSL_VPN_Block_Montenergo"
+        set type geography
+        set country "ME"
+    next
+    edit "SSL_VPN_Block_Montserrat"
+        set type geography
+        set country "MS"
+    next
+    edit "SSL_VPN_Block_Morocco"
+        set type geography
+        set country "MA"
+    next
+    edit "SSL_VPN_Block_Mozambique"
+        set type geography
+        set country "MZ"
+    next
+    edit "SSL_VPN_Block_Myanmar"
+        set type geography
+        set country "MM"
+    next
+    edit "SSL_VPN_Block_Turkey"
+        set type geography
+        set country "TR"
+    next
+    edit "SSL_VPN_Block_Cyprus"
+        set type geography
+        set country "CY"
+    next
+    edit "SSL_VPN_Block_Namibia"
+        set type geography
+        set country "NA"
+    next
+    edit "SSL_VPN_Block_Nauru"
+        set type geography
+        set country "NR"
+    next
+    edit "SSL_VPN_Block_Nepal"
+        set type geography
+        set country "NP"
+    next
+    edit "SSL_VPN_Block_New_Caledonia"
+        set type geography
+        set country "NC"
+    next
+    edit "SSL_VPN_Block_New_Zealand"
+        set type geography
+        set country "NZ"
+    next
+    edit "SSL_VPN_Block_Nicaragua"
+        set type geography
+        set country "NI"
+    next
+    edit "SSL_VPN_Block_Niger"
+        set type geography
+        set country "NE"
+    next
+    edit "SSL_VPN_Block_Nigeria"
+        set type geography
+        set country "NG"
+    next
+    edit "SSL_VPN_Block_Norway"
+        set type geography
+        set country "NO"
+    next
+    edit "SSL_VPN_Block_Pakistan"
+        set type geography
+        set country "PK"
+    next
+    edit "SSL_VPN_Block_Panama"
+        set type geography
+        set country "PA"
+    next
+    edit "SSL_VPN_Block_Paraguay"
+        set type geography
+        set country "PY"
+    next
+    edit "SSL_VPN_Block_Peru"
+        set type geography
+        set country "PE"
+    next
+    edit "SSL_VPN_Block_Philippines"
+        set type geography
+        set country "PH"
+    next
+    edit "SSL_VPN_Block_Poland"
+        set type geography
+        set country "PL"
+    next
+    edit "SSL_VPN_Block_Portugal"
+        set type geography
+        set country "PT"
+    next
+    edit "SSL_VPN_Block_Puerto_rico"
+        set type geography
+        set country "PR"
+    next
+    edit "SSL_VPN_Block_Reunion"
+        set type geography
+        set country "RE"
+    next
+    edit "SSL_VPN_Block_Romania"
+        set type geography
+        set country "RO"
+    next
+    edit "SSL_VPN_Block_Samoa"
+        set type geography
+        set country "WS"
+    next
+    edit "SSL_VPN_Block_Saudi_Arabia"
+        set type geography
+        set country "SA"
+    next
+    edit "SSL_VPN_Block_Serbia"
+        set type geography
+        set country "RS"
+    next
+    edit "SSL_VPN_Block_Slovakia"
+        set type geography
+        set country "SK"
+    next
+    edit "SSL_VPN_Block_Slovenia"
+        set type geography
+        set country "SI"
+    next
+    edit "SSL_VPN_Block_Somalia"
+        set type geography
+        set country "SO"
+    next
+    edit "SSL_VPN_Block_South_Africa"
+        set type geography
+        set country "ZA"
+    next
+    edit "SSL_VPN_Block_Sudan"
+        set type geography
+        set country "SD"
+    next
+    edit "SSL_VPN_Block_Syrian_arab_republic"
+        set type geography
+        set country "SY"
+    next
+    edit "SSL_VPN_Block_Thailand"
+        set type geography
+        set country "TH"
+    next
+    edit "SSL_VPN_Block_Turks_and_cacios"
+        set type geography
+        set country "TC"
+    next
+    edit "SSL_VPN_Block_Ukraine"
+        set type geography
+        set country "UA"
+    next
+    edit "SSL_VPN_Block_United_Arab_Emirates"
+        set type geography
+        set country "AE"
+    next
+    edit "SSL_VPN_Block_Uruguay"
+        set type geography
+        set country "UY"
+    next
+    edit "SSL_VPN_Block_Venezuela"
+        set type geography
+        set country "VE"
+    next
+    edit "SSL_VPN_Block_Vietnam"
+        set type geography
+        set country "VN"
+    next
+    edit "SSL_VPN_Block_Virgin_islands_british"
+        set type geography
+        set country "VG"
+    next
+    edit "WAN_to_LOOPBACK address"
+        set type interface-subnet
+        set subnet 10.10.20.1 255.255.255.255
+        set interface "WAN_to_LOOPBACK"
+    next
+end
+config firewall address6
+    edit "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set ip6 fdff:ffff::/120
+    next
+    edit "SSL_VPN_address"
+        set ip6 xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/128
+    next
+end
+config firewall addrgrp
+    edit "SSL_VPN_Block_Geography"
+        set member "SSL_VPN_Block_Bangladesh" "SSL_VPN_Block_China" "SSL_VPN_Block_Russia" "SSL_VPN_Block_Czech_Republic" "SSL_VPN_Block_Hong_Kong" "SSL_VPN_Block_Indonesia" "SSL_VPN_Block_Korea1" "SSL_VPN_Block_Korea2" "SSL_VPN_Block_Afganistan" "SSL_VPN_Block_Aland_Islands" "SSL_VPN_Block_Albania" "SSL_VPN_Block_Algeria" "SSL_VPN_Block_Austria" "SSL_VPN_Block_Austrialia" "SSL_VPN_Block_Belgium" "SSL_VPN_Block_Belize" "SSL_VPN_Block_Brazil" "SSL_VPN_Block_Cambodia" "SSL_VPN_Block_Canada" "SSL_VPN_Block_Denmark" "SSL_VPN_Block_France" "SSL_VPN_Block_Germany" "SSL_VPN_Block_Greece" "SSL_VPN_Block_Hungary" "SSL_VPN_Block_India" "SSL_VPN_Block_Iran" "SSL_VPN_Block_Iraq" "SSL_VPN_Block_Ireland" "SSL_VPN_Block_Isreal" "SSL_VPN_Block_Italy" "SSL_VPN_Block_Japan" "SSL_VPN_Block_Liberia" "SSL_VPN_Block_Luxembourg" "SSL_VPN_Block_Malaysia" "SSL_VPN_Block_Mexico" "SSL_VPN_Block_Singapore" "SSL_VPN_Block_Spain" "SSL_VPN_Block_Sweeden" "SSL_VPN_Block_Switzerland" "SSL_VPN_Block_Taiwan" "SSL_VPN_Block_United_Kingdom" "SSL_VPN_Block_American_Aamoa" "SSL_VPN_Block_Andorra" "SSL_VPN_Block_Angola" "SSL_VPN_Block_Anguilla" "SSL_VPN_Block_Antigua_Barbuda" "SSL_VPN_Block_Argentina" "SSL_VPN_Block_Armenia" "SSL_VPN_Block_Aruba" "SSL_VPN_Block_Azerbaijan" "SSL_VPN_Block_Bahamas" "SSL_VPN_Block_Bahrain" "SSL_VPN_Block_Barbados" "SSL_VPN_Block_Belarus" "SSL_VPN_Block_Benin" "SSL_VPN_Block_Bermuda" "SSL_VPN_Block_Bhutan" "SSL_VPN_Block_Bolvia" "SSL_VPN_Block_Bosnia_Herzegovia" "SSL_VPN_Block_Botswana" "SSL_VPN_Block_Bouvet_Island" "SSL_VPN_Block_British_Indian_ocean_terr" "SSL_VPN_Block_Brunei_Darussalam" "SSL_VPN_Block_Bulgaria" "SSL_VPN_Block_Burkina_Faso" "SSL_VPN_Block_Burundi" "SSL_VPN_Block_Cameroon" "SSL_VPN_Block_Cape_Verde" "SSL_VPN_Block_Cayman_Islands" "SSL_VPN_Block_Central_African_Republic" "SSL_VPN_Block_Chad" "SSL_VPN_Block_Chile" "SSL_VPN_Block_Christams_Island" "SSL_VPN_Block_Columbia" "SSL_VPN_Block_Comonros" "SSL_VPN_Block_Congo" "SSL_VPN_Block_Congo_Replibic" "SSL_VPN_Block_Cook_Islands" "SSL_VPN_Block_Costa_Rica" "SSL_VPN_Block_Cote_Dlvoire" "SSL_VPN_Block_Croatia" "SSL_VPN_Block_Cuba" "SSL_VPN_Block_Curacao" "SSL_VPN_Block_Djibouti" "SSL_VPN_Block_Dominica" "SSL_VPN_Block_Dominican_Replublic" "SSL_VPN_Block_Ecuador" "SSL_VPN_Block_Egypt" "SSL_VPN_Block_El_Salvador" "SSL_VPN_Block_Equatorial_Guinea" "SSL_VPN_Block_Eritrea" "SSL_VPN_Block_Estonia" "SSL_VPN_Block_Ethiopia" "SSL_VPN_Block_Netherlands" "SSL_VPN_Block_Netherlands_Antilles" "SSL_VPN_Block_Falkland_Islands" "SSL_VPN_Block_Faroe_Islands" "SSL_VPN_Block_Fiji" "SSL_VPN_Block_Finland" "SSL_VPN_Block_French_Guiana" "SSL_VPN_Block_French_Polnesia" "SSL_VPN_Block_FST" "SSL_VPN_Block_Gabon" "SSL_VPN_Block_Gambia" "SSL_VPN_Block_Georgia" "SSL_VPN_Block_Ghana" "SSL_VPN_Block_Gibraltar" "SSL_VPN_Block_Ginea-Bissau" "SSL_VPN_Block_Greenland" "SSL_VPN_Block_Grenada" "SSL_VPN_Block_Guadeloupe" "SSL_VPN_Block_guam" "SSL_VPN_Block_Guatemala" "SSL_VPN_Block_Guerney" "SSL_VPN_Block_Guinea" "SSL_VPN_Block_Guyana" "SSL_VPN_Block_Palestinain_Territory" "SSL_VPN_Block_Haiti" "SSL_VPN_Block_Heard_Islands" "SSL_VPN_Block_Holy_See" "SSL_VPN_Block_Honduras" "SSL_VPN_Block_Iceland" "SSL_VPN_Block_Isle_of_man" "SSL_VPN_Block_Jamacia" "SSL_VPN_Block_Jersey" "SSL_VPN_Block_Jordan" "SSL_VPN_Block_Kazakhstan" "SSL_VPN_Block_Kenya" "SSL_VPN_Block_Kiribati" "SSL_VPN_Block_Korea" "SSL_VPN_Block_Kosovo" "SSL_VPN_Block_Kuwait" "SSL_VPN_Block_Kyrgyzstan" "SSL_VPN_Block_Lao" "SSL_VPN_Block_Latvia" "SSL_VPN_Block_Lebanon" "SSL_VPN_Block_Lesotho" "SSL_VPN_Block_Libyan" "SSL_VPN_Block_Liechtenstein" "SSL_VPN_Block_Lithuania" "SSL_VPN_Block_Macao" "SSL_VPN_Block_Macedonia" "SSL_VPN_Block_Madagascar" "SSL_VPN_Block_Malawi" "SSL_VPN_Block_Maldives" "SSL_VPN_Block_Mali" "SSL_VPN_Block_Malta" "SSL_VPN_Block_Marshall_Islands" "SSL_VPN_Block_Martinique" "SSL_VPN_Block_Mauritania" "SSL_VPN_Block_Mauritius" "SSL_VPN_Block_Mayotte" "SSL_VPN_Block_Micronedia" "SSL_VPN_Block_Moldova" "SSL_VPN_Block_Monaco" "SSL_VPN_Block_Mongolia" "SSL_VPN_Block_Montenergo" "SSL_VPN_Block_Montserrat" "SSL_VPN_Block_Morocco" "SSL_VPN_Block_Mozambique" "SSL_VPN_Block_Myanmar" "SSL_VPN_Block_Turkey" "SSL_VPN_Block_Cyprus" "SSL_VPN_Block_Namibia" "SSL_VPN_Block_Nauru" "SSL_VPN_Block_Nepal" "SSL_VPN_Block_New_Caledonia" "SSL_VPN_Block_New_Zealand" "SSL_VPN_Block_Nicaragua" "SSL_VPN_Block_Niger" "SSL_VPN_Block_Nigeria" "SSL_VPN_Block_Norway" "SSL_VPN_Block_Pakistan" "SSL_VPN_Block_Panama" "SSL_VPN_Block_Paraguay" "SSL_VPN_Block_Peru" "SSL_VPN_Block_Philippines" "SSL_VPN_Block_Poland" "SSL_VPN_Block_Portugal" "SSL_VPN_Block_Puerto_rico" "SSL_VPN_Block_Reunion" "SSL_VPN_Block_Romania" "SSL_VPN_Block_Samoa" "SSL_VPN_Block_Saudi_Arabia" "SSL_VPN_Block_Serbia" "SSL_VPN_Block_Slovakia" "SSL_VPN_Block_Slovenia" "SSL_VPN_Block_Somalia" "SSL_VPN_Block_South_Africa" "SSL_VPN_Block_Sudan" "SSL_VPN_Block_Syrian_arab_republic" "SSL_VPN_Block_Thailand" "SSL_VPN_Block_Turks_and_cacios" "SSL_VPN_Block_Ukraine" "SSL_VPN_Block_United_Arab_Emirates" "SSL_VPN_Block_Uruguay" "SSL_VPN_Block_Venezuela" "SSL_VPN_Block_Vietnam" "SSL_VPN_Block_Virgin_islands_british"
+    edit "Block_SSL_Failed"
+    next
+end
+config system external-resource
+    edit "manual_blocked"
+        set type address
+        set resource "https://raw.githubusercontent.com/wallacebrf/dns/main/manual_block_list.txt"
+        set refresh-rate 60
+    next
+    edit "ASN_lists_blocked"
+        set type address
+        set resource "https://raw.githubusercontent.com/wallacebrf/dns/main/asn_block1.1.txt"
+        set refresh-rate 1440
+    next
+end
+config ips sensor
+    edit "Core_high_security"
+        set comment "Blocks all Critical/High/Medium and some Low severity vulnerabilities"
+        set block-malicious-url enable
+        set scan-botnet-connections block
+        config entries
+            edit 3
+                set rule 51391
+                set status enable
+                set action block
+            next
+            edit 1
+                set severity medium high critical 
+                set status enable
+                set action block
+            next
+            edit 2
+                set severity low 
+            next
+        end
+    next
+end
+config user group
+    edit "SSL-VPN_Admin"
+        set member "12345"
+    next
+end
+config vpn ssl web portal
+    edit "full-access"
+        set tunnel-mode enable
+        set ipv6-tunnel-mode enable
+        set web-mode enable
+        set limit-user-logins enable
+        set forticlient-download disable
+        set auto-connect enable
+        set keep-alive enable
+        set save-password enable
+        set ip-pools "SSLVPN_TUNNEL_ADDR1"
+        set split-tunneling disable
+        set ipv6-pools "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set ipv6-split-tunneling disable
+    next
+    edit "web-access"
+        set limit-user-logins enable
+        set forticlient-download disable
+    next
+end
+config vpn ssl settings
+    set status enable
+    set servercert "my_cert"
+    set idle-timeout 3600
+    set login-attempt-limit 5
+    set login-block-time 86400
+    set tunnel-ip-pools "SSLVPN_TUNNEL_ADDR1"
+    set tunnel-ipv6-pools "SSLVPN_TUNNEL_IPv6_ADDR1"
+    set dns-server1 8.8.8.8
+    set dns-server2 1.1.1.1
+    set ipv6-dns-server1 2001:4860:4860::8888
+    set ipv6-dns-server2 2606:4700::1111
+    set port 443
+    set header-x-forwarded-for pass
+    set source-interface "WAN_to_LOOPBACK"
+    set source-address "all"
+    set source-address6 "all"
+    set default-portal "web-access"
+    config authentication-rule
+        edit 1
+            set groups "SSL-VPN_Admin"
+            set portal "full-access"
+        next
+    end
+    set hsts-include-subdomains enable
+    set dual-stack-mode enable
+end
+config firewall vip
+    edit "WAN_to_LOOPBACK"
+        set extip xxx.xxx.xxx.xxx
+        set mappedip "10.10.20.1"
+        set extintf "wan1"
+        set portforward enable
+        set extport 443
+        set mappedport 443
+    next
+end
+config firewall vip6
+    edit "WAN_to_LOOPBACK"
+        set extip xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
+        set mappedip xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
+        set portforward enable
+        set extport 443
+        set mappedport 443
+    next
+end
+config firewall policy
+    edit 15
+        set status enable
+        set name "SSL_VPN->APC"
+        set srcintf "ssl.root"
+        set dstintf "APC_VLAN20"
+        set action accept
+        set srcaddr "SSLVPN_TUNNEL_ADDR1"
+        set dstaddr "Device_IP_PDU_Server_Room" "Device_IP_PDU_Second_Floor_Livingroom" "Device_IP_PDU_Brian_Office" "Device_IP_APC_NMC_v3_First_Floor_Bedroom" "Device_IP_APC_NMC_v3_Second_Floor_Bedroom" "Device_IP_APC_NMC_v3_Utility" "Device_IP_APC_NMC_v3_Server_Room" "Device_IP_APC_NMC_v3_Second_Floor_Living_Room" "Device_IP_PDU_Fish_Tank_8"
+        set srcaddr6 "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set dstaddr6 "Device_IP_APC_NMC_v3_First_Floor_Bedroom_IPv6" "Device_IP_APC_NMC_v3_Second_Floor_Bedroom_IPv6" "Device_IP_APC_NMC_v3_Second_Floor_Livingroom_IPv6" "Device_IP_APC_NMC_v3_Server_Room_IPv6" "Device_IP_APC_NMC_v3_Utility_IPv6" "Device_IP_PDU_Brian_Office_IPv6" "Device_IP_PDU_Second_Floor_Livingroom_IPv6" "Device_IP_PDU_Server_Room_IPv6"
+        set schedule "always"
+        set service "ALL"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+        set logtraffic-start enable
+        set groups "SSL-VPN_Admin"
+    next
+    edit 17
+        set status enable
+        set name "SSLVPN-Core"
+        set srcintf "ssl.root"
+        set dstintf "lan"
+        set action accept
+        set srcaddr "SSLVPN_TUNNEL_ADDR1"
+        set dstaddr "all"
+        set srcaddr6 "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set dstaddr6 "Device_IP_Synology_Server2_LAN2_IPv6" "Device_IP_Synology_Server_NVR_LAN4_IPv6"
+        set schedule "always"
+        set service "ALL"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+        set logtraffic-start enable
+        set groups "SSL-VPN_Admin"
+    next
+    edit 20
+        set status enable
+        set name "SSLVPN-wan"
+        set srcintf "ssl.root"
+        set dstintf "wan1"
+        set action accept
+        set srcaddr "SSLVPN_TUNNEL_ADDR1"
+        set dstaddr "all"
+        set srcaddr6 "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set dstaddr6 "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set profile-protocol-options "Core_Proxy"
+        set ssl-ssh-profile "Core Certificate-inspection"
+        set av-profile "Core_Antivirus"
+        set webfilter-profile "Core_WebFilter"
+        set dnsfilter-profile "Core_DNS_Filter"
+        set logtraffic all
+        set logtraffic-start enable
+        set nat enable
+        set groups "SSL-VPN_Admin"
+    next
+    edit 54
+        set status enable
+        set name "SSL_VPN -> Switch_Manage"
+        set srcintf "ssl.root"
+        set dstintf "Switch_Manage"
+        set action accept
+        set srcaddr "SSLVPN_TUNNEL_ADDR1"
+        set dstaddr "all"
+        set srcaddr6 "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set dstaddr6 "Device_IP_Switch_1st_floor_bedroom_IPv6" "Device_IP_Switch_Camera_Switch1_IPv6" "Device_IP_Switch_Second_Floor_Bedroom_IPv6" "Device_IP_Switch_Server_Room_IPv6" "Device_IP_Switch_Utility_Room_IPv6"
+        set schedule "always"
+        set service "ALL"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+        set logtraffic-start enable
+        set groups "SSL-VPN_Admin"
+    next
+    edit 87
+        set status enable
+        set name "SSL_VPN --> IoTaWatt"
+        set srcintf "ssl.root"
+        set dstintf "iotawatt"
+        set action accept
+        set srcaddr "SSLVPN_TUNNEL_ADDR1"
+        set dstaddr "Device_IP_iotawatt1" "Device_IP_Shelly_Dimmer" "Device_IP_Shelly_Dimmer_Dave_Lamp" "Device_IP_Shelly_DUO_RGBW" "Device_IP_Shelly_Plug_Fish_Filter" "Device_IP_Shelly_Plug_Fish_Heater" "Device_IP_Shelly_Plug_Fish_Impell" "Device_IP_Shelly_Switch_1st_Floor" "Device_IP_Shelly_DUO_Master_bedroom" "Device_IP_Shelly_Megan_Terrarium_Bathroom" "Device_IP_Shelly_Megan_Terrarium_Office" "Device_IP_Shelly_Upstairs Heart Lights" "Device_IP_Shelly_Upstairs_Main_Light" "Device_IP_Shelly_Upstairs_Turkish_Lamp" "Device_IP_Shelly_Xmas_Story_Lamp"
+        set srcaddr6 "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set dstaddr6 "none"
+        set schedule "always"
+        set service "HTTP" "HTTPS"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+        set logtraffic-start enable
+        set groups "SSL-VPN_Admin"
+    next
+    edit 95
+        set status enable
+        set name "SSL_VPN_ASN_BLOCKED_IPv6"
+        set srcintf "wan1"
+        set dstintf "WAN_to_LOOPBACK"
+        set srcaddr6 "ASN_lists_blocked"
+        set dstaddr6 "WAN_to_LOOPBACK"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 93
+        set status enable
+        set name "SSL_VPN_MANUAL_BLOCKED_IPv6"
+        set srcintf "wan1"
+        set dstintf "WAN_to_LOOPBACK"
+        set srcaddr6 "manual_blocked"
+        set dstaddr6 "WAN_to_LOOPBACK"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 89
+        set status enable
+        set name "SSL_VPN_Loopback_IPv6_ONLY"
+        set srcintf "wan1"
+        set dstintf "WAN_to_LOOPBACK"
+        set action accept
+        set srcaddr6 "all"
+        set dstaddr6 "WAN_to_LOOPBACK"
+        set schedule "always"
+        set service "HTTPS"
+        set utm-status enable
+        set inspection-mode proxy
+        set profile-protocol-options "Core_Proxy"
+        set ssl-ssh-profile "certificate-inspection"
+        set ips-sensor "Core_high_security"
+        set logtraffic all
+    next
+    edit 90
+        set status enable
+        set name "SSL_VPN_BLOCK_GEOGRAPHY_IPv4"
+        set srcintf "wan1"
+        set dstintf "WAN_to_LOOPBACK"
+        set srcaddr "SSL_VPN_Block_Geography"
+        set dstaddr "WAN_to_LOOPBACK"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 88
+        set status enable
+        set name "SSL_VPN_Loopback_ISDB_IPv4"
+        set srcintf "wan1"
+        set dstintf "WAN_to_LOOPBACK"
+        set dstaddr "WAN_to_LOOPBACK"
+        set internet-service-src enable
+        set internet-service-src-name "Akamai-Linode.Cloud" "Alibaba-Alibaba.Cloud" "Amazon-Amazon.SES" "Amazon-AWS" "Amazon-AWS.GovCloud.US" "Atlassian-Atlassian.Cloud" "BinaryEdge-Scanner" "Botnet-C&C.Server" "Bunny.net-CDN" "Cisco-Meraki.Cloud" "Cloudflare-CDN" "CriminalIP-Scanner" "Cyber.Casa-Scanner" "Datadog-Datadog" "Extreme-Extreme.Cloud" "Five9-Five9" "Google-Google.Bot" "GTHost-Dedicated.Instant.Servers" "Hetzner-Hetzner.Hosting.Service" "Hosting-Bulletproof.Hosting" "Hurricane.Electric-Hurricane.Electric.Internet.Services" "Imperva-Imperva.Cloud.WAF" "Ingenuity-Ingenuity.Cloud.Service" "Internet.Census.Group-Scanner" "Malicious-Malicious.Server" "Medianova-CDN" "Microsoft-Bing.Bot" "NetScout-Scanner" "NodePing-NodePing.Probe" "Okta-Okta" "Phishing-Phishing.Server" "Proxy-Proxy.Server" "Qualys-Qualys.Cloud.Platform" "Shodan-Scanner" "Skyhigh.Security-Secure.Web.Gateway" "SolarWinds-Pingdom.Probe" "SolarWinds-SolarWinds.RMM" "SolarWinds-SpamExperts" "Stark.Industries-Stark.Industries.Hosting.Service" "StatusCake-StatusCake.Monitor" "Stretchoid-Scanner" "Tenable-Tenable.io.Cloud.Scanner" "Tor-Exit.Node" "Tor-Relay.Node" "VPN-Anonymous.VPN" "8X8-8X8.Cloud" "Adobe-Adobe.Sign" "Akamai-CDN" "Apple-APNs" "Atlassian-Atlassian.Notification" "Azion-Azion.Platform" "CacheFly-CDN" "Cato-Cato.Cloud" "CDN77-CDN" "Censys-Scanner" "Cisco-Secure.Endpoint" "ColoCrossing-ColoCrossing.Hosting.Service" "DigitalOcean-DigitalOcean.Platform" "Edgio-CDN" "Fastly-CDN" "GCore.Labs-CDN" "Gigas-Gigas.Cloud" "GitHub-GitHub" "Google-Gmail" "Google-Google.Cloud" "INAP-INAP" "InterneTTL-Scanner" "Jamf-Jamf.Cloud" "Kakao-Kakao.Services" "LaunchDarkly-LaunchDarkly.Platform" "LeakIX-Scanner" "Microsoft-Azure" "Microsoft-Azure.AD" "Microsoft-Azure.Data.Factory" "Microsoft-Azure.Monitor" "Microsoft-Azure.Power.BI" "Microsoft-Azure.SQL" "Microsoft-Azure.Virtual.Desktop" "Microsoft-Dynamics" "Microsoft-Office365.Published" "Microsoft-Office365.Published.Allow" "Microsoft-Office365.Published.Optimize" "Microsoft-Office365.Published.USGOV" "Microsoft-Outlook" "Microsoft-Skype_Teams" "Microsoft-Teams.Published.Worldwide.Allow" "Microsoft-Teams.Published.Worldwide.Optimize" "Microsoft-WNS" "Mimecast-Mimecast" "NetDocuments-NetDocuments.Platform" "Netskope-Netskope.Cloud" "Neustar-UltraDNS.Probes" "NewRelic-Synthetic.Monitor" "Nice-CXone" "Oracle-Oracle.Cloud" "OVHcloud-OVHcloud" "Paylocity-Paylocity" "Performive-Performive.Cloud" "Recyber-Scanner" "RedShield-RedShield.Cloud" "Salesforce-Email.Relay" "SAP-SAP.Ariba" "Sendgrid-Sendgrid.Email" "SentinelOne-SentinelOne.Cloud" "Shadowserver-Scanner" "Shopify-Shopify" "Sinch-Mailgun" "Slack-Slack" "Spam-Spamming.Server" "StackPath-CDN" "Tencent-VooV.Meeting" "Twilio-Elastic.SIP.Trunking" "UK.NCSC-Scanner" "UptimeRobot-UptimeRobot.Monitor" "VadeSecure-VadeSecure.Cloud" "Veritas-Enterprise.Vault.Cloud" "Vonage-Vonage.Contact.Center" "Voximplant-Voximplant.Platform" "xMatters-xMatters.Platform" "Zendesk-Zendesk.Suite" "Zoho-Site24x7.Monitor" "Zoom.us-Zoom.Meeting"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 96
+        set status enable
+        set name "SSL_VPN_ASN_BLOCKED_IPv4"
+        set srcintf "wan1"
+        set dstintf "WAN_to_LOOPBACK"
+        set srcaddr "ASN_lists_blocked"
+        set dstaddr "WAN_to_LOOPBACK"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 91
+        set status enable
+        set name "SSL_VPN_AUTO_BLOCK_IPv4"
+        set srcintf "wan1"
+        set dstintf "WAN_to_LOOPBACK"
+        set srcaddr "Block_SSL_Failed"
+        set dstaddr "WAN_to_LOOPBACK"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 92
+        set status enable
+        set name "SSL_VPN_MANUAL_BLOCKED_IPv4"
+        set srcintf "wan1"
+        set dstintf "WAN_to_LOOPBACK"
+        set srcaddr "manual_blocked"
+        set dstaddr "WAN_to_LOOPBACK"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 94
+        set status enable
+        set name "SSL_VPN_ALLOWED_IPv4"
+        set srcintf "wan1"
+        set dstintf "WAN_to_LOOPBACK"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "WAN_to_LOOPBACK"
+        set schedule "always"
+        set service "HTTPS"
+        set utm-status enable
+        set inspection-mode proxy
+        set profile-protocol-options "Core_Proxy"
+        set ssl-ssh-profile "certificate-inspection"
+        set ips-sensor "Core_high_security"
+        set logtraffic all
+    next
+end
