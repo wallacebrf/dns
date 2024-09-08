@@ -7,28 +7,6 @@ chdir("/volume1/web/DNS_FG-91G"); //location on server where the DNS files will 
 $refresh_data=true; //pull new data from online resources?
 $debug=false; //create debug output showing address vs entry in the files
 
-//influxdb data user variables
-//we will log the total number of blocked domains saved to file to influx to see how the number of domains changes over time
-//note this only supports inlfuxdb version 2. 
-$snmp_device_name="FG-91G";
-$measurement="fortigate_blocked_domains";
-$influxdb_host="localhost";
-$influxdb_port="8086";
-$influxdb_pass="password";
-$influxdb_name="db_name";
-$influxdb_http_type="http";
-$influxdb_org="org";
-
-//email variables
-$email_address="email@email.com";
-$smtp_server="mail.com";	
-$SMTPAuth_type=1;
-$smtp_user="user";
-$smtp_pass="pass";
-$SMTPSecure_type="ENCRYPTION_STARTTLS";
-$smtp_port=587;
-$from_email_address="from@email.com";
-
 //note: due to the memory limits of default PHP server settings, the various websites below have been broken into six groups. 
 //this is done to prevent the "master" files from exceeding ~12MB in size. this is because the "master" files are read back into memory after being downloaded and exploded into an array
 //the array cannot exceed the PHP memory limits or the script will fail. edit/adjust the various websites downloaded as desired. 
