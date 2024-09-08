@@ -71,8 +71,8 @@ function download_data($outputfile_local, $URL_local){
 					//a lot of these lists are hosts lists so they have a IP address etc. prior to the domain name. this is going to search for and remove this information. 
 					//this needs to be done as the fortigate external threat connectors just wants a simple list of domain names and or IP addresses only. 
 					//they are not able to process the host file data format. 
-					$search = array("127.0.0.1 ", "localhost", "::1 ", "0.0.0.0 ", "0.0.0.0", "127.0.0.1	", ".localdomain", "255.255.255.255	broadcasthost", "::1");
-					$replace = array('', '', '', '', '', '', '', '', '');
+					$search = array("127.0.0.1 ", "localhost", "::1 ", "0.0.0.0 ", "0.0.0.0", "127.0.0.1	", ".localdomain", "255.255.255.255	broadcasthost", "::1" , "|" , "^");
+					$replace = array('', '', '', '', '', '', '', '', '', '', '', '');
 					$subject = fgets($myfile);
 
 					//determine if we saved any bytes of data to the file. if we did, then something probably downloaded correctly, if there is no data in the file, then something must have went wrong. 
@@ -281,6 +281,9 @@ if ($refresh_data){
 	download_data($outputfile, $URL);
 
 	$URL="https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt";
+	download_data($outputfile, $URL);
+	
+	$URL="https://raw.githubusercontent.com/NChaves/pi-hole/main/adBlockListGetAdmiral_ABP.txt";
 	download_data($outputfile, $URL);
 }
 
