@@ -852,6 +852,7 @@ config system automation-stitch
 end
 ```
 
+### C.) Needed address Objects
 Next we have the address objects we need. we will define the address range allowed by the SSL VPN tunnel under the object name of ```SSLVPN_TUNNEL_ADDR1```
 
 ```
@@ -863,6 +864,7 @@ config firewall address
     next
 ```
 
+### D.) Loop Back Interface
 Next we create the address objects for the IP addresses assigned to the loop back interface
 
 ```
@@ -882,6 +884,7 @@ config firewall address6
 end
 ```
 
+### E.) Geo-Blocking
 within the file
 https://raw.githubusercontent.com/wallacebrf/dns/main/SSL_VPN%20Config%20with%20loopback%20and%20auto-block.txt
 
@@ -896,6 +899,7 @@ config firewall addrgrp
 end
 ```
 
+### F.) External Threat Feeds
 Next we need to configure our external threat feeds. One is a list of ASNs that we wish to block. The second is a list of addresses that we wish to block, but are part of a large ASN like comcast, ATT, verison etc. we can add the individual addresses to this list so we do not fill our Fortigate with thousands of address objects. 
 
 ```
@@ -913,6 +917,7 @@ config system external-resource
 end
 ```
 
+### G.) SSL VPN Tunnel Settings
 Next we get to configure the SSL-VPN settings themselves. we need to create a user group. In this case we are making the group ```SSL-VPN_Admin```. Replace "12345" with the users you wish to allow. 
 
 ensure to replace the line ```set servercert "my_cert"``` with your loaded SSL certificate that has already been loaded into the fortiagte. 
@@ -972,7 +977,7 @@ config vpn ssl settings
 end
 ```
 
-
+### H.) Virtual IP
 next we need to create two virtual IPs that will allow us for forward our WAN port 443 to our loop back interface IP address assignments. 
 
 ensure the lines ```set extip xxx.xxx.xxx.xxx``` and ```set extip xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx``` match your WAN IPv4 and IPv6 addresses respectively. Ensure the line ```set mappedip xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx``` is the same IPv6 address we assigned to the loopback interface in line ```set ip6-address xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/128```
@@ -999,6 +1004,7 @@ config firewall vip6
 end
 ```
 
+### I.) Required Firewall Policies
 finally we need to create the required fire wall polices that will allow traffic from the WAN port to travel to the loop back interface. 
 
 1.) SSL_VPN_ASN_BLOCKED_IPv6 --> this policy will block all IPv6 traffic from the WAN interface to our loop back interface where the IPv6 address is included in the external threat feed ```ASN_lists_blocked```
