@@ -393,14 +393,22 @@ if ($refresh_data){
 	$URL="https://asn.ipinfo.app/api/text/list/AS13926";
 	download_data($outputfile, $URL);
 	
-	$URL="https://asn.ipinfo.app/api/text/list/AS24940";
-	download_data($outputfile, $URL);
 	
-	$URL="https://asn.ipinfo.app/api/text/list/AS212317";
-	download_data($outputfile, $URL);
+	if ($download_hetzner) {
 	
-	$URL="https://asn.ipinfo.app/api/text/list/AS213230";
-	download_data($outputfile, $URL);
+		$URL="https://asn.ipinfo.app/api/text/list/AS24940"; 
+		download_data($outputfile, $URL);
+		
+		$URL="https://asn.ipinfo.app/api/text/list/AS212317";
+		download_data($outputfile, $URL);
+		
+		$URL="https://asn.ipinfo.app/api/text/list/AS213230"; 
+		download_data($outputfile, $URL);
+	}else{
+		print "skipping Hetzner ASNs";
+	}
+	
+	
 	
 	$URL="https://asn.ipinfo.app/api/text/list/AS213006";
 	download_data($outputfile, $URL);
@@ -833,8 +841,32 @@ if ($refresh_data){
 	
 	$URL="https://asn.ipinfo.app/api/text/list/AS395111";
 	download_data($outputfile, $URL);
-
+	
 	$URL="https://asn.ipinfo.app/api/text/list/AS35830";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS45102";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS206728";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS398722";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS212027";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS142002";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS398324";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS51167";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS208091";
 	download_data($outputfile, $URL);
 }
 
