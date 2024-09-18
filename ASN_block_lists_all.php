@@ -3,9 +3,12 @@
 //USER VARIABLES
 //*****************************************************************
 
+//need to add: 
+
 chdir("/volume1/web/ASN_lists"); //location on server where the ASN files will be saved to. Ensure this directory has write permissions for the web-server running this PHP script
 $refresh_data=true; //pull new data from online resources?
 $debug=false; //create debug output showing address vs entry in the files
+$download_hetzner=true;
 
 //email variables
 $email_address="email@email.com";
@@ -53,7 +56,7 @@ closedir($dp);
 rsort ($theFiles);
 	
 foreach ($theFiles as $currentFile){
-	if ($currentFile != "." && $currentFile != ".." && $currentFile != "" && $currentFile != "ASN_block_lists_all.php"){
+	if ($currentFile != "." && $currentFile != ".." && $currentFile != "" && $currentFile != "ASN_block_lists_all.php" && $currentFile != "ufw_update.sh"){
 		if ($refresh_data){
 			//if we are refreshing data, delete all files including the files previously downloaded 
 			unlink("/volume1/web/ASN_lists/".$currentFile."");
