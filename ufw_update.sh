@@ -608,11 +608,11 @@ if [[ "$block_ASN" -eq 1 ]]; then
 	wget -O AS398324.txt https://asn.ipinfo.app/api/text/list/AS398324
 	mv /var/www/AS398324.txt /var/www/asn/AS398324.txt
 	
-	wget -O AS398324.txt https://asn.ipinfo.app/api/text/list/AS51167
-	mv /var/www/AS398324.txt /var/www/asn/AS398324.txt
+	wget -O AS51167.txt https://asn.ipinfo.app/api/text/list/AS51167
+	mv /var/www/AS51167.txt /var/www/asn/AS51167.txt
 
-	wget -O AS398324.txt https://asn.ipinfo.app/api/text/list/AS208091
-	mv /var/www/AS398324.txt /var/www/asn/AS398324.txt
+	wget -O AS208091.txt https://asn.ipinfo.app/api/text/list/AS208091
+	mv /var/www/AS208091.txt /var/www/asn/AS208091.txt
 else
 	echo -e "\n\n***************************************"
 	echo "Skipping ASN Block Lists"
