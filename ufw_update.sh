@@ -5,11 +5,22 @@ test_mode=0 #set to a "1" to download and compare settings, but do NOT change an
 block_ASN=1
 block_geo=1
 
+##########################################################################
+#create a lock file and temp directory directory to prevent more than one instance of this script from executing  at once
+##########################################################################
+
+if ! mkdir "/var/www/asn/"; then
+	echo "Failed to acquire lock and creating temp directory failed.\n" >&2
+	exit 1
+fi
+trap 'rm -rf /var/www/asn/' EXIT #remove the lockdir on exit
+
+##########################################################################
 #download all of the ASN text files 
+##########################################################################
 echo -e "\n\n***************************************"
 echo "download all of the ASN text files"
 echo -e "***************************************\n\n"
-mkdir /var/www/asn/
 
 if [[ "$block_ASN" -eq 1 ]]; then
 	wget -O AS22612.txt https://asn.ipinfo.app/api/text/list/AS22612
@@ -596,15 +607,23 @@ if [[ "$block_ASN" -eq 1 ]]; then
 
 	wget -O AS398324.txt https://asn.ipinfo.app/api/text/list/AS398324
 	mv /var/www/AS398324.txt /var/www/asn/AS398324.txt
+	
+	wget -O AS398324.txt https://asn.ipinfo.app/api/text/list/AS51167
+	mv /var/www/AS398324.txt /var/www/asn/AS398324.txt
+
+	wget -O AS398324.txt https://asn.ipinfo.app/api/text/list/AS208091
+	mv /var/www/AS398324.txt /var/www/asn/AS398324.txt
 else
 	echo -e "\n\n***************************************"
 	echo "Skipping ASN Block Lists"
 	echo -e "***************************************\n\n"
 fi
 
+##########################################################################
 #download GEOBLOCK text files 
 #supply of IPs for different countries: https://github.com/herrbischoff/country-ip-blocks/tree/master/ipv4
 #country codes: https://www.iban.com/country-codes
+##########################################################################
 echo -e "\n\n***************************************"
 echo "download all of the ASN text files"
 echo -e "***************************************\n\n"
@@ -1330,26 +1349,34 @@ else
 	echo -e "***************************************\n\n"
 fi 
 
+##########################################################################
 # Combine all text files
+##########################################################################
 echo -e "\n\n***************************************"
 echo "Combining all text files"
 echo -e "***************************************\n\n"
 cd /var/www/asn/
 cat *.txt > /var/www/blocked.ip.list2
 
+##########################################################################
 #export current ufw listing
+##########################################################################
 echo -e "\n\n***************************************"
 echo "export current ufw listing"
 echo -e "***************************************\n\n"
 ufw status numbered | tee /var/www/asn/current_ufw.txt
 
+##########################################################################
 #delete header of ufw status, which are the first four lines of the file
+##########################################################################
 echo -e "\n\n***************************************"
 echo "delete header of ufw status"
 echo -e "***************************************\n\n"
 sed -i 1,4d /var/www/asn/current_ufw.txt
 
+##########################################################################
 #search through all of the downloaded ASN entries to find ones not already in the UFW configuration
+##########################################################################
 echo -e "\n\n*********************************************************************************************"
 echo "search through all of the downloaded ASN entries to find ones not already in the UFW configuration"
 echo -e "*********************************************************************************************\n\n"
@@ -1382,8 +1409,9 @@ do
 	fi
 done < "/var/www/blocked.ip.list2"
 
-
+##########################################################################
 #search through all of the UFW configuration, and remove entries not contained in the ASN list 
+##########################################################################
 echo -e "\n\n*********************************************************************************************"
 echo "search through all of the UFW configuration, and remove entries not contained in the ASN list "
 echo -e "*********************************************************************************************\n\n"
@@ -1409,17 +1437,6 @@ do
 		fi
 	fi
 done < "/var/www/asn/current_ufw.txt"
-
-#cleanup unneeded files
-echo -e "\n\n***************************************"
-echo "cleanup unneeded files"
-echo -e "***************************************\n\n"
-if [[ "$test_mode" -eq 0 ]]; then
-	cd /var/www/
-	rm -r /var/www/asn/
-else
-	echo "skipping file cleanup"
-fi
 
 
 
