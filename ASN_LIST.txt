@@ -195,3 +195,13 @@ https://asn.ipinfo.app/api/text/list/AS64245 #AS-DIGITALFYRE - DigitalFyre Inter
 https://asn.ipinfo.app/api/text/list/AS394380 #LEASEWEB-USA-DAL-10 - Leaseweb USA, Inc., US
 https://asn.ipinfo.app/api/text/list/AS395111 #KVCNET-2009 - KVCHOSTING.COM LLC, US
 https://asn.ipinfo.app/api/text/list/AS35830 #BTTGROUP-AS - BTT Group Finance Ltd
+
+#added 09/18/2024
+https://asn.ipinfo.app/api/text/list/AS45102 #ALIBABA-CN-NET Alibaba US Technology Co.
+https://asn.ipinfo.app/api/text/list/AS206728 #MEDIALAND-AS - Media Land LLC
+https://asn.ipinfo.app/api/text/list/AS398722 #CENSYS-ARIN-03
+https://asn.ipinfo.app/api/text/list/AS212027 #PEBBLEHOST - Daniel Jackson
+https://asn.ipinfo.app/api/text/list/AS142002 #SCLOUDPTELTD-AS Scloud Pte Ltd
+https://asn.ipinfo.app/api/text/list/AS398324 #	CENSYS-ARIN-01
+https://asn.ipinfo.app/api/text/list/AS51167 #CONTABO - Contabo GmbH
+https://asn.ipinfo.app/api/text/list/AS208091 #XHOST-INTERNET-SOLUTIONS - XHOST INTERNET SOLUTIONS LP
