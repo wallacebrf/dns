@@ -1,0 +1,332 @@
+config system global
+    set ipsec-asic-offload enable
+    set ipsec-ha-seqjump-rate 10
+    set ipsec-hmac-offload enable
+    set ipsec-soft-dec-async disable
+end
+config system interface
+    edit "HomeVPNv6"
+        set vdom "root"
+        set vrf 0
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set proxy-captive-portal disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set remote-ip 0.0.0.0 0.0.0.0
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set captive-portal 0
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 40
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set fortilink-neighbor-detect fortilink
+        set ip-managed-by-fortiipam disable
+        set fortilink-split-interface enable
+        set switch-controller-access-vlan disable
+        set switch-controller-traffic-policy ''
+        set switch-controller-rspan-mode disable
+        set switch-controller-netflow-collect disable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping disable
+        set switch-controller-dhcp-snooping disable
+        set switch-controller-dhcp-snooping-verify-mac disable
+        set switch-controller-dhcp-snooping-option82 disable
+        set switch-controller-learning-limit 0
+        set switch-controller-nac ''
+        set switch-controller-dynamic ''
+        set switch-controller-feature none
+        set switch-controller-iot-scanning disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set dhcp-relay-request-all-server disable
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set interface "wan1"
+        set mtu-override disable
+    next
+end
+config system automation-trigger
+    edit "IPSEC_TUNNEL_CHANGE"
+        set description ''
+        set trigger-type event-based
+        set event-type event-log
+        set logid 37138 23102 23101
+    next
+    edit "IPSEC_FAILED"
+        set description ''
+        set trigger-type event-based
+        set event-type event-log
+        set logid 37127
+        config fields
+            edit 1
+                set name "status"
+                set value "failure"
+            next
+        end
+    next
+end
+config system automation-action
+    edit "IPSEC_TUNNEL_CHANGE"
+        set description ''
+        set action-type email
+        set email-to "email@email.com"
+        set email-from "email@email.com"
+        set email-subject "IPsec Tunnel State Change"
+        set minimum-interval 0
+        set message "%%log%%"
+        set replacement-message disable
+    next
+    edit "IPSEC_FAIL"
+        set description ''
+        set action-type email
+        set email-to "email@email.com"
+        set email-from "email@email.com"
+        set email-subject "IPsec Failure"
+        set minimum-interval 0
+        set message "%%log%%"
+        set replacement-message disable
+    next
+end
+config system automation-stitch
+    edit "IPSEC_TUNNEL_STATE_CHANGE"
+        set description ''
+        set status enable
+        set trigger "IPSEC_TUNNEL_CHANGE"
+        config actions
+            edit 1
+                set action "IPSEC_TUNNEL_CHANGE"
+                set delay 0
+                set required enable
+            next
+        end
+    next
+    edit "IPsec_Fail"
+        set description ''
+        set status enable
+        set trigger "IPSEC_FAILED"
+        config actions
+            edit 1
+                set action "IPSEC_FAIL"
+                set delay 0
+                set required enable
+            next
+        end
+    next
+end
+config firewall address
+    edit "HomeVPN-IPsec_range_ipv4"
+        set type iprange
+        set dirty dirty
+        set associated-interface ''
+        set color 0
+        set fabric-object disable
+        set start-ip 10.10.30.1
+        set end-ip 10.10.30.255
+    next
+end
+config firewall address6
+    edit "HomeVPN-IPsec_range-ipv6"
+        set type iprange
+        set color 0
+        set comment ''
+        set fabric-object disable
+        set start-ip 2001:db8::1
+        set end-ip 2001:db8::20
+    next
+end
+config firewall addrgrp
+    edit "IPsec-Admin"
+        set group-type firewall
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set http-digest-realm ''
+        set member ""
+    next
+end
+config vpn ipsec phase1-interface
+    edit "HomeVPNv6"
+        set type dynamic
+        set interface "wan1"
+        set ip-version 6
+        set ike-version 1
+        set local-gw6 ::
+        set keylife 86400
+        set authmethod psk
+        set mode main
+        set peertype any
+        set net-device disable
+        set exchange-interface-ip disable
+        set aggregate-member disable
+        set mode-cfg enable
+        set ipv4-wins-server1 0.0.0.0
+        set ipv4-wins-server2 0.0.0.0
+        set proposal aes256-sha384 aes256-sha256 aes128-sha1 aes256-sha1
+        set add-route enable
+        set localid ''
+        set localid-type auto
+        set negotiate-timeout 30
+        set fragmentation enable
+        set ip-fragmentation post-encapsulation
+        set dpd on-demand
+        set forticlient-enforcement disable
+        set npu-offload enable
+        set dhgrp 14
+        set suite-b disable
+        set wizard-type custom
+        set xauthtype auto
+        set reauth disable
+        set authusrgrp "IPsec-Admin"
+        set idle-timeout disable
+        set ha-sync-esp-seqno enable
+        set fgsp-sync disable
+        set inbound-dscp-copy disable
+        set auto-discovery-sender disable
+        set auto-discovery-receiver disable
+        set auto-discovery-forwarder disable
+        set encapsulation none
+        set nattraversal enable
+        set rekey enable
+        set enforce-unique-id disable
+        set fec-egress disable
+        set fec-ingress disable
+        set link-cost 0
+        set exchange-fgt-device-id disable
+        set ems-sn-check disable
+        set default-gw 0.0.0.0
+        set default-gw-priority 0
+        set assign-ip enable
+        set assign-ip-from range
+        set ipv4-start-ip 10.10.30.20
+        set ipv4-end-ip 10.10.30.255
+        set ipv4-netmask 255.255.255.0
+        set dns-mode auto
+        set ipv4-split-include ''
+        set split-include-service ''
+        set ipv6-start-ip 2001:db8::11
+        set ipv6-end-ip 2001:db8::20
+        set ipv6-prefix 128
+        set ipv6-split-include ''
+        set ip-delay-interval 0
+        set unity-support disable
+		set keepalive 10
+        set distance 15
+        set priority 1
+        set dpd-retrycount 3
+        set dpd-retryinterval 20
+    next
+end
+config vpn ipsec phase2-interface
+    edit "HomeVPNv6"
+        set phase1name "HomeVPNv6"
+        set proposal aes128-sha1 aes256-sha384 aes256-sha256
+        set pfs enable
+        set ipv4-df disable
+        set dhgrp 14
+        set replay enable
+        set keepalive disable
+        set add-route phase1
+        set inbound-dscp-copy phase1
+        set auto-discovery-sender phase1
+        set auto-discovery-forwarder phase1
+        set keylife-type seconds
+        set single-source disable
+        set route-overlap use-new
+        set comments ''
+        set diffserv disable
+        set protocol 0
+        set src-addr-type subnet
+        set src-port 0
+        set dst-addr-type subnet
+        set dst-port 0
+        set keylifeseconds 43200
+        set src-subnet 0.0.0.0 0.0.0.0
+        set dst-subnet 0.0.0.0 0.0.0.0
+    next
+    edit "HomeVPNv6_IPv6"
+        set phase1name "HomeVPNv6"
+        set proposal aes128-sha1 aes256-sha384 aes256-sha256
+        set pfs enable
+        set ipv4-df disable
+        set dhgrp 14
+        set replay enable
+        set keepalive disable
+        set add-route phase1
+        set inbound-dscp-copy phase1
+        set auto-discovery-sender phase1
+        set auto-discovery-forwarder phase1
+        set keylife-type seconds
+        set single-source disable
+        set route-overlap use-new
+        set comments ''
+        set diffserv disable
+        set protocol 0
+        set src-addr-type subnet6
+        set src-port 0
+        set dst-addr-type subnet6
+        set dst-port 0
+        set keylifeseconds 43200
+        set src-subnet6 ::/0
+        set dst-subnet6 ::/0
+    next
+end
