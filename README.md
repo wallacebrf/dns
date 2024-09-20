@@ -80,6 +80,7 @@ the IP address ```10.10.20.1 255.255.255.255``` is the address I am assigning th
 
 Over time I noticed that there were common user names being used to attempt brute force log ins. Those user names were:
 
+```
 1.) admin/Admin
 2.) fax/Fax
 3.) fortigate/Fortigate
@@ -106,6 +107,7 @@ Over time I noticed that there were common user names being used to attempt brut
 24.) client/Client
 25.) None of the user names I use have a "." like "john.doe" so for me at least any user name with a "." is to be blocked
 26.) user/User
+```
 
 If you notice, I have both upper and lower case here, to achieve this, for the username field I have to use a wildcard. For example for admin/Admin I use ``` set value "*dmin*"```. This allows me to get the upper and lower case of admin/Admin. PLEASE NOTE: ENSURE NONE OF YOUR USER NAMES HAVE THE STRING ```dmin``` AS THOSE WILL BE CAUGHT BY THIS. 
 
