@@ -3,7 +3,7 @@ I block the ASN address ranges of a large number of server rental companies as a
 
 ```ASN_LIST.txt``` --> list of the ASNs I block on my Fortigate SSL VPN loop back interface. This is the list of ASNs that the ```ASN_block_lists_all.php``` script pulls. 
 
-```ASN_block_lists_all.php``` --> script I use to pull all of the IP address details for all ASNs in ```ASN_LIST.txt``` and save the results into ```asn_blockX.Y.txt``` files so I can use my fortigate's external threat feeds to import the results. The script downloads (as of 09/18/2024) 64,656 subnet ranges, some of the ranges go as large as a /10 subnet!
+```ASN_block_lists_all.php``` --> script I use to pull all of the IP address details for all ASNs in ```ASN_LIST.txt``` and save the results into ```asn_blockX.Y.txt``` files so I can use my fortigate's external threat feeds to import the results. The script downloads (as of 10/04/2024) 64,265 subnet ranges, some of the ranges go as large as a /10 subnet!
 
 ```asn_blockX.Y.txt``` --> these are the resulting files made when running the ```ASN_block_lists_all.php``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible
 
@@ -12,11 +12,11 @@ I block the ASN address ranges of a large number of server rental companies as a
 ### 2.) Web Filter Blocks
 While the fortigate firewalls do have built in web-filters for advertisements and known malicious actors, it is not blocking everything I would like it to. As such I wanted to use the plethora of Pie-Hole block lists, especially the lists at this amazing site https://firebog.net/. The issue is that these lists are not formatted in the way the Fortigate external threat feeds will accept. As a result I made a script that will download all of the separate lists, format the entries to be compatible with the external threat feeds, and save the entries into separate files with 131,000 entries per file since that is the limit of the threat feeds. 
 
-```DNS_block_lists_all.php``` COMBINED with ```webblock.sh```--> The PHP script that pulls the domain names used in multiple Pie-Hole DNS block lists. The script formats the data in a way compatible with the fortigate since pie hole lists are formatted as HOST files. The PHP script itself then activates the ```webblock.sh``` file to perform a little more filtering, but most importantly to remove duplicate entries. For example, currently the PHP script downloads (as of 09/18/2024) 2,246,682 entries and after removing duplicates, has 1,582,134 unique entries being blocked. 
+```DNS_block_lists_all.php``` COMBINED with ```webblock.sh```--> The PHP script that pulls the domain names used in multiple Pie-Hole DNS block lists. The script formats the data in a way compatible with the fortigate since pie hole lists are formatted as HOST files. The PHP script itself then activates the ```webblock.sh``` file to perform a little more filtering, but most importantly to remove duplicate entries. For example, currently the PHP script downloads (as of 10/04/2024) 2,177,953 entries and after removing duplicates, has 1,585,226 unique entries being blocked. 
 
 I then use the WEB filter profile within my Fortigate firewall with the resulting ```web_blockX.txt``` files as external threat feed to block significant amounts of ads, tracking, and malicious sites on top of what fortinet already blocks. Refer to ```SSL_VPN Config with loopback and auto-block.txt``` for how I configured my Fortigate SSLVPN. 
 
-```web_blockX.txt``` --> these are the resulting files made when running the ```DNS_block_lists_all.php``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible. As of 09/18/2024, there are 13x files starting from ```web_block0.txt``` through ```web_block12.txt```. 
+```web_blockX.txt``` --> these are the resulting files made when running the ```DNS_block_lists_all.php``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible. As of 10/04/2024, there are 13x files starting from ```web_block0.txt``` through ```web_block12.txt```. 
 
 ### 3.) Linux server UFW firewall ASN blocking and Geography blocking
 
@@ -1141,3 +1141,17 @@ config firewall policy
     next
 end
 ```
+
+### 4.) Fortigate Dial Up IP-Sec full configuration
+
+I have shifted away from SSL-VPN on the fortigate platform due to security vulnerabilities and the fact that Fortinet is in the process of removing SSL-VPN support from all desktop models and all models with 2GB of RAM. My FG-91G, while having 4GB of RAM is still considered a desktop model and will eventually cease to support SSL VPN. 
+
+in the link below is my entire IPsec configuration. 
+
+https://github.com/wallacebrf/dns/blob/main/IPsec%20Configuration.txt
+
+the configuration listens ONLY on my IPv6 address on my WAN. I did this because I use a VPS server to access my systems due to my IPv4 address being behind CGNAT. I can connect to the VPS server's IPv4 address which forwards the traffic using SOCAT to my WAN IPv6 address. If you wish to use your WAN's IPv4 address, under ```config vpn ipsec phase1-interface``` remove the line ```set ip-version 6```
+
+this configuration, even though it is through the IPv6 WAN address will assign BOTH a IPv4 and IPv6 dual stack IP address to your device. 
+
+The configuration uses a local in policy to allow ONLY addresses in the United States. 
