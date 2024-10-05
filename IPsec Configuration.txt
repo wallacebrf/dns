@@ -4,6 +4,38 @@ config system global
     set ipsec-hmac-offload enable
     set ipsec-soft-dec-async disable
 end
+config firewall address
+    edit "USA"
+        set type geography
+        set country "US"
+    next
+end
+config firewall address6
+    edit "USA"
+        set type geography
+        set country "US"
+    next
+end
+config firewall local-in-policy
+    edit 1
+        set intf "wan1"
+        set srcaddr "USA"
+        set srcaddr-negate enable
+        set dstaddr "all"
+        set service "ALL"
+        set schedule "always"
+    next
+end
+config firewall local-in-policy6
+    edit 1
+        set intf "wan1"
+        set srcaddr "USA"
+        set srcaddr-negate enable
+        set dstaddr "all"
+        set service "ALL"
+        set schedule "always"
+    next
+end
 config system interface
     edit "HomeVPNv6"
         set vdom "root"
