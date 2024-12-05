@@ -245,7 +245,7 @@ function process_data($outputfile_local, $file_name, $debug_local, $array_to_sea
 
 $outputfile = 'ASN_master1.txt';
 if ($refresh_data){
-	$URL="https://asn.ipinfo.app/AS44477";
+	$URL="https://asn.ipinfo.app/api/text/list/AS44477";
 	file_put_contents($outputfile, "");
 	download_data($outputfile, $URL);
 
