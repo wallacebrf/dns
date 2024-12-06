@@ -263,6 +263,21 @@ if ($refresh_data){
 	
 	$URL="https://raw.githubusercontent.com/NChaves/pi-hole/main/adBlockListGetAdmiral_ABP.txt";
 	download_data($outputfile, $URL);
+		
+	$URL="https://gist.githubusercontent.com/sidward35/cea28bedd0ec0b1bceec8c2b22c163c4/raw/2df7f061c8a2202b4e970bb6097573df21eb1e1b/hosts";
+	download_data($outputfile, $URL);
+	
+	$URL="https://gist.githubusercontent.com/hkamran80/779019103fcd306979411d44c8d38459/raw/9e4323e75a84f652d5de5dfe5cf611621197b64f/SmartTV2.txt";
+	download_data($outputfile, $URL);
+	
+	$URL="https://raw.githubusercontent.com/b02860de585071a2/pihole-roku-ads-blocklist/refs/heads/main/hosts";
+	download_data($outputfile, $URL);
+	
+	$URL="https://raw.githubusercontent.com/kevle1/Windows-telemetry-blocklist/master/windowsblock.txt";
+	download_data($outputfile, $URL);
+	
+	$URL="https://raw.githubusercontent.com/pschneider1968/pihole-bl-msft-telemetry-bsi/refs/heads/master/msft_telemetry_bsi.txt";
+	download_data($outputfile, $URL);
 }
 
 print shell_exec("bash webblock.sh");
