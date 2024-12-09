@@ -208,3 +208,4 @@ https://asn.ipinfo.app/api/text/list/AS208091 #XHOST-INTERNET-SOLUTIONS - XHOST 
 
 #added 12/09/2024
 https://asn.ipinfo.app/api/text/list/AS214422 #QWINS-HOSTING - Dmytro Nebaba
+https://asn.ipinfo.app/api/text/list/AS396356 #Latitude Hosting
