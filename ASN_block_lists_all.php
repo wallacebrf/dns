@@ -871,6 +871,9 @@ if ($refresh_data){
 	
 	$URL="https://asn.ipinfo.app/api/text/list/AS208091";
 	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS214422";
+	download_data($outputfile, $URL);
 }
 
 $domains_blocked_counter=$domains_blocked_counter + process_data($outputfile, "web_block1", $debug, $theFiles, $email_address, $smtp_server, $SMTPAuth_type, $smtp_user, $smtp_pass, $SMTPSecure_type, $smtp_port, $from_email_address);
