@@ -205,3 +205,6 @@ https://asn.ipinfo.app/api/text/list/AS142002 #SCLOUDPTELTD-AS Scloud Pte Ltd
 https://asn.ipinfo.app/api/text/list/AS398324 #	CENSYS-ARIN-01
 https://asn.ipinfo.app/api/text/list/AS51167 #CONTABO - Contabo GmbH
 https://asn.ipinfo.app/api/text/list/AS208091 #XHOST-INTERNET-SOLUTIONS - XHOST INTERNET SOLUTIONS LP
+
+#added 12/09/2024
+https://asn.ipinfo.app/api/text/list/AS214422 #QWINS-HOSTING - Dmytro Nebaba
