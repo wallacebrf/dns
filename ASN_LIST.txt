@@ -209,3 +209,8 @@ https://asn.ipinfo.app/api/text/list/AS208091 #XHOST-INTERNET-SOLUTIONS - XHOST 
 #added 12/09/2024
 https://asn.ipinfo.app/api/text/list/AS214422 #QWINS-HOSTING - Dmytro Nebaba
 https://asn.ipinfo.app/api/text/list/AS396356 #Latitude Hosting
+
+#added 12/26/2024
+https://asn.ipinfo.app/api/text/list/AS62744 #Quintex Alliance Consulting
+https://asn.ipinfo.app/api/text/list/AS56971 #CGI Global Limited
+https://asn.ipinfo.app/api/text/list/AS210644 #Aeza International Ltd
