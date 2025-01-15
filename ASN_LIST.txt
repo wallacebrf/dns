@@ -214,3 +214,6 @@ https://asn.ipinfo.app/api/text/list/AS396356 #Latitude Hosting
 https://asn.ipinfo.app/api/text/list/AS62744 #Quintex Alliance Consulting
 https://asn.ipinfo.app/api/text/list/AS56971 #CGI Global Limited
 https://asn.ipinfo.app/api/text/list/AS210644 #Aeza International Ltd
+
+#added 1/15/2025
+https://asn.ipinfo.app/api/text/list/AS47890 #UNMANAGED-DEDICATED-SERVERS - UNMANAGED LTD
