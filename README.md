@@ -16,7 +16,7 @@ While the fortigate firewalls do have built in web-filters for advertisements an
 
 I then use the WEB filter profile within my Fortigate firewall with the resulting ```web_blockX.txt``` files as external threat feed to block significant amounts of ads, tracking, and malicious sites on top of what fortinet already blocks. Refer to ```SSL_VPN Config with loopback and auto-block.txt``` for how I configured my Fortigate SSLVPN. 
 
-```web_blockX.txt``` --> these are the resulting files made when running the ```DNS_block_lists_all.php``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible. As of 11/24/2024, there are 13x files starting from ```web_block0.txt``` through ```web_block14.txt```. 
+```web_blockX.txt``` --> these are the resulting files made when running the ```DNS_block_lists_all.php``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible. As of 11/24/2024, there are 15x files starting from ```web_block0.txt``` through ```web_block14.txt```. 
 
 ### 3.) Linux server UFW firewall ASN blocking and Geography blocking
 
