@@ -217,3 +217,8 @@ https://asn.ipinfo.app/api/text/list/AS210644 #Aeza International Ltd
 
 #added 1/15/2025
 https://asn.ipinfo.app/api/text/list/AS47890 #UNMANAGED-DEDICATED-SERVERS - UNMANAGED LTD
+
+#added 2/4/2025
+https://asn.ipinfo.app/api/text/list/AS29802 #Hivelocity
+https://asn.ipinfo.app/api/text/list/AS14956 #Router Hosting 
+https://asn.ipinfo.app/api/text/list/S62904 #Eonix
