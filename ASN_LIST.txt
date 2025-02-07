@@ -222,3 +222,9 @@ https://asn.ipinfo.app/api/text/list/AS47890 #UNMANAGED-DEDICATED-SERVERS - UNMA
 https://asn.ipinfo.app/api/text/list/AS29802 #Hivelocity
 https://asn.ipinfo.app/api/text/list/AS14956 #Router Hosting 
 https://asn.ipinfo.app/api/text/list/S62904 #Eonix
+
+#added 2/6/2025
+https://asn.ipinfo.app/api/text/list/AS200373 #3xK Tech GmbH
+https://asn.ipinfo.app/api/text/list/AS984 #OCTOPUS WEB SOLUTION INC
+https://asn.ipinfo.app/api/text/list/AS24669 #Clouvider Limited
+https://asn.ipinfo.app/api/text/list/AS62240 #Clouvider
