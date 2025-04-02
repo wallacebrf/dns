@@ -908,7 +908,22 @@ if ($refresh_data){
 	$URL="https://asn.ipinfo.app/api/text/list/AS24669";
 	download_data($outputfile, $URL);
 	
-	$URL="https://asn.ipinfo.app/api/text/list/AS62240 ";
+	$URL="https://asn.ipinfo.app/api/text/list/AS214943";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS51765";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS211298";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS396982";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS37963";
+	download_data($outputfile, $URL);
+	
+	$URL="https://asn.ipinfo.app/api/text/list/AS135377";
 	download_data($outputfile, $URL);
 }
 
