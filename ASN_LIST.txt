@@ -227,4 +227,12 @@ https://asn.ipinfo.app/api/text/list/S62904 #Eonix
 https://asn.ipinfo.app/api/text/list/AS200373 #3xK Tech GmbH
 https://asn.ipinfo.app/api/text/list/AS984 #OCTOPUS WEB SOLUTION INC
 https://asn.ipinfo.app/api/text/list/AS24669 #Clouvider Limited
-https://asn.ipinfo.app/api/text/list/AS62240 #Clouvider
+https://asn.ipinfo.app/api/text/list/AS62240 #Clouvider  --> Note: as of 4/2/2025 this was removed as ASN AS62240 was already in the script and was incorrectly being downloaded twice
+
+#added 4/2/2025
+https://asn.ipinfo.app/api/text/list/AS214943 #RAILNET - Railnet LLC
+https://asn.ipinfo.app/api/text/list/AS51765 #CREANOVA-AS - Oy Crea Nova Hosting Solution Ltd
+https://asn.ipinfo.app/api/text/list/AS211298 #DRIFTNET - Driftnet Ltd
+https://asn.ipinfo.app/api/text/list/AS396982 #GOOGLE-CLOUD-PLATFORM
+https://asn.ipinfo.app/api/text/list/AS37963 #ALIBABA-CN-NET Hangzhou Alibaba Advertising Co.
+https://asn.ipinfo.app/api/text/list/AS135377 #UCLOUD-HK-AS-AP UCLOUD INFORMATION TECHNOLOGY HK LIMITED
