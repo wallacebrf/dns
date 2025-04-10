@@ -236,3 +236,36 @@ https://asn.ipinfo.app/api/text/list/AS211298 #DRIFTNET - Driftnet Ltd
 https://asn.ipinfo.app/api/text/list/AS396982 #GOOGLE-CLOUD-PLATFORM
 https://asn.ipinfo.app/api/text/list/AS37963 #ALIBABA-CN-NET Hangzhou Alibaba Advertising Co.
 https://asn.ipinfo.app/api/text/list/AS135377 #UCLOUD-HK-AS-AP UCLOUD INFORMATION TECHNOLOGY HK LIMITED
+
+#added 4/10/2025
+https://asn.ipinfo.app/api/text/list/AS395092 #WEBHOSTINGHOLDINGS
+https://asn.ipinfo.app/api/text/list/AS965 #WEBHOSTINGHOLDINGS
+https://asn.ipinfo.app/api/text/list/AS1824 #HOSTING
+https://asn.ipinfo.app/api/text/list/AS9290 #GOHOSTING-AS-AP GoHosting
+https://asn.ipinfo.app/api/text/list/AS9678 #HOSTINGINSIDE HostingInside LTD.
+https://asn.ipinfo.app/api/text/list/AS10747 #EPIC-HOSTING
+https://asn.ipinfo.app/api/text/list/AS10991 #CAPGE-HOSTING-MRO
+https://asn.ipinfo.app/api/text/list/AS12266 #SRN-HOSTING
+https://asn.ipinfo.app/api/text/list/AS12417 #DHH-AS - Plus Hosting Grupa d.o.o.
+https://asn.ipinfo.app/api/text/list/AS12488 #KRYSTAL - Krystal Hosting Ltd
+https://asn.ipinfo.app/api/text/list/AS14576 #HOSTING-SOLUTIONS --> Note removed accidental duplicate causing this to download twice
+https://asn.ipinfo.app/api/text/list/AS14670 #WHG-USE1 - WHG Hosting Services Ltd
+https://asn.ipinfo.app/api/text/list/AS14987 #RETHEMHOSTING
+https://asn.ipinfo.app/api/text/list/AS15919 #INTERHOST - Servicios de Hosting en Internet S.A.
+https://asn.ipinfo.app/api/text/list/AS17881 #INETHOSTING-AS-KR Inet Hosting
+https://asn.ipinfo.app/api/text/list/AS19133 #BIRD-HOSTING
+https://asn.ipinfo.app/api/text/list/AS21581 #M5HOSTING
+https://asn.ipinfo.app/api/text/list/AS22903 #EDGE-HOSTING
+https://asn.ipinfo.app/api/text/list/AS23881 #UDOMAIN-AS-AP UDomain Web Hosting Company Ltd
+https://asn.ipinfo.app/api/text/list/AS29119 #SERVIHOSTING-AS - AIRE NETWORKS DEL MEDITERRANEO SL UNIPERSONAL
+https://asn.ipinfo.app/api/text/list/AS29262 #IDEALHOSTING - Ideal Hosting Teknoloji A.S.
+https://asn.ipinfo.app/api/text/list/AS29452 #SECURA-AS - Secura Hosting Ltd
+https://asn.ipinfo.app/api/text/list/AS30893 #NOACKHOSTING-AS - No ACK Group Holding AB
+https://asn.ipinfo.app/api/text/list/AS31333 #VOLLMAR-AS - Hosting.de GmbH
+https://asn.ipinfo.app/api/text/list/AS31590 #RACKHOSTING-AS - Rackhosting.com ApS
+https://asn.ipinfo.app/api/text/list/AS34420 #NETAFFAIRS-HOSTING-BV - Netaffairs Hosting B.V.
+https://asn.ipinfo.app/api/text/list/AS36231 #TEMPEST-HOSTING
+https://asn.ipinfo.app/api/text/list/AS36791 #PDXHOSTING
+https://asn.ipinfo.app/api/text/list/AS39150 #HOSTING-TELECOM-AS - HOSTING TELECOM LTD
+https://asn.ipinfo.app/api/text/list/AS39647 #REDHOSTING-AS - Enreach Netherlands B.V.
+https://asn.ipinfo.app/api/text/list/AS39704 #CJ2-AS - CJ2 Hosting B.V.
