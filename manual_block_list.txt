@@ -86,3 +86,9 @@
 138.229.96.0-138.229.111.255 #Emeigh Investments LLC
 69.58.64.0-69.58.79.255 #Emeigh Investments LLC
 195.96.157.0-195.96.157.254 #Neleel LLC
+46.3.5.0-46.3.5.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
+95.214.83.0-95.214.83.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
+45.192.46.0-45.192.46.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
+212.192.251.0-255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
+193.232.145.0-255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
+77.90.182.0-77.90.182.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
