@@ -50,6 +50,6 @@ echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/l
 echo "Combining all text files"  |& tee -a "$Working_Dir/log/$date.txt"
 echo -e "***************************************\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
 cd "$Working_Dir/tmp/"
-cat *.txt > "$Working_Dir/web_block1.txt"
-num_lines=$(wc -l < "$Working_Dir/web_block1.txt")
+cat *.txt > "$Working_Dir/asn_block1.1.txt"
+num_lines=$(wc -l < "$Working_Dir/asn_block1.1.txt")
 echo -e "Final Total blocked Subnets is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
