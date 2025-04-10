@@ -89,6 +89,6 @@
 46.3.5.0-46.3.5.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
 95.214.83.0-95.214.83.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
 45.192.46.0-45.192.46.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
-212.192.251.0-255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
-193.232.145.0-255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
+212.192.251.0-212.192.251.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
+193.232.145.0-193.232.145.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
 77.90.182.0-77.90.182.255 #Clouvider note: these do not seem to be available in https://asn.ipinfo.app 
