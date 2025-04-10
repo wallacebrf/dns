@@ -3,9 +3,7 @@ I block the ASN address ranges of a large number of server rental companies as a
 
 ```ASN_LIST.txt``` --> list of the ASNs I block on my Fortigate SSL VPN loop back interface. This is the list of ASNs that the ```ASN_block_lists_all.php``` script pulls. 
 
-```ASN_block_lists_all.php``` combined with ```ASN_block_lists_all2.php``` --> script I use to pull all of the IP address details for all ASNs in ```ASN_LIST.txt``` and save the results into ```asn_blockX.Y.txt``` files so I can use my fortigate's external threat feeds to import the results. The script downloads (as of 4/2/2025) 80,676 subnet ranges, some of the ranges go as large as a /10 subnet!
-
-Ensure to run ```ASN_block_lists_all.php``` first, then run ```ASN_block_lists_all2.php``` to finish the download. As of 4/10/2025 had to split the file into two parts to ensure the files download and process correctly
+```ASN_Update.sh``` combined with ```ASN.txt``` --> script I use to pull all of the IP address details for all ASNs in ```ASN.txt``` and save the results into ```asn_blockX.Y.txt``` files so I can use my fortigate's external threat feeds to import the results. The script downloads (as of 4/10/2025) 81,823 subnet ranges, some of the ranges go as large as a /10 subnet! The ```ASN.txt``` is the raw listing of the blocked ASNs while ```ASN_List.txt``` is the user-readable and revision history details of the ASNs being blocked. 
 
 ```asn_blockX.Y.txt``` --> these are the resulting files made when running the ```ASN_block_lists_all.php``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible
 
