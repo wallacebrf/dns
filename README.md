@@ -52,7 +52,7 @@ After the first time it is run, It is suggested to add a line to crontab to run 
 
 ### Code Breakdown
 
-### A.) Create Loop Back Interface
+### 4.A.) Create Loop Back Interface
 
 The key to the fortiagte blocking everything we want is to use a loop back interface. This re-routes the WAN traffic through regular polices so we are able to perform ACCEPT or DENY actions using ISDB, address groups, external threat feeds etc. 
 
@@ -76,7 +76,7 @@ end
 
 the IP address ```10.10.20.1 255.255.255.255``` is the address I am assigning the loopback. It can really be any address you want, but should not be publicly rout-able. The same needs to be done with the IPv6 address ``` set ip6-address xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/128```, you need to choose an IP address to assign to this interface. Later we will be doing more with these addresses. 
 
-### B.) Auto-Block IP addresses Attempting to Brute Force SSL-VPN logins Using Common User Names
+### 4.B.) Auto-Block IP addresses Attempting to Brute Force SSL-VPN logins Using Common User Names
 
 Over time I noticed that there were common user names being used to attempt brute force log ins. Those user names were:
 
@@ -854,7 +854,7 @@ config system automation-stitch
 end
 ```
 
-### C.) Needed address Objects
+### 4.C.) Needed address Objects
 Next we have the address objects we need. we will define the address range allowed by the SSL VPN tunnel under the object name of ```SSLVPN_TUNNEL_ADDR1```
 
 ```
@@ -866,7 +866,7 @@ config firewall address
     next
 ```
 
-### D.) Loop Back Interface
+### 4.D.) Loop Back Interface
 Next we create the address objects for the IP addresses assigned to the loop back interface
 
 ```
@@ -886,7 +886,7 @@ config firewall address6
 end
 ```
 
-### E.) Geo-Blocking
+### 4.E.) Geo-Blocking
 within the file
 https://raw.githubusercontent.com/wallacebrf/dns/main/SSL_VPN%20Config%20with%20loopback%20and%20auto-block.txt
 
@@ -901,7 +901,7 @@ config firewall addrgrp
 end
 ```
 
-### F.) External Threat Feeds
+### 4.F.) External Threat Feeds
 Next we need to configure our external threat feeds. One is a list of ASNs that we wish to block. The second is a list of addresses that we wish to block, but are part of a large ASN like comcast, ATT, verison etc. we can add the individual addresses to this list so we do not fill our Fortigate with thousands of address objects. 
 
 ```
@@ -919,7 +919,7 @@ config system external-resource
 end
 ```
 
-### G.) SSL VPN Tunnel Settings
+### 4.G.) SSL VPN Tunnel Settings
 Next we get to configure the SSL-VPN settings themselves. we need to create a user group. In this case we are making the group ```SSL-VPN_Admin```. Replace "12345" with the users you wish to allow. 
 
 ensure to replace the line ```set servercert "my_cert"``` with your loaded SSL certificate that has already been loaded into the fortiagte. 
@@ -979,7 +979,7 @@ config vpn ssl settings
 end
 ```
 
-### H.) Virtual IP
+### 4.H.) Virtual IP
 next we need to create two virtual IPs that will allow us for forward our WAN port 443 to our loop back interface IP address assignments. 
 
 ensure the lines ```set extip xxx.xxx.xxx.xxx``` and ```set extip xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx``` match your WAN IPv4 and IPv6 addresses respectively. Ensure the line ```set mappedip xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx``` is the same IPv6 address we assigned to the loopback interface in line ```set ip6-address xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/128```
@@ -1006,7 +1006,7 @@ config firewall vip6
 end
 ```
 
-### I.) Required Firewall Policies
+### 4.I.) Required Firewall Policies
 finally we need to create the required fire wall polices that will allow traffic from the WAN port to travel to the loop back interface. 
 
 1.) SSL_VPN_ASN_BLOCKED_IPv6 --> this policy will block all IPv6 traffic from the WAN interface to our loop back interface where the IPv6 address is included in the external threat feed ```ASN_lists_blocked```
@@ -1142,9 +1142,9 @@ config firewall policy
 end
 ```
 
-### 4.) Fortigate Dial Up IP-Sec full configuration
+### 5.) Fortigate Dial Up IP-Sec full configuration
 
-I have shifted away from SSL-VPN on the fortigate platform due to security vulnerabilities and the fact that Fortinet is in the process of removing SSL-VPN support from all desktop models and all models with 2GB of RAM. My FG-91G, while having 4GB of RAM is still considered a desktop model and will eventually cease to support SSL VPN. 
+I have shifted away from SSL-VPN on the fortigate platform due to security vulnerabilities and the fact that Fortinet is in the process of removing SSL-VPN support from all desktop models and all models with 2GB of RAM effective in FortiOS version 7.6 and higher. My FG-91G, while having 4GB of RAM is still considered a desktop model and will eventually cease to support SSL VPN. 
 
 in the link below is my entire IPsec configuration. 
 
