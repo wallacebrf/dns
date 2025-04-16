@@ -134,22 +134,36 @@ fi
 echo -e "Removing the following items: \"127.0.0.1 \", \"localhost\", \"::1 \", \"0.0.0.0 \", \"0.0.0.0\", \"127.0.0.1	\", \".localdomain\", \"255.255.255.255	broadcasthost\", \"::1\" , \"|\" , \"^\"\n\n" |& tee -a "$Working_Dir/log/$date.txt"
 sed -i -e 's/\(127.0.0.1 \|localhost\|::1 \|0.0.0.0 \|0.0.0.0\|.localdomain\|255.255.255.255	broadcasthost\|::1\)//g' "$Working_Dir/tmp/master.txt"
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
-echo -e "Data Removed - Current blocked URLs is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "Data Removed - Current blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
 
 echo -e "Clearing all comment lines starting with \"#\""  |& tee -a "$Working_Dir/log/$date.txt"
 sed -i 's/#.*$//' "$Working_Dir/tmp/master.txt" #delete lines starting with # as those are comments
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
-echo -e "Data Removed - Current blocked URLs is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "Data Removed - Current blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
 
 if [[ $num_lines -eq 0 ]]; then
 	echo -e "number of lines is zero, something is wrong"  |& tee -a "$Working_Dir/log/$date.txt"
 	exit 1
 fi
 
+if [[ "$ipv6" -eq 0 ]]; then
+	echo -e "IPv6 processing is disabled, removing IPv6 addresses"  |& tee -a "$Working_Dir/log/$date.txt"
+	sed -i '/:/d' "$Working_Dir/tmp/master.txt"
+fi
+
+num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
+echo -e "IPv6 Addresses Removed - Current blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
+
+if [[ $num_lines -eq 0 ]]; then
+	echo -e "number of lines is zero, something is wrong"  |& tee -a "$Working_Dir/log/$date.txt"
+	exit 1
+fi
+
+
 echo -e "Deleting all Empty/Cleared Lines"  |& tee -a "$Working_Dir/log/$date.txt"
 sed -i '/^\s*$/d' "$Working_Dir/tmp/master.txt" #delete empty lines
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
-echo -e "Data Removed - Current blocked URLs is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "Data Removed - Current blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
 
 if [[ $num_lines -eq 0 ]]; then
 	echo -e "number of lines is zero, something is wrong"  |& tee -a "$Working_Dir/log/$date.txt"
@@ -159,7 +173,7 @@ fi
 echo -e "Deleting all other instances of \"!\" \"|\" \"^\" \"?\" \"=\" and \" \" within the file as these are not allowable URL characters"  |& tee -a "$Working_Dir/log/$date.txt"
 sed -i 's|[|!^?= },]||g' "$Working_Dir/tmp/master.txt"
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
-echo -e "Data Removed - Current blocked URLs is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "Data Removed - Current blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
 
 if [[ $num_lines -eq 0 ]]; then
 	echo -e "number of lines is zero, something is wrong"  |& tee -a "$Working_Dir/log/$date.txt"
@@ -169,7 +183,30 @@ fi
 echo -e "Deleting all duplicate entries"  |& tee -a "$Working_Dir/log/$date.txt"
 awk -i inplace '!seen[$0]++' "$Working_Dir/tmp/master.txt" # delete duplicates 
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
-echo -e "Duplicate lines removed. Final Total blocked URLs is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "Duplicate lines removed. Final Total blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
+
+if [[ $num_lines -eq 0 ]]; then
+	echo -e "number of lines is zero, something is wrong"  |& tee -a "$Working_Dir/log/$date.txt"
+	exit 1
+fi
+
+##########################################################################
+# Sort Addresses
+##########################################################################
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
+echo "Sorting Addresses"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "***************************************\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
+
+sort -t . -k 1,1n -k 2,2n -k 3,3n -k 4,4n "$Working_Dir/tmp/master.txt" > "$Working_Dir/tmp/master_sorted.txt"
+
+num_lines1=$(wc -l < "$Working_Dir/tmp/master_sorted.txt")
+echo -e "Total Blocked Subnets: $num_lines1\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
+
+echo -e "Aggregating Subnets"  |& tee -a "$Working_Dir/log/$date.txt"
+#~/.local/bin# ./aggregate6 "/mnt/c/scripts/asn_block1.1.txt" > "/mnt/c/scripts/asn_block1.1_processed.txt"
+aggregate6 "$Working_Dir/tmp/master_sorted.txt" > "$Working_Dir/tmp/master.txt"
+num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
+echo -e "Subnets Aggregated. Final Total blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
 
 if [[ $num_lines -eq 0 ]]; then
 	echo -e "number of lines is zero, something is wrong"  |& tee -a "$Working_Dir/log/$date.txt"
@@ -263,3 +300,8 @@ do
 	fi
 	let counter=counter+1
 done < "$Working_Dir/tmp/current_ufw.txt"
+
+
+
+
+
