@@ -1,4 +1,6 @@
 ### 1.) ASN LIST Block List
+Notice. as of 4/15/2025 I have been introduced to "aggregate6" https://pypi.org/project/aggregate6/ which can take a list of IP addresses and combine multiple addresses into a larger subnet to reduce the number of lines. I just ran the ASN update, and before aggregation, the script downloaded 84,712 subnets. After aggregation, the EXACT SAME BLOCK LIST now only contains 27,765 subnets, that is a sivings of 56,947 lines, or 67.2% reduction in size!
+
 I block the ASN address ranges of a large number of server rental companies as a lot of "bad actors" use these servers to perform port scans and brute force attacks. 
 
 ```ASN_LIST.txt``` --> list of the ASNs I block on my Fortigate SSL VPN loop back interface. This shows the names of the ASN and the revision history tracking of when i added new ASN entires 
