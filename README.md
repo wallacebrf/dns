@@ -1,6 +1,35 @@
 ### 1.) ASN LIST Block List
 Notice. as of 4/15/2025 I have been introduced to "aggregate6" https://pypi.org/project/aggregate6/ which can take a list of IP addresses and combine multiple addresses into a larger subnet to reduce the number of lines. I just ran the ASN update, and before aggregation, the script downloaded 84,712 subnets. After aggregation, the EXACT SAME BLOCK LIST now only contains 27,765 subnets, that is a sivings of 56,947 lines, or 67.2% reduction in size!
 
+for example, the OLD ASN list contained the following lines:
+```
+1.12.0.0/14
+1.12.0.0/18
+1.12.0.0/20
+1.12.14.0/23
+1.12.14.0/23
+1.12.34.0/23
+1.12.64.0/18
+1.12.128.0/18
+1.12.192.0/18
+1.13.0.0/18
+1.13.64.0/18
+1.13.128.0/18
+1.13.192.0/18
+1.14.0.0/18
+1.14.64.0/18
+1.14.128.0/18
+1.14.192.0/18
+1.15.0.0/18
+1.15.64.0/18
+1.15.128.0/18
+1.15.192.0/18
+```
+
+all of these lines are exactly the same as the single line in the new file ```1.12.0.0/14``` as the /14 subnet has a mask of ```0.3.255.255```. This means this single line is good from address ```1.12.0.0``` through address ```1.15.255.255```. The last line above ```1.15.192.0/18``` with a subnet of /18 has a mask of ```0.0.63.255``` which means it goes all the way to ```1.15.255.255``` which is why it is included in the aggregation. 
+
+
+
 I block the ASN address ranges of a large number of server rental companies as a lot of "bad actors" use these servers to perform port scans and brute force attacks. 
 
 ```ASN_LIST.txt``` --> list of the ASNs I block on my Fortigate SSL VPN loop back interface. This shows the names of the ASN and the revision history tracking of when i added new ASN entires 
