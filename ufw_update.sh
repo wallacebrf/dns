@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# shellcheck disable=SC2028,SC2219,SC2035,SC2086
 #Note this script needs two external files
 #ASN.txt   -->   This file contains the different ASNs this script will download and Block
 #geoblock.txt  -->  This file contains the different country IP lists this script will download and Block
@@ -131,12 +131,16 @@ if [[ $num_lines -eq 0 ]]; then
 	exit 1
 fi
 
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 echo -e "Removing the following items: \"127.0.0.1 \", \"localhost\", \"::1 \", \"0.0.0.0 \", \"0.0.0.0\", \"127.0.0.1	\", \".localdomain\", \"255.255.255.255	broadcasthost\", \"::1\" , \"|\" , \"^\"\n\n" |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 sed -i -e 's/\(127.0.0.1 \|localhost\|::1 \|0.0.0.0 \|0.0.0.0\|.localdomain\|255.255.255.255	broadcasthost\|::1\)//g' "$Working_Dir/tmp/master.txt"
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
 echo -e "Data Removed - Current blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
 
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 echo -e "Clearing all comment lines starting with \"#\""  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 sed -i 's/#.*$//' "$Working_Dir/tmp/master.txt" #delete lines starting with # as those are comments
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
 echo -e "Data Removed - Current blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
@@ -147,7 +151,9 @@ if [[ $num_lines -eq 0 ]]; then
 fi
 
 if [[ "$ipv6" -eq 0 ]]; then
+	echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 	echo -e "IPv6 processing is disabled, removing IPv6 addresses"  |& tee -a "$Working_Dir/log/$date.txt"
+	echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 	sed -i '/:/d' "$Working_Dir/tmp/master.txt"
 fi
 
@@ -159,8 +165,9 @@ if [[ $num_lines -eq 0 ]]; then
 	exit 1
 fi
 
-
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 echo -e "Deleting all Empty/Cleared Lines"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 sed -i '/^\s*$/d' "$Working_Dir/tmp/master.txt" #delete empty lines
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
 echo -e "Data Removed - Current blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
@@ -170,7 +177,9 @@ if [[ $num_lines -eq 0 ]]; then
 	exit 1
 fi
 
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 echo -e "Deleting all other instances of \"!\" \"|\" \"^\" \"?\" \"=\" and \" \" within the file as these are not allowable URL characters"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 sed -i 's|[|!^?= },]||g' "$Working_Dir/tmp/master.txt"
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
 echo -e "Data Removed - Current blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
@@ -180,7 +189,9 @@ if [[ $num_lines -eq 0 ]]; then
 	exit 1
 fi
 
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 echo -e "Deleting all duplicate entries"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 awk -i inplace '!seen[$0]++' "$Working_Dir/tmp/master.txt" # delete duplicates 
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
 echo -e "Duplicate lines removed. Final Total blocked IP Address Objects is $num_lines\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
@@ -202,7 +213,9 @@ sort -t . -k 1,1n -k 2,2n -k 3,3n -k 4,4n "$Working_Dir/tmp/master.txt" > "$Work
 num_lines1=$(wc -l < "$Working_Dir/tmp/master_sorted.txt")
 echo -e "Total Blocked Subnets: $num_lines1\n\n"  |& tee -a "$Working_Dir/log/$date.txt"
 
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 echo -e "Aggregating Subnets"  |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "\n\n***************************************"  |& tee -a "$Working_Dir/log/$date.txt"
 #~/.local/bin# ./aggregate6 "/mnt/c/scripts/asn_block1.1.txt" > "/mnt/c/scripts/asn_block1.1_processed.txt"
 aggregate6 "$Working_Dir/tmp/master_sorted.txt" > "$Working_Dir/tmp/master.txt"
 num_lines=$(wc -l < "$Working_Dir/tmp/master.txt")
@@ -236,6 +249,15 @@ sed -i 1,4d "$Working_Dir/tmp/current_ufw.txt"
 echo -e "\n\n*********************************************************************************************" |& tee -a "$Working_Dir/log/$date.txt"
 echo "search through all of the downloaded ASN entries to find ones not already in the UFW configuration" |& tee -a "$Working_Dir/log/$date.txt"
 echo -e "*********************************************************************************************\n\n" |& tee -a "$Working_Dir/log/$date.txt"
+if [[ ! -r "$Working_Dir/tmp/current_ufw.txt" ]]; then
+	echo -e "Unable to read required file \""$Working_Dir/tmp/current_ufw.txt"\"\n" |& tee -a "$Working_Dir/log/$date.txt" 
+	exit 1
+fi
+if [[ ! -r "$Working_Dir/tmp/master.txt" ]]; then
+	echo -e "Unable to read required file \""$Working_Dir/tmp/master.txt"\"\n" |& tee -a "$Working_Dir/log/$date.txt" 
+	exit 1
+fi
+
 counter=1
 
 while IFS= read -r block
@@ -273,14 +295,24 @@ counter=1
 ##########################################################################
 #search through all of the UFW configuration, and remove entries not contained in the ASN list 
 ##########################################################################
-echo -e "\n\n*********************************************************************************************"
-echo "search through all of the UFW configuration, and remove entries not contained in the ASN list "
-echo -e "*********************************************************************************************\n\n"
+echo -e "\n\n*********************************************************************************************" |& tee -a "$Working_Dir/log/$date.txt"
+echo "search through all of the UFW configuration, and remove entries not contained in the ASN list " |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "*********************************************************************************************\n\n" |& tee -a "$Working_Dir/log/$date.txt"
+if [[ ! -r "$Working_Dir/tmp/current_ufw.txt" ]]; then
+	echo -e "Unable to read required file \""$Working_Dir/tmp/current_ufw.txt"\"\n" |& tee -a "$Working_Dir/log/$date.txt" 
+	exit 1
+fi
+if [[ ! -r "$Working_Dir/tmp/master.txt" ]]; then
+	echo -e "Unable to read required file \""$Working_Dir/tmp/master.txt"\"\n" |& tee -a "$Working_Dir/log/$date.txt" 
+	exit 1
+fi
+
+num_lines=$(wc -l < "$Working_Dir/tmp/current_ufw.txt")
 while IFS= read -r block2
 do
 	echo -n "Cleaning Address - Processing $counter/$num_lines  ->  "
 	string=$(echo "${block2##*IN}" | xargs) #remove everything from the line except for the IP address
-	if grep -wq "$string" "Working_Dir/$master.txt"; then 
+	if grep -wq "$string" "$Working_Dir/tmp/master.txt"; then 
 		#if the address in the current UFW configuration exists in the current ASN list, do nothing
 		echo "Line \"$block2\" still valid"
 	else 
@@ -301,7 +333,6 @@ do
 	let counter=counter+1
 done < "$Working_Dir/tmp/current_ufw.txt"
 
-
-
-
-
+echo -e "\n\n*********************************************************************************************" |& tee -a "$Working_Dir/log/$date.txt"
+echo "UFW Blocked Address Update Complete" |& tee -a "$Working_Dir/log/$date.txt"
+echo -e "*********************************************************************************************\n\n" |& tee -a "$Working_Dir/log/$date.txt"
