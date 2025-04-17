@@ -73,7 +73,7 @@ the second thing the script will do is compare all of the DENY IN entries in the
 
 Any "ALLOW IN" entries on the UFW fire wall will be ignored by this script. 
 
-running this script for the first time will take DAYS TO COMPLETE as well over 100,000 entries will be added! The process starts out somewhat fast, but as more entries are added, it takes the UFW subsystem longer and longer to add new additional entries slowing the process down. Just let the script run. 
+running this script for the first time will take 2-3 days to complete the first time it is run as well over 50,000 entries will be added! The process starts out somewhat fast, but as more entries are added, it takes the UFW subsystem longer and longer to add new additional entries slowing the process down. Just let the script run. 
 
 After the first time it is run, It is suggested to add a line to crontab to run the script once per month, this should only take a few minutes to an hour or two depending on how many addresses need to be added or removed from your UFW configuration. 
 
