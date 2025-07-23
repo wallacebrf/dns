@@ -1,5 +1,5 @@
 ### 1.) ASN LIST Block List
-Notice. as of 4/15/2025 I have been introduced to "aggregate6" https://pypi.org/project/aggregate6/ which can take a list of IP addresses and combine multiple addresses into a larger subnet to reduce the number of lines. I just ran the ASN update, and before aggregation, the script downloaded 84,712 subnets. After aggregation, the EXACT SAME BLOCK LIST now only contains 27,765 subnets, that is a sivings of 56,947 lines, or 67.2% reduction in size!
+Notice. as of 7/23/2025 I have been introduced to "aggregate6" https://pypi.org/project/aggregate6/ which can take a list of IP addresses and combine multiple addresses into a larger subnet to reduce the number of lines. I just ran the ASN update, and before aggregation, the script downloaded 90,968 subnets. After aggregation, the EXACT SAME BLOCK LIST now only contains 32,027 subnets, that is a sivings of 58,941 lines, or 64.8% reduction in size!
 
 for example, the OLD ASN list contained the following lines:
 ```
@@ -34,7 +34,7 @@ I block the ASN address ranges of a large number of server rental companies as a
 
 ```ASN_LIST.txt``` --> list of the ASNs I block on my Fortigate SSL VPN loop back interface. This shows the names of the ASN and the revision history tracking of when i added new ASN entires 
 
-```ASN_Update.sh``` combined with ```ASN.txt``` --> script I use to pull all of the IP address details for all ASNs in ```ASN.txt``` and save the results into ```asn_blockX.Y.txt``` files so I can use my fortigate's external threat feeds to import the results. The script downloads (as of 4/15/2025) 27,765 subnet ranges, some of the ranges go as large as a /10 subnet! The ```ASN.txt``` is the raw listing of the blocked ASNs used by the shell script, while ```ASN_List.txt``` is the user-readable and revision history details of the ASNs being blocked as previously detailed. 
+```ASN_Update.sh``` combined with ```ASN.txt``` --> script I use to pull all of the IP address details for all ASNs in ```ASN.txt``` and save the results into ```asn_blockX.Y.txt``` files so I can use my fortigate's external threat feeds to import the results. The script downloads (as of 7/23/2025) 32,027 subnet ranges, some of the ranges go as large as a /10 subnet! The ```ASN.txt``` is the raw listing of the blocked ASNs used by the shell script, while ```ASN_List.txt``` is the user-readable and revision history details of the ASNs being blocked as previously detailed. 
 
 ```asn_blockX.Y.txt``` --> these are the resulting files made when running the ```ASN_Update.sh``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible
 
