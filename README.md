@@ -1,53 +1,22 @@
 ### 1.) ASN LIST Block List
-Notice. as of 7/23/2025 I have been introduced to "aggregate6" https://pypi.org/project/aggregate6/ which can take a list of IP addresses and combine multiple addresses into a larger subnet to reduce the number of lines. I just ran the ASN update, and before aggregation, the script downloaded 90,968 subnets. After aggregation, the EXACT SAME BLOCK LIST now only contains 32,027 subnets, that is a sivings of 58,941 lines, or 64.8% reduction in size!
-
-for example, the OLD ASN list contained the following lines:
-```
-1.12.0.0/14
-1.12.0.0/18
-1.12.0.0/20
-1.12.14.0/23
-1.12.14.0/23
-1.12.34.0/23
-1.12.64.0/18
-1.12.128.0/18
-1.12.192.0/18
-1.13.0.0/18
-1.13.64.0/18
-1.13.128.0/18
-1.13.192.0/18
-1.14.0.0/18
-1.14.64.0/18
-1.14.128.0/18
-1.14.192.0/18
-1.15.0.0/18
-1.15.64.0/18
-1.15.128.0/18
-1.15.192.0/18
-```
-
-all of these lines are exactly the same as the single line in the new file ```1.12.0.0/14``` as the /14 subnet has a mask of ```0.3.255.255```. This means this single line is good from address ```1.12.0.0``` through address ```1.15.255.255```. The last line above ```1.15.192.0/18``` with a subnet of /18 has a mask of ```0.0.63.255``` which means it goes all the way to ```1.15.255.255``` which is why it is included in the aggregation. 
-
-
-
 I block the ASN address ranges of a large number of server rental companies as a lot of "bad actors" use these servers to perform port scans and brute force attacks. 
 
-```ASN_LIST.txt``` --> list of the ASNs I block on my Fortigate SSL VPN loop back interface. This shows the names of the ASN and the revision history tracking of when i added new ASN entires 
+***<a href="https://raw.githubusercontent.com/wallacebrf/dns/refs/heads/main/ASN_LIST.txt">ASN_LIST.txt</a>*** --> list of the ASNs I block on my Fortigate IPSEC local-in policies. This shows the names of the ASN and the revision history tracking of when i added new ASN entires 
 
-```ASN_Update.sh``` combined with ```ASN.txt``` --> script I use to pull all of the IP address details for all ASNs in ```ASN.txt``` and save the results into ```asn_blockX.Y.txt``` files so I can use my fortigate's external threat feeds to import the results. The script downloads (as of 7/23/2025) 32,027 subnet ranges, some of the ranges go as large as a /10 subnet! The ```ASN.txt``` is the raw listing of the blocked ASNs used by the shell script, while ```ASN_List.txt``` is the user-readable and revision history details of the ASNs being blocked as previously detailed. 
+***<a href="https://raw.githubusercontent.com/wallacebrf/dns/refs/heads/main/ASN_Update.sh">ASN_Update.sh</a>*** combined with ***<a href="https://raw.githubusercontent.com/wallacebrf/dns/refs/heads/main/ASN.txt">ASN.txt</a>*** --> script I use to pull all of the IP address details for all ASNs in ***```ASN.txt```*** and save the results into ***```asn_blockX.Y.txt```*** files so I can use my fortigate's external threat feeds to import the results. The script downloads (as of 8/24/2025) 32,370 subnet ranges, some of the ranges go as large as a /10 subnet! The ```ASN.txt``` is the raw listing of the blocked ASNs used by the shell script, while ```ASN_List.txt``` is the user-readable and revision history details of the ASNs being blocked as previously detailed. 
 
-```asn_blockX.Y.txt``` --> these are the resulting files made when running the ```ASN_Update.sh``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible
+***<a href="https://raw.githubusercontent.com/wallacebrf/dns/refs/heads/main/asn_block1.1.txt">asn_block1.1.txt</a>*** --> The resulting files made when running the ```ASN_Update.sh``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible
 
-```manual_block_list.txt``` --> list of IPs that have tried to force a username/password on my fortigate but their ASN is a large telecomm provider and I do not wish to block the entire ASN. this is used on my Fortigate SSL_VPN loop back interface
+***<a href="https://raw.githubusercontent.com/wallacebrf/dns/refs/heads/main/manual_block_list.txt">manual_block_list.txt</a>*** --> list of IPs that have tried to force a username/password on my fortigate but their ASN is a large telecomm provider and I do not wish to block the entire ASN. this is used on my Fortigate Local-In policies 
 
 ### 2.) Web Filter Blocks
 While the fortigate firewalls do have built in web-filters for advertisements and known malicious actors, it is not blocking everything I would like it to. As such I wanted to use the plethora of Pie-Hole block lists, especially the lists at this amazing site https://firebog.net/. The issue is that these lists are not formatted in the way the Fortigate external threat feeds will accept. As a result I made a script that will download all of the separate lists, format the entries to be compatible with the external threat feeds, and save the entries into separate files with 131,000 entries per file since that is the limit of the threat feeds. 
 
-```webblock.sh``` --> This script pulls the domain names used in multiple Pie-Hole DNS block lists contained in ```web_block_source.txt```. The script formats the data in a way compatible with the fortigate since pie hole lists are formatted as HOST files. The script also performs a little more filtering, but most importantly to removes duplicate entries. For example, currently the PHP script downloads (as of 7/23/2025) 2,985,664 entries and after removing duplicates, has 2,047,606 unique entries being blocked. 
+***<a href="https://github.com/wallacebrf/dns/blob/main/webblock.sh">webblock.sh</a>*** --> This script pulls the domain names used in multiple Pie-Hole DNS block lists contained in ***<a href="https://raw.githubusercontent.com/wallacebrf/dns/refs/heads/main/web_block_source.txt">web_block_source.txt</a>***. The script formats the data in a way compatible with the fortigate since pie hole lists are formatted as HOST files. The script also performs a little more filtering, but most importantly to removes duplicate entries. For example, currently the PHP script downloads (as of 8/24/2025) 3,113,467 entries and after removing duplicates, has 2,098,320 unique entries being blocked. 
 
-I then use the WEB filter profile within my Fortigate firewall with the resulting ```web_blockX.txt``` files as external threat feed to block significant amounts of ads, tracking, and malicious sites on top of what fortinet already blocks. Refer to ```SSL_VPN Config with loopback and auto-block.txt``` for how I configured my Fortigate SSLVPN. 
+I then use the WEB filter profile within my Fortigate firewall with the resulting ```web_blockX.txt``` files as external threat feed to block significant amounts of ads, tracking, and malicious sites on top of what fortinet already blocks. 
 
-```web_blockX.txt``` --> these are the resulting files made when running the ```webblock.sh``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible. As of 7/23/2025, there are 16x files starting from ```web_block0.txt``` through ```web_block15.txt```. 
+***<a href="https://raw.githubusercontent.com/wallacebrf/dns/refs/heads/main/web_block0.txt">web_block0.txt</a> THROUGH <a href="https://raw.githubusercontent.com/wallacebrf/dns/refs/heads/main/web_block16.txt">web_block16.txt</a>*** --> these are the resulting files made when running the ```webblock.sh``` script. any one Fortigate external threat feed can only handle 131,000 entries, and the script ensures the files are maxed out and aggregates everything into as few files as possible. As of 8/24/2025, there are ***17x*** files starting from ```web_block0.txt``` through ```web_block16.txt```. 
 
 ### 3.) Linux server UFW firewall ASN blocking and Geography blocking
 
