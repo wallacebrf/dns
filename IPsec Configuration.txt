@@ -1,364 +1,2942 @@
+#####################################################
+####config system global
+#####################################################
 config system global
     set ipsec-asic-offload enable
     set ipsec-ha-seqjump-rate 10
     set ipsec-hmac-offload enable
     set ipsec-soft-dec-async disable
 end
-config firewall address
-    edit "USA"
-        set type geography
-        set country "US"
-    next
-end
-config firewall address6
-    edit "USA"
-        set type geography
-        set country "US"
-    next
-end
-config firewall local-in-policy
-    edit 1
-        set intf "wan1"
-        set srcaddr "USA"
-        set srcaddr-negate enable
-        set dstaddr "all"
-        set service "ALL"
-        set schedule "always"
-    next
-end
-config firewall local-in-policy6
-    edit 1
-        set intf "wan1"
-        set srcaddr "USA"
-        set srcaddr-negate enable
-        set dstaddr "all"
-        set service "ALL"
-        set schedule "always"
-    next
-end
+
+
+
+
+
+
+#####################################################
+####config system interface
+#####################################################
 config system interface
-    edit "HomeVPNv6"
-        set vdom "root"
-        set vrf 0
-        set distance 5
-        set priority 1
-        set dhcp-relay-interface-select-method auto
-        set dhcp-relay-service disable
-        set ip 0.0.0.0 0.0.0.0
-        unset allowaccess
-        set arpforward enable
-        set broadcast-forward disable
-        set bfd global
-        set icmp-send-redirect enable
-        set icmp-accept-redirect enable
-        set reachable-time 30000
-        set ips-sniffer-mode disable
-        set ident-accept disable
-        set ipmac disable
-        set status up
-        set netbios-forward disable
-        set wins-ip 0.0.0.0
+	edit "HomeVPN-IPsec"
         set type tunnel
-        set netflow-sampler disable
-        set sflow-sampler disable
-        set src-check enable
-        set sample-rate 2000
-        set polling-interval 20
-        set sample-direction both
-        set explicit-web-proxy disable
-        set explicit-ftp-proxy disable
-        set proxy-captive-portal disable
-        set tcp-mss 0
-        set inbandwidth 0
-        set outbandwidth 0
-        set egress-shaping-profile ''
-        set ingress-shaping-profile ''
-        set spillover-threshold 0
-        set ingress-spillover-threshold 0
-        set weight 0
-        set external disable
-        set remote-ip 0.0.0.0 0.0.0.0
-        set description ''
-        set alias ''
-        set l2tp-client disable
-        set security-mode none
-        set captive-portal 0
-        set ike-saml-server ''
-        set estimated-upstream-bandwidth 0
-        set estimated-downstream-bandwidth 0
-        set measured-upstream-bandwidth 0
-        set measured-downstream-bandwidth 0
-        set bandwidth-measure-time 0
-        set monitor-bandwidth disable
-        set role undefined
-        set snmp-index 40
-        set preserve-session-route disable
-        set auto-auth-extension-device disable
-        set ap-discover enable
-        set fortilink-neighbor-detect fortilink
-        set ip-managed-by-fortiipam disable
-        set fortilink-split-interface enable
-        set switch-controller-access-vlan disable
-        set switch-controller-traffic-policy ''
-        set switch-controller-rspan-mode disable
-        set switch-controller-netflow-collect disable
-        set switch-controller-mgmt-vlan 4094
-        set switch-controller-igmp-snooping disable
-        set switch-controller-dhcp-snooping disable
-        set switch-controller-dhcp-snooping-verify-mac disable
-        set switch-controller-dhcp-snooping-option82 disable
-        set switch-controller-learning-limit 0
-        set switch-controller-nac ''
-        set switch-controller-dynamic ''
-        set switch-controller-feature none
-        set switch-controller-iot-scanning disable
-        set swc-first-create 0
-        set eap-supplicant disable
-        config ipv6
-            set ip6-mode static
-            set nd-mode basic
-            set ip6-address ::/0
-            unset ip6-allowaccess
-            set icmp6-send-redirect enable
-            set ra-send-mtu enable
-            set ip6-reachable-time 0
-            set ip6-retrans-time 0
-            set ip6-hop-limit 0
-            set dhcp6-prefix-delegation disable
-            set dhcp6-information-request disable
-            set ip6-send-adv disable
-            set autoconf disable
-            set dhcp6-relay-service disable
-        end
-        set dhcp-relay-request-all-server disable
-        set dns-server-override enable
-        set dns-server-protocol cleartext
-        set wccp disable
+        set monitor-bandwidth enable
         set interface "wan1"
-        set mtu-override disable
+    next
+    edit "HomeVPNv6""
+        set type tunnel
+        set monitor-bandwidth enable
+        set interface "wan1"
+    next
+	edit "HomeVPNv6-IKE2"
+        set type tunnel
+        set monitor-bandwidth enable
+        set interface "wan1"
     next
 end
+
+
+
+
+
+
+#####################################################
+####config system ntp
+#####################################################
+config system ntp
+    set ntpsync enable
+    set server-mode enable
+    set interface "HomeVPN-IPsec" "HomeVPNv6" "HomeVPNv6-IKE2"
+end
+
+
+
+
+
+
+#####################################################
+####config system automation-trigger
+#####################################################
 config system automation-trigger
     edit "IPSEC_TUNNEL_CHANGE"
-        set description ''
-        set trigger-type event-based
         set event-type event-log
         set logid 37138 23102 23101
     next
     edit "IPSEC_FAILED"
-        set description ''
-        set trigger-type event-based
         set event-type event-log
-        set logid 37127
+        set logid 37124 37125
+    next
+    edit "IPSEC_AUTOBLOCK_library_ipv4"
+        set event-type event-log
+        set logid 37124 37125
         config fields
             edit 1
-                set name "status"
-                set value "failure"
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*ibrary*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_test_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*est"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_user_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*ser*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_admin_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*dmin*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_client_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*lient*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_dot_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*.*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_fax_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*ax*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_fortigate_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*ortigate*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_fortinet_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*ortinet*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_frontdesk_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*rontdesk*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_general_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*eneral*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_guest_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*uest*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_host_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*ost*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_kiosk_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*iosk*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_printer_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*rinter*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_receiving_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*eceiving*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_report_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*eport*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_scanner_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*canner*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_security_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*ecurity*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_store_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*tore*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_support_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*upport*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_teacher_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*eacher*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_tech_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*ech*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_voicemail_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "*dmin*"
+            next
+        end
+    next
+    edit "IPSEC_AUTOBLOCK_NA_ipv4"
+        set event-type event-log
+        set logid 37124 37125
+        config fields
+            edit 1
+                set name "reason"
+                set value "peer SA proposal not match local policy"
+            next
+            edit 2
+                set name "user"
+                set value "N/A"
             next
         end
     next
 end
+
+
+
+
+
+
+#####################################################
+####config system automation-action
+#####################################################
 config system automation-action
+    edit "Block_VPN_Failed_ipv4"
+        set description "Block_VPN_Failed"
+        set action-type cli-script
+        set script "config firewall address
+edit VPN_Block_%%log.remip%%
+set subnet %%log.remip%%/32
+end
+config firewall addrgrp
+edit Block_VPN_Failed
+append member VPN_Block_%%log.remip%%
+end"
+        set accprofile "super_admin"
+    next
+    edit "VPN_Block_IPv4"
+        set description "VPN_Block"
+        set action-type email
+        set email-to "email@email.com"
+        set email-from "email@email.com"
+        set email-subject "VPN IPv4 Auto Blocked"
+        set message "%%log.remip%% address has been added to the address group \\\"Block_VPN_Failed\\\" while using the following username: \\\"%%log.user%%\\\". 
+The results of the CLI script were:
+%%results%%"
+    next
     edit "IPSEC_TUNNEL_CHANGE"
-        set description ''
         set action-type email
         set email-to "email@email.com"
         set email-from "email@email.com"
         set email-subject "IPsec Tunnel State Change"
-        set minimum-interval 0
-        set message "%%log%%"
-        set replacement-message disable
     next
     edit "IPSEC_FAIL"
-        set description ''
         set action-type email
         set email-to "email@email.com"
         set email-from "email@email.com"
         set email-subject "IPsec Failure"
-        set minimum-interval 0
-        set message "%%log%%"
-        set replacement-message disable
+    next
+    edit "Block_VPN_Failed_ipv6"
+        set description "Block_VPN_Failed"
+        set action-type cli-script
+        set script "config firewall address6
+edit VPN_Block_%%log.remip%%
+set type iprange
+        set start-ip %%log.remip%%
+        set end-ip %%log.remip%%
+end
+config firewall addrgrp6
+edit Block_VPN_Failed_IPv6
+append member VPN_Block_%%log.remip%%
+end"
+        set accprofile "super_admin"
+    next
+    edit "VPN_Block_IPv6"
+        set description "VPN_Block"
+        set action-type email
+        set email-to "email@email.com"
+        set email-from "email@email.com"
+        set email-subject "VPN IPv6 Auto Blocked"
+        set message "%%log.remip%% address has been added to the address group \\\"Block_VPN_Failed_IPv6\\\". 
+The results of the CLI script were:
+%%results%%"
     next
 end
+
+
+
+
+
+
+#####################################################
+####config system automation-stitch
+#####################################################
 config system automation-stitch
+    edit "LOGIN_FAIL_admin"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_admin_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_fax"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_fax_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_fortigate"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_fortigate_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_fortinet"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_fortinet_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_guest"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_guest_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_kiosk"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_kiosk_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_printer"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_printer_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_receiving"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_receiving_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_scanner"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_scanner_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_teacher"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_teacher_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_test"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_test_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_voicemail"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_voicemail_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_NA"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_NA_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_report"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_report_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_general"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_general_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_frontdesk"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_frontdesk_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_tech"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_tech_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_support"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_support_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_security"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_security_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_host"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_host_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_store"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_store_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_library"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_library_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_client"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_client_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "LOGIN_FAIL_dot"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_dot_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
     edit "IPSEC_TUNNEL_STATE_CHANGE"
-        set description ''
-        set status enable
         set trigger "IPSEC_TUNNEL_CHANGE"
         config actions
             edit 1
                 set action "IPSEC_TUNNEL_CHANGE"
-                set delay 0
                 set required enable
             next
         end
     next
-    edit "IPsec_Fail"
-        set description ''
-        set status enable
+    edit "LOGIN_FAIL_USER"
+        set description "SSL_VPN_Block"
+        set trigger "IPSEC_AUTOBLOCK_user_ipv4"
+        config actions
+            edit 1
+                set action "Block_VPN_Failed_ipv4"
+                set required enable
+            next
+            edit 2
+                set action "VPN_Block_IPv4"
+                set required enable
+            next
+        end
+    next
+    edit "IPsec Fail"
         set trigger "IPSEC_FAILED"
         config actions
             edit 1
                 set action "IPSEC_FAIL"
-                set delay 0
                 set required enable
             next
         end
     next
 end
-config firewall address
-    edit "HomeVPN-IPsec_range_ipv4"
-        set type iprange
-        set dirty dirty
-        set associated-interface ''
-        set color 0
-        set fabric-object disable
-        set start-ip 10.10.30.1
-        set end-ip 10.10.30.255
-    next
-end
-config firewall address6
-    edit "HomeVPN-IPsec_range-ipv6"
-        set type iprange
-        set color 0
-        set comment ''
-        set fabric-object disable
-        set start-ip 2001:db8::1
-        set end-ip 2001:db8::20
-    next
-end
-config firewall addrgrp
+
+
+
+
+
+
+#####################################################
+####config user group
+#####################################################
+config user group
     edit "IPsec-Admin"
-        set group-type firewall
-        set authtimeout 0
-        set auth-concurrent-override disable
-        set http-digest-realm ''
-        set member ""
+        set member "your_user"
     next
 end
+
+
+
+
+
+
+#####################################################
+####config vpn ipsec phase1-interface
+#####################################################
 config vpn ipsec phase1-interface
+    edit "HomeVPN-IPsec"
+        set type dynamic
+        set interface "wan1"
+        set peertype any
+        set net-device disable
+        set mode-cfg enable
+        set proposal aes256-sha512 aes256-sha384 aes128-sha1
+        set dhgrp 14
+        set xauthtype auto
+        set authusrgrp "IPsec-Admin"
+        set ipv4-start-ip 10.10.30.1
+        set ipv4-end-ip 10.10.30.255
+        set ipv4-netmask 255.255.255.0
+        set dns-mode auto
+        set ipv6-start-ip 2002:db7::1
+        set ipv6-end-ip 2002:db7::10
+        set unity-support disable
+        set psksecret ENC xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    next
     edit "HomeVPNv6"
         set type dynamic
         set interface "wan1"
         set ip-version 6
-        set ike-version 1
-        set local-gw6 ::
-        set keylife 86400
-        set authmethod psk
-        set mode main
         set peertype any
         set net-device disable
-        set exchange-interface-ip disable
-        set aggregate-member disable
         set mode-cfg enable
-        set ipv4-wins-server1 0.0.0.0
-        set ipv4-wins-server2 0.0.0.0
         set proposal aes256-sha384 aes256-sha256 aes128-sha1 aes256-sha1
-        set add-route enable
-        set localid ''
-        set localid-type auto
-        set negotiate-timeout 30
-        set fragmentation enable
-        set ip-fragmentation post-encapsulation
-        set dpd on-demand
-        set forticlient-enforcement disable
-        set npu-offload enable
         set dhgrp 14
-        set suite-b disable
-        set wizard-type custom
         set xauthtype auto
-        set reauth disable
         set authusrgrp "IPsec-Admin"
-        set idle-timeout disable
-        set ha-sync-esp-seqno enable
-        set fgsp-sync disable
-        set inbound-dscp-copy disable
-        set auto-discovery-sender disable
-        set auto-discovery-receiver disable
-        set auto-discovery-forwarder disable
-        set encapsulation none
-        set nattraversal enable
-        set rekey enable
-        set enforce-unique-id disable
-        set fec-egress disable
-        set fec-ingress disable
-        set link-cost 0
-        set exchange-fgt-device-id disable
-        set ems-sn-check disable
-        set default-gw 0.0.0.0
-        set default-gw-priority 0
-        set assign-ip enable
-        set assign-ip-from range
         set ipv4-start-ip 10.10.30.20
         set ipv4-end-ip 10.10.30.255
         set ipv4-netmask 255.255.255.0
         set dns-mode auto
-        set ipv4-split-include ''
-        set split-include-service ''
-        set ipv6-start-ip 2001:db8::11
-        set ipv6-end-ip 2001:db8::20
-        set ipv6-prefix 128
-        set ipv6-split-include ''
-        set ip-delay-interval 0
+        set ipv6-start-ip 2002:db7::11
+        set ipv6-end-ip 2002:db7::20
         set unity-support disable
-		set keepalive 10
-        set distance 15
-        set priority 1
-        set dpd-retrycount 3
-        set dpd-retryinterval 20
+        set psksecret ENC xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    next
+    edit "HomeVPNv6-IKE2"
+        set type dynamic
+        set interface "wan1"
+        set ip-version 6
+        set ike-version 2
+        set peertype dialup
+        set net-device disable
+        set mode-cfg enable
+        set proposal aes256gcm-prfsha512 aes256gcm-prfsha384
+        set dpd on-idle
+        set dhgrp 31
+        set usrgrp "IPsec-Admin"
+        set ipv4-start-ip 10.10.30.20
+        set ipv4-end-ip 10.10.30.255
+        set ipv4-netmask 255.255.255.0
+        set dns-mode auto
+        set ipv6-start-ip 2002:db7::11
+        set ipv6-end-ip 2002:db7::20
+        set dpd-retryinterval 60
     next
 end
+
+
+
+
+
+
+#####################################################
+####config vpn ipsec phase2-interface
+#####################################################
 config vpn ipsec phase2-interface
+    edit "HomeVPN-IPsec"
+        set phase1name "HomeVPN-IPsec"
+        set proposal aes128-sha1 aes256-sha1 aes128-sha256 aes256-sha256 aes128gcm aes256gcm chacha20poly1305
+    next
+    edit "HomeVPN-IPsec_IPv6"
+        set phase1name "HomeVPN-IPsec"
+        set proposal aes128-sha1 aes256-sha1 aes128-sha256 aes256-sha256 aes128gcm aes256gcm chacha20poly1305
+        set dhgrp 5
+        set src-addr-type subnet6
+        set dst-addr-type subnet6
+    next
     edit "HomeVPNv6"
         set phase1name "HomeVPNv6"
         set proposal aes128-sha1 aes256-sha384 aes256-sha256
-        set pfs enable
-        set ipv4-df disable
         set dhgrp 14
-        set replay enable
-        set keepalive disable
-        set add-route phase1
-        set inbound-dscp-copy phase1
-        set auto-discovery-sender phase1
-        set auto-discovery-forwarder phase1
-        set keylife-type seconds
-        set single-source disable
-        set route-overlap use-new
-        set comments ''
-        set diffserv disable
-        set protocol 0
-        set src-addr-type subnet
-        set src-port 0
-        set dst-addr-type subnet
-        set dst-port 0
-        set keylifeseconds 43200
-        set src-subnet 0.0.0.0 0.0.0.0
-        set dst-subnet 0.0.0.0 0.0.0.0
     next
     edit "HomeVPNv6_IPv6"
         set phase1name "HomeVPNv6"
         set proposal aes128-sha1 aes256-sha384 aes256-sha256
-        set pfs enable
-        set ipv4-df disable
         set dhgrp 14
-        set replay enable
-        set keepalive disable
-        set add-route phase1
-        set inbound-dscp-copy phase1
-        set auto-discovery-sender phase1
-        set auto-discovery-forwarder phase1
-        set keylife-type seconds
-        set single-source disable
-        set route-overlap use-new
-        set comments ''
-        set diffserv disable
-        set protocol 0
         set src-addr-type subnet6
-        set src-port 0
         set dst-addr-type subnet6
-        set dst-port 0
-        set keylifeseconds 43200
-        set src-subnet6 ::/0
-        set dst-subnet6 ::/0
+    next
+    edit "HomeVPNv4-IKE2"
+        set phase1name "HomeVPNv6-IKE2"
+        set proposal aes256-sha384 aes256-sha512
+        set dhgrp 31
+    next
+    edit "HomeVPNv6-IKE2"
+        set phase1name "HomeVPNv6-IKE2"
+        set proposal aes256-sha512 aes256-sha384
+        set dhgrp 31
+        set src-addr-type subnet6
+        set dst-addr-type subnet6
     next
 end
+
+
+
+
+
+
+#####################################################
+####config system dns-server
+#####################################################
+config system dns-server
+    edit "HomeVPN-IPsec"
+        set mode forward-only
+        set dnsfilter-profile "Core_DNS_Filter"
+        set doh enable
+    next
+    edit "HomeVPNv6"
+        set mode forward-only
+        set dnsfilter-profile "Core_DNS_Filter"
+        set doh enable
+    next
+    edit "HomeVPNv6-IKE2"
+        set mode forward-only
+        set dnsfilter-profile "Core_DNS_Filter"
+        set doh enable
+    next
+end
+
+
+
+
+
+
+#####################################################
+####config firewall address
+#####################################################
+config firewall address
+	edit "HomeVPN-IPsec_range"
+        set type iprange
+        set start-ip 10.10.30.1
+        set end-ip 10.10.30.255
+    next
+    edit "VPN_Block_China"
+        set type geography
+        set country "CN"
+    next
+    edit "VPN_Block_Russia"
+        set type geography
+        set country "RU"
+    next
+    edit "VPN_Block_Bangladesh"
+        set type geography
+        set country "BD"
+    next
+    edit "VPN_Block_Czech_Republic"
+        set type geography
+        set country "CZ"
+    next
+    edit "VPN_Block_Hong_Kong"
+        set type geography
+        set country "HK"
+    next
+    edit "VPN_Block_Indonesia"
+        set type geography
+        set country "ID"
+    next
+    edit "VPN_Block_Korea1"
+        set type geography
+        set country "KP"
+    next
+    edit "VPN_Block_Korea2"
+        set type geography
+        set country "KR"
+    next
+    edit "VPN_Block_Afganistan"
+        set type geography
+        set country "AF"
+    next
+    edit "VPN_Block_Aland_Islands"
+        set type geography
+        set country "AX"
+    next
+    edit "VPN_Block_Albania"
+        set type geography
+        set country "AL"
+    next
+    edit "VPN_Block_Algeria"
+        set type geography
+        set country "DZ"
+    next
+    edit "VPN_Block_Austrialia"
+        set type geography
+        set country "AU"
+    next
+    edit "VPN_Block_Austria"
+        set type geography
+        set country "AT"
+    next
+    edit "VPN_Block_Belgium"
+        set type geography
+        set country "BE"
+    next
+    edit "VPN_Block_Belize"
+        set type geography
+        set country "BZ"
+    next
+    edit "VPN_Block_Brazil"
+        set type geography
+        set country "BR"
+    next
+    edit "VPN_Block_Cambodia"
+        set type geography
+        set country "KH"
+    next
+    edit "VPN_Block_Canada"
+        set type geography
+        set country "CA"
+    next
+    edit "VPN_Block_Denmark"
+        set type geography
+        set country "DK"
+    next
+    edit "VPN_Block_France"
+        set type geography
+        set country "FR"
+    next
+    edit "VPN_Block_Germany"
+        set type geography
+        set country "DE"
+    next
+    edit "VPN_Block_Greece"
+        set type geography
+        set country "GR"
+    next
+    edit "VPN_Block_Hungary"
+        set type geography
+        set country "HU"
+    next
+    edit "VPN_Block_India"
+        set type geography
+        set country "IN"
+    next
+    edit "VPN_Block_Iran"
+        set type geography
+        set country "IR"
+    next
+    edit "VPN_Block_Iraq"
+        set type geography
+        set country "IQ"
+    next
+    edit "VPN_Block_Ireland"
+        set type geography
+        set country "IE"
+    next
+    edit "VPN_Block_Isreal"
+        set type geography
+        set country "IL"
+    next
+    edit "VPN_Block_Italy"
+        set type geography
+        set country "IT"
+    next
+    edit "VPN_Block_Japan"
+        set type geography
+        set country "JP"
+    next
+    edit "VPN_Block_Liberia"
+        set type geography
+        set country "LR"
+    next
+    edit "VPN_Block_Luxembourg"
+        set type geography
+        set country "LU"
+    next
+    edit "VPN_Block_Malaysia"
+        set type geography
+        set country "MY"
+    next
+    edit "VPN_Block_Mexico"
+        set type geography
+        set country "MX"
+    next
+    edit "VPN_Block_Singapore"
+        set type geography
+        set country "SG"
+    next
+    edit "VPN_Block_Spain"
+        set type geography
+        set country "ES"
+    next
+    edit "VPN_Block_Sweeden"
+        set type geography
+        set country "SE"
+    next
+    edit "VPN_Block_Switzerland"
+        set type geography
+        set country "CH"
+    next
+    edit "VPN_Block_Taiwan"
+        set type geography
+        set country "TW"
+    next
+    edit "VPN_Block_United_Kingdom"
+        set type geography
+        set country "GB"
+    next
+    edit "VPN_Block_Netherlands"
+        set type geography
+        set country "NL"
+    next
+    edit "VPN_Block_Netherlands_Antilles"
+        set type geography
+        set country "AN"
+    next
+    edit "VPN_Block_American_Aamoa"
+        set type geography
+        set country "AS"
+    next
+    edit "VPN_Block_Andorra"
+        set type geography
+        set country "AD"
+    next
+    edit "VPN_Block_Angola"
+        set type geography
+        set country "AO"
+    next
+    edit "VPN_Block_Anguilla"
+        set type geography
+        set country "AI"
+    next
+    edit "VPN_Block_Antigua_Barbuda"
+        set type geography
+        set country "AG"
+    next
+    edit "VPN_Block_Argentina"
+        set type geography
+        set country "AR"
+    next
+    edit "VPN_Block_Armenia"
+        set type geography
+        set country "AM"
+    next
+    edit "VPN_Block_Aruba"
+        set type geography
+        set country "AW"
+    next
+    edit "VPN_Block_Azerbaijan"
+        set type geography
+        set country "AZ"
+    next
+    edit "VPN_Block_Bahamas"
+        set type geography
+        set country "BS"
+    next
+    edit "VPN_Block_Bahrain"
+        set type geography
+        set country "BH"
+    next
+    edit "VPN_Block_Barbados"
+        set type geography
+        set country "BB"
+    next
+    edit "VPN_Block_Belarus"
+        set type geography
+        set country "BY"
+    next
+    edit "VPN_Block_Benin"
+        set type geography
+        set country "BJ"
+    next
+    edit "VPN_Block_Bermuda"
+        set type geography
+        set country "BM"
+    next
+    edit "VPN_Block_Bhutan"
+        set type geography
+        set country "BT"
+    next
+    edit "VPN_Block_Bolvia"
+        set type geography
+        set country "BO"
+    next
+    edit "VPN_Block_Bosnia_Herzegovia"
+        set type geography
+        set country "BA"
+    next
+    edit "VPN_Block_Botswana"
+        set type geography
+        set country "BW"
+    next
+    edit "VPN_Block_Bouvet_Island"
+        set type geography
+        set country "BV"
+    next
+    edit "VPN_Block_British_Indian_ocean_terr"
+        set type geography
+        set country "IO"
+    next
+    edit "VPN_Block_Brunei_Darussalam"
+        set type geography
+        set country "BN"
+    next
+    edit "VPN_Block_Bulgaria"
+        set type geography
+        set country "BG"
+    next
+    edit "VPN_Block_Burkina_Faso"
+        set type geography
+        set country "BF"
+    next
+    edit "VPN_Block_Burundi"
+        set type geography
+        set country "BI"
+    next
+    edit "VPN_Block_Cameroon"
+        set type geography
+        set country "CM"
+    next
+    edit "VPN_Block_Cape_Verde"
+        set type geography
+        set country "CV"
+    next
+    edit "VPN_Block_Cayman_Islands"
+        set type geography
+        set country "KY"
+    next
+    edit "VPN_Block_Central_African_Republic"
+        set type geography
+        set country "CF"
+    next
+    edit "VPN_Block_Chad"
+        set type geography
+        set country "TD"
+    next
+    edit "VPN_Block_Chile"
+        set type geography
+        set country "CL"
+    next
+    edit "VPN_Block_Christams_Island"
+        set type geography
+        set country "CX"
+    next
+    edit "VPN_Block_Columbia"
+        set type geography
+        set country "CO"
+    next
+    edit "VPN_Block_Comonros"
+        set type geography
+        set country "KM"
+    next
+    edit "VPN_Block_Congo"
+        set type geography
+        set country "CG"
+    next
+    edit "VPN_Block_Congo_Replibic"
+        set type geography
+        set country "CD"
+    next
+    edit "VPN_Block_Cook_Islands"
+        set type geography
+        set country "CK"
+    next
+    edit "VPN_Block_Costa_Rica"
+        set type geography
+        set country "CR"
+    next
+    edit "VPN_Block_Cote_Dlvoire"
+        set type geography
+        set country "CI"
+    next
+    edit "VPN_Block_Croatia"
+        set type geography
+        set country "HR"
+    next
+    edit "VPN_Block_Cuba"
+        set type geography
+        set country "CU"
+    next
+    edit "VPN_Block_Curacao"
+        set type geography
+        set country "CW"
+    next
+    edit "VPN_Block_Djibouti"
+        set type geography
+        set country "DJ"
+    next
+    edit "VPN_Block_Dominica"
+        set type geography
+        set country "DM"
+    next
+    edit "VPN_Block_Dominican_Replublic"
+        set type geography
+        set country "DO"
+    next
+    edit "VPN_Block_Ecuador"
+        set type geography
+        set country "EC"
+    next
+    edit "VPN_Block_Egypt"
+        set type geography
+        set country "EG"
+    next
+    edit "VPN_Block_El_Salvador"
+        set type geography
+        set country "SV"
+    next
+    edit "VPN_Block_Equatorial_Guinea"
+        set type geography
+        set country "GQ"
+    next
+    edit "VPN_Block_Eritrea"
+        set type geography
+        set country "ER"
+    next
+    edit "VPN_Block_Estonia"
+        set type geography
+        set country "EE"
+    next
+    edit "VPN_Block_Ethiopia"
+        set type geography
+        set country "ET"
+    next
+    edit "VPN_Block_Falkland_Islands"
+        set type geography
+        set country "FK"
+    next
+    edit "VPN_Block_Faroe_Islands"
+        set type geography
+        set country "FO"
+    next
+    edit "VPN_Block_Fiji"
+        set type geography
+        set country "FJ"
+    next
+    edit "VPN_Block_Finland"
+        set type geography
+        set country "FI"
+    next
+    edit "VPN_Block_French_Guiana"
+        set type geography
+        set country "GF"
+    next
+    edit "VPN_Block_French_Polnesia"
+        set type geography
+        set country "PF"
+    next
+    edit "VPN_Block_FST"
+        set type geography
+        set country "TF"
+    next
+    edit "VPN_Block_Gabon"
+        set type geography
+        set country "GA"
+    next
+    edit "VPN_Block_Gambia"
+        set type geography
+        set country "GM"
+    next
+    edit "VPN_Block_Georgia"
+        set type geography
+        set country "GE"
+    next
+    edit "VPN_Block_Ghana"
+        set type geography
+        set country "GH"
+    next
+    edit "VPN_Block_Gibraltar"
+        set type geography
+        set country "GI"
+    next
+    edit "VPN_Block_Greenland"
+        set type geography
+        set country "GL"
+    next
+    edit "VPN_Block_Grenada"
+        set type geography
+        set country "GD"
+    next
+    edit "VPN_Block_Guadeloupe"
+        set type geography
+        set country "GP"
+    next
+    edit "VPN_Block_Palestinain_Territory"
+        set type geography
+        set country "PS"
+    next
+    edit "VPN_Block_guam"
+        set type geography
+        set country "GU"
+    next
+    edit "VPN_Block_Guatemala"
+        set type geography
+        set country "GT"
+    next
+    edit "VPN_Block_Guerney"
+        set type geography
+        set country "GG"
+    next
+    edit "VPN_Block_Guinea"
+        set type geography
+        set country "GN"
+    next
+    edit "VPN_Block_Ginea-Bissau"
+        set type geography
+        set country "GW"
+    next
+    edit "VPN_Block_Guyana"
+        set type geography
+        set country "GY"
+    next
+    edit "VPN_Block_Haiti"
+        set type geography
+        set country "HT"
+    next
+    edit "VPN_Block_Heard_Islands"
+        set type geography
+        set country "HM"
+    next
+    edit "VPN_Block_Holy_See"
+        set type geography
+        set country "VA"
+    next
+    edit "VPN_Block_Honduras"
+        set type geography
+        set country "HN"
+    next
+    edit "VPN_Block_Iceland"
+        set type geography
+        set country "IS"
+    next
+    edit "VPN_Block_Isle_of_man"
+        set type geography
+        set country "IM"
+    next
+    edit "VPN_Block_Jamacia"
+        set type geography
+        set country "JM"
+    next
+    edit "VPN_Block_Jersey"
+        set type geography
+        set country "JE"
+    next
+    edit "VPN_Block_Jordan"
+        set type geography
+        set country "JO"
+    next
+    edit "VPN_Block_Kazakhstan"
+        set type geography
+        set country "KZ"
+    next
+    edit "VPN_Block_Kenya"
+        set type geography
+        set country "KE"
+    next
+    edit "VPN_Block_Kiribati"
+        set type geography
+        set country "KI"
+    next
+    edit "VPN_Block_Korea"
+        set type geography
+        set country "KP"
+    next
+    edit "VPN_Block_Kosovo"
+        set type geography
+        set country "XK"
+    next
+    edit "VPN_Block_Kuwait"
+        set type geography
+        set country "KW"
+    next
+    edit "VPN_Block_Kyrgyzstan"
+        set type geography
+        set country "KG"
+    next
+    edit "VPN_Block_Lao"
+        set type geography
+        set country "LA"
+    next
+    edit "VPN_Block_Latvia"
+        set type geography
+        set country "LV"
+    next
+    edit "VPN_Block_Lebanon"
+        set type geography
+        set country "LB"
+    next
+    edit "VPN_Block_Lesotho"
+        set type geography
+        set country "LS"
+    next
+    edit "VPN_Block_Libyan"
+        set type geography
+        set country "LY"
+    next
+    edit "VPN_Block_Liechtenstein"
+        set type geography
+        set country "LI"
+    next
+    edit "VPN_Block_Lithuania"
+        set type geography
+        set country "LT"
+    next
+    edit "VPN_Block_Macao"
+        set type geography
+        set country "MO"
+    next
+    edit "VPN_Block_Macedonia"
+        set type geography
+        set country "MK"
+    next
+    edit "VPN_Block_Madagascar"
+        set type geography
+        set country "MG"
+    next
+    edit "VPN_Block_Malawi"
+        set type geography
+        set country "MW"
+    next
+    edit "VPN_Block_Maldives"
+        set type geography
+        set country "MV"
+    next
+    edit "VPN_Block_Mali"
+        set type geography
+        set country "ML"
+    next
+    edit "VPN_Block_Malta"
+        set type geography
+        set country "MT"
+    next
+    edit "VPN_Block_Marshall_Islands"
+        set type geography
+        set country "MH"
+    next
+    edit "VPN_Block_Martinique"
+        set type geography
+        set country "MQ"
+    next
+    edit "VPN_Block_Mauritania"
+        set type geography
+        set country "MR"
+    next
+    edit "VPN_Block_Mauritius"
+        set type geography
+        set country "MU"
+    next
+    edit "VPN_Block_Mayotte"
+        set type geography
+        set country "YT"
+    next
+    edit "VPN_Block_Micronedia"
+        set type geography
+        set country "FM"
+    next
+    edit "VPN_Block_Moldova"
+        set type geography
+        set country "MD"
+    next
+    edit "VPN_Block_Monaco"
+        set type geography
+        set country "MC"
+    next
+    edit "VPN_Block_Mongolia"
+        set type geography
+        set country "MN"
+    next
+    edit "VPN_Block_Montenergo"
+        set type geography
+        set country "ME"
+    next
+    edit "VPN_Block_Montserrat"
+        set type geography
+        set country "MS"
+    next
+    edit "VPN_Block_Morocco"
+        set type geography
+        set country "MA"
+    next
+    edit "VPN_Block_Mozambique"
+        set type geography
+        set country "MZ"
+    next
+    edit "VPN_Block_Myanmar"
+        set type geography
+        set country "MM"
+    next
+    edit "VPN_Block_Turkey"
+        set type geography
+        set country "TR"
+    next
+    edit "VPN_Block_Cyprus"
+        set type geography
+        set country "CY"
+    next
+    edit "VPN_Block_Namibia"
+        set type geography
+        set country "NA"
+    next
+    edit "VPN_Block_Nauru"
+        set type geography
+        set country "NR"
+    next
+    edit "VPN_Block_Nepal"
+        set type geography
+        set country "NP"
+    next
+    edit "VPN_Block_New_Caledonia"
+        set type geography
+        set country "NC"
+    next
+    edit "VPN_Block_New_Zealand"
+        set type geography
+        set country "NZ"
+    next
+    edit "VPN_Block_Nicaragua"
+        set type geography
+        set country "NI"
+    next
+    edit "VPN_Block_Niger"
+        set type geography
+        set country "NE"
+    next
+    edit "VPN_Block_Nigeria"
+        set type geography
+        set country "NG"
+    next
+    edit "VPN_Block_Norway"
+        set type geography
+        set country "NO"
+    next
+    edit "VPN_Block_Pakistan"
+        set type geography
+        set country "PK"
+    next
+    edit "VPN_Block_Panama"
+        set type geography
+        set country "PA"
+    next
+    edit "VPN_Block_Paraguay"
+        set type geography
+        set country "PY"
+    next
+    edit "VPN_Block_Peru"
+        set type geography
+        set country "PE"
+    next
+    edit "VPN_Block_Philippines"
+        set type geography
+        set country "PH"
+    next
+    edit "VPN_Block_Poland"
+        set type geography
+        set country "PL"
+    next
+    edit "VPN_Block_Portugal"
+        set type geography
+        set country "PT"
+    next
+    edit "VPN_Block_Puerto_rico"
+        set type geography
+        set country "PR"
+    next
+    edit "VPN_Block_Reunion"
+        set type geography
+        set country "RE"
+    next
+    edit "VPN_Block_Romania"
+        set type geography
+        set country "RO"
+    next
+    edit "VPN_Block_Samoa"
+        set type geography
+        set country "WS"
+    next
+    edit "VPN_Block_Saudi_Arabia"
+        set type geography
+        set country "SA"
+    next
+    edit "VPN_Block_Serbia"
+        set type geography
+        set country "RS"
+    next
+    edit "VPN_Block_Slovakia"
+        set type geography
+        set country "SK"
+    next
+    edit "VPN_Block_Slovenia"
+        set type geography
+        set country "SI"
+    next
+    edit "VPN_Block_Somalia"
+        set type geography
+        set country "SO"
+    next
+    edit "VPN_Block_South_Africa"
+        set type geography
+        set country "ZA"
+    next
+    edit "VPN_Block_Sudan"
+        set type geography
+        set country "SD"
+    next
+    edit "VPN_Block_Syrian_arab_republic"
+        set type geography
+        set country "SY"
+    next
+    edit "VPN_Block_Thailand"
+        set type geography
+        set country "TH"
+    next
+    edit "VPN_Block_Turks_and_cacios"
+        set type geography
+        set country "TC"
+    next
+    edit "VPN_Block_Ukraine"
+        set type geography
+        set country "UA"
+    next
+    edit "VPN_Block_United_Arab_Emirates"
+        set type geography
+        set country "AE"
+    next
+    edit "VPN_Block_Uruguay"
+        set type geography
+        set country "UY"
+    next
+    edit "VPN_Block_Venezuela"
+        set type geography
+        set country "VE"
+    next
+    edit "VPN_Block_Vietnam"
+        set type geography
+        set country "VN"
+    next
+    edit "VPN_Block_Virgin_islands_british"
+        set type geography
+        set country "VG"
+    next
+    edit "USA"
+        set type geography
+        set country "US"
+    next
+    edit "VPN_Block_205.210.31.169"
+        set subnet 205.210.31.169 255.255.255.255
+end
+
+
+
+
+
+
+#####################################################
+####config firewall address6
+#####################################################
+config firewall address6
+	edit "HomeVPN-IPsec_range"
+        set type iprange
+        set start-ip 2002:db7::1
+        set end-ip 2002:db7::20
+    next
+    edit "USA"
+        set type geography
+        set country "US"
+    next
+    edit "VPN_Block_2a01:4ff:f0:a387::1"
+        set type iprange
+        set start-ip 2a01:4ff:f0:a387::1
+        set end-ip 2a01:4ff:f0:a387::1
+    next
+    edit "VPN_Block_Afganistan"
+        set type geography
+        set country "AF"
+    next
+    edit "VPN_Block_Aland_Islands"
+        set type geography
+        set country "AX"
+    next
+    edit "VPN_Block_Albania"
+        set type geography
+        set country "AL"
+    next
+    edit "VPN_Block_Algeria"
+        set type geography
+        set country "DZ"
+    next
+    edit "VPN_Block_American_Aamoa"
+        set type geography
+        set country "AS"
+    next
+    edit "VPN_Block_Andorra"
+        set type geography
+        set country "AD"
+    next
+    edit "VPN_Block_Angola"
+        set type geography
+        set country "AO"
+    next
+    edit "VPN_Block_Anguilla"
+        set type geography
+        set country "AI"
+    next
+    edit "VPN_Block_Antigua_Barbuda"
+        set type geography
+        set country "AG"
+    next
+    edit "VPN_Block_Argentina"
+        set type geography
+        set country "AR"
+    next
+    edit "VPN_Block_China"
+        set type geography
+        set country "CN"
+    next
+    edit "VPN_Block_Russia"
+        set type geography
+        set country "RU"
+    next
+    edit "VPN_Block_Bangladesh"
+        set type geography
+        set country "BD"
+    next
+    edit "VPN_Block_Czech_Republic"
+        set type geography
+        set country "CZ"
+    next
+    edit "VPN_Block_Hong_Kong"
+        set type geography
+        set country "HK"
+    next
+    edit "VPN_Block_Indonesia"
+        set type geography
+        set country "ID"
+    next
+    edit "VPN_Block_Korea1"
+        set type geography
+        set country "KP"
+    next
+    edit "VPN_Block_Korea2"
+        set type geography
+        set country "KR"
+    next
+    edit "VPN_Block_Austrialia"
+        set type geography
+        set country "AU"
+    next
+    edit "VPN_Block_Austria"
+        set type geography
+        set country "AT"
+    next
+    edit "VPN_Block_Belgium"
+        set type geography
+        set country "BE"
+    next
+    edit "VPN_Block_Belize"
+        set type geography
+        set country "BZ"
+    next
+    edit "VPN_Block_Brazil"
+        set type geography
+        set country "BR"
+    next
+    edit "VPN_Block_Cambodia"
+        set type geography
+        set country "KH"
+    next
+    edit "VPN_Block_Canada"
+        set type geography
+        set country "CA"
+    next
+    edit "VPN_Block_Denmark"
+        set type geography
+        set country "DK"
+    next
+    edit "VPN_Block_France"
+        set type geography
+        set country "FR"
+    next
+    edit "VPN_Block_Germany"
+        set type geography
+        set country "DE"
+    next
+    edit "VPN_Block_Greece"
+        set type geography
+        set country "GR"
+    next
+    edit "VPN_Block_Hungary"
+        set type geography
+        set country "HU"
+    next
+    edit "VPN_Block_India"
+        set type geography
+        set country "IN"
+    next
+    edit "VPN_Block_Iran"
+        set type geography
+        set country "IR"
+    next
+    edit "VPN_Block_Iraq"
+        set type geography
+        set country "IQ"
+    next
+    edit "VPN_Block_Ireland"
+        set type geography
+        set country "IE"
+    next
+    edit "VPN_Block_Isreal"
+        set type geography
+        set country "IL"
+    next
+    edit "VPN_Block_Italy"
+        set type geography
+        set country "IT"
+    next
+    edit "VPN_Block_Japan"
+        set type geography
+        set country "JP"
+    next
+    edit "VPN_Block_Liberia"
+        set type geography
+        set country "LR"
+    next
+    edit "VPN_Block_Luxembourg"
+        set type geography
+        set country "LU"
+    next
+    edit "VPN_Block_Malaysia"
+        set type geography
+        set country "MY"
+    next
+    edit "VPN_Block_Mexico"
+        set type geography
+        set country "MX"
+    next
+    edit "VPN_Block_Singapore"
+        set type geography
+        set country "SG"
+    next
+    edit "VPN_Block_Spain"
+        set type geography
+        set country "ES"
+    next
+    edit "VPN_Block_Sweeden"
+        set type geography
+        set country "SE"
+    next
+    edit "VPN_Block_Switzerland"
+        set type geography
+        set country "CH"
+    next
+    edit "VPN_Block_Taiwan"
+        set type geography
+        set country "TW"
+    next
+    edit "VPN_Block_United_Kingdom"
+        set type geography
+        set country "GB"
+    next
+    edit "VPN_Block_Netherlands"
+        set type geography
+        set country "NL"
+    next
+    edit "VPN_Block_Netherlands_Antilles"
+        set type geography
+        set country "AN"
+    next
+    edit "VPN_Block_Armenia"
+        set type geography
+        set country "AM"
+    next
+    edit "VPN_Block_Aruba"
+        set type geography
+        set country "AW"
+    next
+    edit "VPN_Block_Azerbaijan"
+        set type geography
+        set country "AZ"
+    next
+    edit "VPN_Block_Bahamas"
+        set type geography
+        set country "BS"
+    next
+    edit "VPN_Block_Bahrain"
+        set type geography
+        set country "BH"
+    next
+    edit "VPN_Block_Barbados"
+        set type geography
+        set country "BB"
+    next
+    edit "VPN_Block_Belarus"
+        set type geography
+        set country "BY"
+    next
+    edit "VPN_Block_Benin"
+        set type geography
+        set country "BJ"
+    next
+    edit "VPN_Block_Bermuda"
+        set type geography
+        set country "BM"
+    next
+    edit "VPN_Block_Bhutan"
+        set type geography
+        set country "BT"
+    next
+    edit "VPN_Block_Bolvia"
+        set type geography
+        set country "BO"
+    next
+    edit "VPN_Block_Bosnia_Herzegovia"
+        set type geography
+        set country "BA"
+    next
+    edit "VPN_Block_Botswana"
+        set type geography
+        set country "BW"
+    next
+    edit "VPN_Block_Bouvet_Island"
+        set type geography
+        set country "BV"
+    next
+    edit "VPN_Block_British_Indian_ocean_terr"
+        set type geography
+        set country "IO"
+    next
+    edit "VPN_Block_Brunei_Darussalam"
+        set type geography
+        set country "BN"
+    next
+    edit "VPN_Block_Bulgaria"
+        set type geography
+        set country "BG"
+    next
+    edit "VPN_Block_Burkina_Faso"
+        set type geography
+        set country "BF"
+    next
+    edit "VPN_Block_Burundi"
+        set type geography
+        set country "BI"
+    next
+    edit "VPN_Block_Cameroon"
+        set type geography
+        set country "CM"
+    next
+    edit "VPN_Block_Cape_Verde"
+        set type geography
+        set country "CV"
+    next
+    edit "VPN_Block_Cayman_Islands"
+        set type geography
+        set country "KY"
+    next
+    edit "VPN_Block_Central_African_Republic"
+        set type geography
+        set country "CF"
+    next
+    edit "VPN_Block_Chad"
+        set type geography
+        set country "TD"
+    next
+    edit "VPN_Block_Chile"
+        set type geography
+        set country "CL"
+    next
+    edit "VPN_Block_Christams_Island"
+        set type geography
+        set country "CX"
+    next
+    edit "VPN_Block_Columbia"
+        set type geography
+        set country "CO"
+    next
+    edit "VPN_Block_Comonros"
+        set type geography
+        set country "KM"
+    next
+    edit "VPN_Block_Congo"
+        set type geography
+        set country "CG"
+    next
+    edit "VPN_Block_Congo_Replibic"
+        set type geography
+        set country "CD"
+    next
+    edit "VPN_Block_Cook_Islands"
+        set type geography
+        set country "CK"
+    next
+    edit "VPN_Block_Costa_Rica"
+        set type geography
+        set country "CR"
+    next
+    edit "VPN_Block_Cote_Dlvoire"
+        set type geography
+        set country "CI"
+    next
+    edit "VPN_Block_Croatia"
+        set type geography
+        set country "HR"
+    next
+    edit "VPN_Block_Cuba"
+        set type geography
+        set country "CU"
+    next
+    edit "VPN_Block_Curacao"
+        set type geography
+        set country "CW"
+    next
+    edit "VPN_Block_Djibouti"
+        set type geography
+        set country "DJ"
+    next
+    edit "VPN_Block_Dominica"
+        set type geography
+        set country "DM"
+    next
+    edit "VPN_Block_Dominican_Replublic"
+        set type geography
+        set country "DO"
+    next
+    edit "VPN_Block_Ecuador"
+        set type geography
+        set country "EC"
+    next
+    edit "VPN_Block_Egypt"
+        set type geography
+        set country "EG"
+    next
+    edit "VPN_Block_El_Salvador"
+        set type geography
+        set country "SV"
+    next
+    edit "VPN_Block_Equatorial_Guinea"
+        set type geography
+        set country "GQ"
+    next
+    edit "VPN_Block_Eritrea"
+        set type geography
+        set country "ER"
+    next
+    edit "VPN_Block_Estonia"
+        set type geography
+        set country "EE"
+    next
+    edit "VPN_Block_Ethiopia"
+        set type geography
+        set country "ET"
+    next
+    edit "VPN_Block_Falkland_Islands"
+        set type geography
+        set country "FK"
+    next
+    edit "VPN_Block_Faroe_Islands"
+        set type geography
+        set country "FO"
+    next
+    edit "VPN_Block_Fiji"
+        set type geography
+        set country "FJ"
+    next
+    edit "VPN_Block_Finland"
+        set type geography
+        set country "FI"
+    next
+    edit "VPN_Block_French_Guiana"
+        set type geography
+        set country "GF"
+    next
+    edit "VPN_Block_French_Polnesia"
+        set type geography
+        set country "PF"
+    next
+    edit "VPN_Block_FST"
+        set type geography
+        set country "TF"
+    next
+    edit "VPN_Block_Gabon"
+        set type geography
+        set country "GA"
+    next
+    edit "VPN_Block_Gambia"
+        set type geography
+        set country "GM"
+    next
+    edit "VPN_Block_Georgia"
+        set type geography
+        set country "GE"
+    next
+    edit "VPN_Block_Ghana"
+        set type geography
+        set country "GH"
+    next
+    edit "VPN_Block_Gibraltar"
+        set type geography
+        set country "GI"
+    next
+    edit "VPN_Block_Greenland"
+        set type geography
+        set country "GL"
+    next
+    edit "VPN_Block_Grenada"
+        set type geography
+        set country "GD"
+    next
+    edit "VPN_Block_Guadeloupe"
+        set type geography
+        set country "GP"
+    next
+    edit "VPN_Block_Palestinain_Territory"
+        set type geography
+        set country "PS"
+    next
+    edit "VPN_Block_guam"
+        set type geography
+        set country "GU"
+    next
+    edit "VPN_Block_Guatemala"
+        set type geography
+        set country "GT"
+    next
+    edit "VPN_Block_Guerney"
+        set type geography
+        set country "GG"
+    next
+    edit "VPN_Block_Guinea"
+        set type geography
+        set country "GN"
+    next
+    edit "VPN_Block_Ginea-Bissau"
+        set type geography
+        set country "GW"
+    next
+    edit "VPN_Block_Guyana"
+        set type geography
+        set country "GY"
+    next
+    edit "VPN_Block_Haiti"
+        set type geography
+        set country "HT"
+    next
+    edit "VPN_Block_Heard_Islands"
+        set type geography
+        set country "HM"
+    next
+    edit "VPN_Block_Holy_See"
+        set type geography
+        set country "VA"
+    next
+    edit "VPN_Block_Honduras"
+        set type geography
+        set country "HN"
+    next
+    edit "VPN_Block_Iceland"
+        set type geography
+        set country "IS"
+    next
+    edit "VPN_Block_Isle_of_man"
+        set type geography
+        set country "IM"
+    next
+    edit "VPN_Block_Jamacia"
+        set type geography
+        set country "JM"
+    next
+    edit "VPN_Block_Jersey"
+        set type geography
+        set country "JE"
+    next
+    edit "VPN_Block_Jordan"
+        set type geography
+        set country "JO"
+    next
+    edit "VPN_Block_Kazakhstan"
+        set type geography
+        set country "KZ"
+    next
+    edit "VPN_Block_Kenya"
+        set type geography
+        set country "KE"
+    next
+    edit "VPN_Block_Kiribati"
+        set type geography
+        set country "KI"
+    next
+    edit "VPN_Block_Korea"
+        set type geography
+        set country "KP"
+    next
+    edit "VPN_Block_Kosovo"
+        set type geography
+        set country "XK"
+    next
+    edit "VPN_Block_Kuwait"
+        set type geography
+        set country "KW"
+    next
+    edit "VPN_Block_Kyrgyzstan"
+        set type geography
+        set country "KG"
+    next
+    edit "VPN_Block_Lao"
+        set type geography
+        set country "LA"
+    next
+    edit "VPN_Block_Latvia"
+        set type geography
+        set country "LV"
+    next
+    edit "VPN_Block_Lebanon"
+        set type geography
+        set country "LB"
+    next
+    edit "VPN_Block_Lesotho"
+        set type geography
+        set country "LS"
+    next
+    edit "VPN_Block_Libyan"
+        set type geography
+        set country "LY"
+    next
+    edit "VPN_Block_Liechtenstein"
+        set type geography
+        set country "LI"
+    next
+    edit "VPN_Block_Lithuania"
+        set type geography
+        set country "LT"
+    next
+    edit "VPN_Block_Macao"
+        set type geography
+        set country "MO"
+    next
+    edit "VPN_Block_Macedonia"
+        set type geography
+        set country "MK"
+    next
+    edit "VPN_Block_Madagascar"
+        set type geography
+        set country "MG"
+    next
+    edit "VPN_Block_Malawi"
+        set type geography
+        set country "MW"
+    next
+    edit "VPN_Block_Maldives"
+        set type geography
+        set country "MV"
+    next
+    edit "VPN_Block_Mali"
+        set type geography
+        set country "ML"
+    next
+    edit "VPN_Block_Malta"
+        set type geography
+        set country "MT"
+    next
+    edit "VPN_Block_Marshall_Islands"
+        set type geography
+        set country "MH"
+    next
+    edit "VPN_Block_Martinique"
+        set type geography
+        set country "MQ"
+    next
+    edit "VPN_Block_Mauritania"
+        set type geography
+        set country "MR"
+    next
+    edit "VPN_Block_Mauritius"
+        set type geography
+        set country "MU"
+    next
+    edit "VPN_Block_Mayotte"
+        set type geography
+        set country "YT"
+    next
+    edit "VPN_Block_Micronedia"
+        set type geography
+        set country "FM"
+    next
+    edit "VPN_Block_Moldova"
+        set type geography
+        set country "MD"
+    next
+    edit "VPN_Block_Monaco"
+        set type geography
+        set country "MC"
+    next
+    edit "VPN_Block_Mongolia"
+        set type geography
+        set country "MN"
+    next
+    edit "VPN_Block_Montenergo"
+        set type geography
+        set country "ME"
+    next
+    edit "VPN_Block_Montserrat"
+        set type geography
+        set country "MS"
+    next
+    edit "VPN_Block_Morocco"
+        set type geography
+        set country "MA"
+    next
+    edit "VPN_Block_Mozambique"
+        set type geography
+        set country "MZ"
+    next
+    edit "VPN_Block_Myanmar"
+        set type geography
+        set country "MM"
+    next
+    edit "VPN_Block_Turkey"
+        set type geography
+        set country "TR"
+    next
+    edit "VPN_Block_Cyprus"
+        set type geography
+        set country "CY"
+    next
+    edit "VPN_Block_Namibia"
+        set type geography
+        set country "NA"
+    next
+    edit "VPN_Block_Nauru"
+        set type geography
+        set country "NR"
+    next
+    edit "VPN_Block_Nepal"
+        set type geography
+        set country "NP"
+    next
+    edit "VPN_Block_New_Caledonia"
+        set type geography
+        set country "NC"
+    next
+    edit "VPN_Block_New_Zealand"
+        set type geography
+        set country "NZ"
+    next
+    edit "VPN_Block_Nicaragua"
+        set type geography
+        set country "NI"
+    next
+    edit "VPN_Block_Niger"
+        set type geography
+        set country "NE"
+    next
+    edit "VPN_Block_Nigeria"
+        set type geography
+        set country "NG"
+    next
+    edit "VPN_Block_Norway"
+        set type geography
+        set country "NO"
+    next
+    edit "VPN_Block_Pakistan"
+        set type geography
+        set country "PK"
+    next
+    edit "VPN_Block_Panama"
+        set type geography
+        set country "PA"
+    next
+    edit "VPN_Block_Paraguay"
+        set type geography
+        set country "PY"
+    next
+    edit "VPN_Block_Peru"
+        set type geography
+        set country "PE"
+    next
+    edit "VPN_Block_Philippines"
+        set type geography
+        set country "PH"
+    next
+    edit "VPN_Block_Poland"
+        set type geography
+        set country "PL"
+    next
+    edit "VPN_Block_Portugal"
+        set type geography
+        set country "PT"
+    next
+    edit "VPN_Block_Puerto_rico"
+        set type geography
+        set country "PR"
+    next
+    edit "VPN_Block_Reunion"
+        set type geography
+        set country "RE"
+    next
+    edit "VPN_Block_Romania"
+        set type geography
+        set country "RO"
+    next
+    edit "VPN_Block_Samoa"
+        set type geography
+        set country "WS"
+    next
+    edit "VPN_Block_Saudi_Arabia"
+        set type geography
+        set country "SA"
+    next
+    edit "VPN_Block_Serbia"
+        set type geography
+        set country "RS"
+    next
+    edit "VPN_Block_Slovakia"
+        set type geography
+        set country "SK"
+    next
+    edit "VPN_Block_Slovenia"
+        set type geography
+        set country "SI"
+    next
+    edit "VPN_Block_Somalia"
+        set type geography
+        set country "SO"
+    next
+    edit "VPN_Block_South_Africa"
+        set type geography
+        set country "ZA"
+    next
+    edit "VPN_Block_Sudan"
+        set type geography
+        set country "SD"
+    next
+    edit "VPN_Block_Syrian_arab_republic"
+        set type geography
+        set country "SY"
+    next
+    edit "VPN_Block_Thailand"
+        set type geography
+        set country "TH"
+    next
+    edit "VPN_Block_Turks_and_cacios"
+        set type geography
+        set country "TC"
+    next
+    edit "VPN_Block_Ukraine"
+        set type geography
+        set country "UA"
+    next
+    edit "VPN_Block_United_Arab_Emirates"
+        set type geography
+        set country "AE"
+    next
+    edit "VPN_Block_Uruguay"
+        set type geography
+        set country "UY"
+    next
+    edit "VPN_Block_Venezuela"
+        set type geography
+        set country "VE"
+    next
+    edit "VPN_Block_Vietnam"
+        set type geography
+        set country "VN"
+    next
+    edit "VPN_Block_Virgin_islands_british"
+        set type geography
+        set country "VG"
+    next
+end
+
+
+
+
+
+
+#####################################################
+####config firewall addrgrp
+#####################################################
+config firewall addrgrp
+    edit "VPN_Block_Geography"
+        set member "VPN_Block_Bangladesh" "VPN_Block_China" "VPN_Block_Russia" "VPN_Block_Czech_Republic" "VPN_Block_Hong_Kong" "VPN_Block_Indonesia" "VPN_Block_Korea1" "VPN_Block_Korea2" "VPN_Block_Afganistan" "VPN_Block_Aland_Islands" "VPN_Block_Albania" "VPN_Block_Algeria" "VPN_Block_Austria" "VPN_Block_Austrialia" "VPN_Block_Belgium" "VPN_Block_Belize" "VPN_Block_Brazil" "VPN_Block_Cambodia" "VPN_Block_Canada" "VPN_Block_Denmark" "VPN_Block_France" "VPN_Block_Germany" "VPN_Block_Greece" "VPN_Block_Hungary" "VPN_Block_India" "VPN_Block_Iran" "VPN_Block_Iraq" "VPN_Block_Ireland" "VPN_Block_Isreal" "VPN_Block_Italy" "VPN_Block_Japan" "VPN_Block_Liberia" "VPN_Block_Luxembourg" "VPN_Block_Malaysia" "VPN_Block_Mexico" "VPN_Block_Singapore" "VPN_Block_Spain" "VPN_Block_Sweeden" "VPN_Block_Switzerland" "VPN_Block_Taiwan" "VPN_Block_United_Kingdom" "VPN_Block_American_Aamoa" "VPN_Block_Andorra" "VPN_Block_Angola" "VPN_Block_Anguilla" "VPN_Block_Antigua_Barbuda" "VPN_Block_Argentina" "VPN_Block_Armenia" "VPN_Block_Aruba" "VPN_Block_Azerbaijan" "VPN_Block_Bahamas" "VPN_Block_Bahrain" "VPN_Block_Barbados" "VPN_Block_Belarus" "VPN_Block_Benin" "VPN_Block_Bermuda" "VPN_Block_Bhutan" "VPN_Block_Bolvia" "VPN_Block_Bosnia_Herzegovia" "VPN_Block_Botswana" "VPN_Block_Bouvet_Island" "VPN_Block_British_Indian_ocean_terr" "VPN_Block_Brunei_Darussalam" "VPN_Block_Bulgaria" "VPN_Block_Burkina_Faso" "VPN_Block_Burundi" "VPN_Block_Cameroon" "VPN_Block_Cape_Verde" "VPN_Block_Cayman_Islands" "VPN_Block_Central_African_Republic" "VPN_Block_Chad" "VPN_Block_Chile" "VPN_Block_Christams_Island" "VPN_Block_Columbia" "VPN_Block_Comonros" "VPN_Block_Congo" "VPN_Block_Congo_Replibic" "VPN_Block_Cook_Islands" "VPN_Block_Costa_Rica" "VPN_Block_Cote_Dlvoire" "VPN_Block_Croatia" "VPN_Block_Cuba" "VPN_Block_Curacao" "VPN_Block_Djibouti" "VPN_Block_Dominica" "VPN_Block_Dominican_Replublic" "VPN_Block_Ecuador" "VPN_Block_Egypt" "VPN_Block_El_Salvador" "VPN_Block_Equatorial_Guinea" "VPN_Block_Eritrea" "VPN_Block_Estonia" "VPN_Block_Ethiopia" "VPN_Block_Netherlands" "VPN_Block_Netherlands_Antilles" "VPN_Block_Falkland_Islands" "VPN_Block_Faroe_Islands" "VPN_Block_Fiji" "VPN_Block_Finland" "VPN_Block_French_Guiana" "VPN_Block_French_Polnesia" "VPN_Block_FST" "VPN_Block_Gabon" "VPN_Block_Gambia" "VPN_Block_Georgia" "VPN_Block_Ghana" "VPN_Block_Gibraltar" "VPN_Block_Ginea-Bissau" "VPN_Block_Greenland" "VPN_Block_Grenada" "VPN_Block_Guadeloupe" "VPN_Block_guam" "VPN_Block_Guatemala" "VPN_Block_Guerney" "VPN_Block_Guinea" "VPN_Block_Guyana" "VPN_Block_Palestinain_Territory" "VPN_Block_Haiti" "VPN_Block_Heard_Islands" "VPN_Block_Holy_See" "VPN_Block_Honduras" "VPN_Block_Iceland" "VPN_Block_Isle_of_man" "VPN_Block_Jamacia" "VPN_Block_Jersey" "VPN_Block_Jordan" "VPN_Block_Kazakhstan" "VPN_Block_Kenya" "VPN_Block_Kiribati" "VPN_Block_Korea" "VPN_Block_Kosovo" "VPN_Block_Kuwait" "VPN_Block_Kyrgyzstan" "VPN_Block_Lao" "VPN_Block_Latvia" "VPN_Block_Lebanon" "VPN_Block_Lesotho" "VPN_Block_Libyan" "VPN_Block_Liechtenstein" "VPN_Block_Lithuania" "VPN_Block_Macao" "VPN_Block_Macedonia" "VPN_Block_Madagascar" "VPN_Block_Malawi" "VPN_Block_Maldives" "VPN_Block_Mali" "VPN_Block_Malta" "VPN_Block_Marshall_Islands" "VPN_Block_Martinique" "VPN_Block_Mauritania" "VPN_Block_Mauritius" "VPN_Block_Mayotte" "VPN_Block_Micronedia" "VPN_Block_Moldova" "VPN_Block_Monaco" "VPN_Block_Mongolia" "VPN_Block_Montenergo" "VPN_Block_Montserrat" "VPN_Block_Morocco" "VPN_Block_Mozambique" "VPN_Block_Myanmar" "VPN_Block_Turkey" "VPN_Block_Cyprus" "VPN_Block_Namibia" "VPN_Block_Nauru" "VPN_Block_Nepal" "VPN_Block_New_Caledonia" "VPN_Block_New_Zealand" "VPN_Block_Nicaragua" "VPN_Block_Niger" "VPN_Block_Nigeria" "VPN_Block_Norway" "VPN_Block_Pakistan" "VPN_Block_Panama" "VPN_Block_Paraguay" "VPN_Block_Peru" "VPN_Block_Philippines" "VPN_Block_Poland" "VPN_Block_Portugal" "VPN_Block_Puerto_rico" "VPN_Block_Reunion" "VPN_Block_Romania" "VPN_Block_Samoa" "VPN_Block_Saudi_Arabia" "VPN_Block_Serbia" "VPN_Block_Slovakia" "VPN_Block_Slovenia" "VPN_Block_Somalia" "VPN_Block_South_Africa" "VPN_Block_Sudan" "VPN_Block_Syrian_arab_republic" "VPN_Block_Thailand" "VPN_Block_Turks_and_cacios" "VPN_Block_Ukraine" "VPN_Block_United_Arab_Emirates" "VPN_Block_Uruguay" "VPN_Block_Venezuela" "VPN_Block_Vietnam" "VPN_Block_Virgin_islands_british"
+    next
+    edit "Block_VPN_Failed"
+        set member "VPN_Block_205.210.31.169"
+    next
+end
+
+
+
+
+
+
+#####################################################
+####config firewall addrgrp6
+#####################################################
+config firewall addrgrp6
+    edit "Block_VPN_Failed_IPv6"
+        set member "VPN_Block_2a01:4ff:f0:a387::1"
+    next
+    edit "VPN_Block_Geography_IPv6"
+        set member "VPN_Block_Afganistan" "VPN_Block_Aland_Islands" "VPN_Block_Albania" "VPN_Block_Algeria" "VPN_Block_American_Aamoa" "VPN_Block_Andorra" "VPN_Block_Angola" "VPN_Block_Anguilla" "VPN_Block_Antigua_Barbuda" "VPN_Block_Argentina" "VPN_Block_Armenia" "VPN_Block_Aruba" "VPN_Block_Austria" "VPN_Block_Austrialia" "VPN_Block_Azerbaijan" "VPN_Block_Bahamas" "VPN_Block_Bahrain" "VPN_Block_Bangladesh" "VPN_Block_Barbados" "VPN_Block_Belarus" "VPN_Block_Belgium" "VPN_Block_Belize" "VPN_Block_Benin" "VPN_Block_Bermuda" "VPN_Block_Bhutan" "VPN_Block_Bolvia" "VPN_Block_Bosnia_Herzegovia" "VPN_Block_Botswana" "VPN_Block_Bouvet_Island" "VPN_Block_Brazil" "VPN_Block_British_Indian_ocean_terr" "VPN_Block_Brunei_Darussalam" "VPN_Block_Bulgaria" "VPN_Block_Burkina_Faso" "VPN_Block_Burundi" "VPN_Block_Cambodia" "VPN_Block_Cameroon" "VPN_Block_Canada" "VPN_Block_Cape_Verde" "VPN_Block_Cayman_Islands" "VPN_Block_Central_African_Republic" "VPN_Block_Chad" "VPN_Block_Chile" "VPN_Block_China" "VPN_Block_Christams_Island" "VPN_Block_Columbia" "VPN_Block_Comonros" "VPN_Block_Congo" "VPN_Block_Congo_Replibic" "VPN_Block_Cook_Islands" "VPN_Block_Costa_Rica" "VPN_Block_Cote_Dlvoire" "VPN_Block_Croatia" "VPN_Block_Cuba" "VPN_Block_Curacao" "VPN_Block_Cyprus" "VPN_Block_Czech_Republic" "VPN_Block_Denmark" "VPN_Block_Djibouti" "VPN_Block_Dominica" "VPN_Block_Dominican_Replublic" "VPN_Block_Ecuador" "VPN_Block_Egypt" "VPN_Block_El_Salvador" "VPN_Block_Equatorial_Guinea" "VPN_Block_Eritrea" "VPN_Block_Estonia" "VPN_Block_Ethiopia" "VPN_Block_Falkland_Islands" "VPN_Block_Faroe_Islands" "VPN_Block_Fiji" "VPN_Block_Finland" "VPN_Block_France" "VPN_Block_French_Guiana" "VPN_Block_French_Polnesia" "VPN_Block_FST" "VPN_Block_Gabon" "VPN_Block_Gambia" "VPN_Block_Georgia" "VPN_Block_Germany" "VPN_Block_Ghana" "VPN_Block_Gibraltar" "VPN_Block_Ginea-Bissau" "VPN_Block_Greece" "VPN_Block_Greenland" "VPN_Block_Grenada" "VPN_Block_Guadeloupe" "VPN_Block_guam" "VPN_Block_Guatemala" "VPN_Block_Guerney" "VPN_Block_Guinea" "VPN_Block_Guyana" "VPN_Block_Haiti" "VPN_Block_Heard_Islands" "VPN_Block_Holy_See" "VPN_Block_Honduras" "VPN_Block_Hong_Kong" "VPN_Block_Hungary" "VPN_Block_Iceland" "VPN_Block_India" "VPN_Block_Indonesia" "VPN_Block_Iran" "VPN_Block_Iraq" "VPN_Block_Ireland" "VPN_Block_Isle_of_man" "VPN_Block_Isreal" "VPN_Block_Italy" "VPN_Block_Jamacia" "VPN_Block_Japan" "VPN_Block_Jersey" "VPN_Block_Jordan" "VPN_Block_Kazakhstan" "VPN_Block_Kenya" "VPN_Block_Kiribati" "VPN_Block_Korea" "VPN_Block_Korea1" "VPN_Block_Korea2" "VPN_Block_Kosovo" "VPN_Block_Kuwait" "VPN_Block_Kyrgyzstan" "VPN_Block_Lao" "VPN_Block_Latvia" "VPN_Block_Lebanon" "VPN_Block_Lesotho" "VPN_Block_Liberia" "VPN_Block_Libyan" "VPN_Block_Liechtenstein" "VPN_Block_Lithuania" "VPN_Block_Luxembourg" "VPN_Block_Macao" "VPN_Block_Macedonia" "VPN_Block_Madagascar" "VPN_Block_Malawi" "VPN_Block_Malaysia" "VPN_Block_Maldives" "VPN_Block_Mali" "VPN_Block_Malta" "VPN_Block_Marshall_Islands" "VPN_Block_Martinique" "VPN_Block_Mauritania" "VPN_Block_Mauritius" "VPN_Block_Mayotte" "VPN_Block_Mexico" "VPN_Block_Micronedia" "VPN_Block_Moldova" "VPN_Block_Monaco" "VPN_Block_Mongolia" "VPN_Block_Montenergo" "VPN_Block_Montserrat" "VPN_Block_Morocco" "VPN_Block_Mozambique" "VPN_Block_Myanmar" "VPN_Block_Namibia" "VPN_Block_Nauru" "VPN_Block_Nepal" "VPN_Block_Netherlands" "VPN_Block_Netherlands_Antilles" "VPN_Block_New_Caledonia" "VPN_Block_New_Zealand" "VPN_Block_Nicaragua" "VPN_Block_Niger" "VPN_Block_Nigeria" "VPN_Block_Norway" "VPN_Block_Pakistan" "VPN_Block_Palestinain_Territory" "VPN_Block_Panama" "VPN_Block_Paraguay" "VPN_Block_Peru" "VPN_Block_Philippines" "VPN_Block_Poland" "VPN_Block_Portugal" "VPN_Block_Puerto_rico" "VPN_Block_Reunion" "VPN_Block_Romania" "VPN_Block_Russia" "VPN_Block_Samoa" "VPN_Block_Saudi_Arabia" "VPN_Block_Serbia" "VPN_Block_Singapore" "VPN_Block_Slovakia" "VPN_Block_Slovenia" "VPN_Block_Somalia" "VPN_Block_South_Africa" "VPN_Block_Spain" "VPN_Block_Sudan" "VPN_Block_Sweeden" "VPN_Block_Switzerland" "VPN_Block_Syrian_arab_republic" "VPN_Block_Taiwan" "VPN_Block_Thailand" "VPN_Block_Turkey" "VPN_Block_Turks_and_cacios" "VPN_Block_Ukraine" "VPN_Block_United_Arab_Emirates" "VPN_Block_United_Kingdom" "VPN_Block_Uruguay" "VPN_Block_Venezuela" "VPN_Block_Vietnam" "VPN_Block_Virgin_islands_british"
+    next
+end
+
+
+
+
+
+
+#####################################################
+####config system external-resource
+#####################################################
+config system external-resource
+    edit "manual_blocked"
+        set type address
+        set resource "https://raw.githubusercontent.com/wallacebrf/dns/main/manual_block_list.txt"
+        set refresh-rate 60
+    next
+    edit "ASN_lists_blocked"
+        set type address
+        set resource "https://raw.githubusercontent.com/wallacebrf/dns/main/asn_block1.1.txt"
+        set refresh-rate 10080
+    next
+end
+
+
+
+
+
+
+#####################################################
+####config firewall local-in-policy
+#####################################################
+config firewall local-in-policy
+    edit 1
+        set intf "wan1"
+        set srcaddr "your_allowed_ips"
+        set dstaddr "all"
+        set action accept
+        set service "IKE"
+        set schedule "always"
+    next
+    edit 2
+        set intf "wan1"
+        set srcaddr "VPN_Block_Geography"
+        set dstaddr "all"
+        set service "ALL"
+        set schedule "always"
+    next
+    edit 3
+        set intf "wan1"
+        set srcaddr "ASN_lists_blocked"
+        set dstaddr "all"
+        set service "ALL"
+        set schedule "always"
+    next
+    edit 4
+        set intf "wan1"
+        set srcaddr "manual_blocked"
+        set dstaddr "all"
+        set service "ALL"
+        set schedule "always"
+    next
+    edit 5
+        set intf "wan1"
+        set srcaddr "Block_VPN_Failed"
+        set dstaddr "all"
+        set service "ALL"
+        set schedule "always"
+    next
+end
+
+
+
+
+
+
+#####################################################
+####config firewall local-in-policy6
+#####################################################
+config firewall local-in-policy6
+    edit 1
+        set intf "wan1"
+        set srcaddr "your_allowed_ips_IPv6"
+        set dstaddr "all"
+        set action accept
+        set service "IKE"
+        set schedule "always"
+    next
+    edit 2
+        set intf "wan1"
+        set srcaddr "VPN_Block_Geography_IPv6"
+        set dstaddr "all"
+        set service "ALL"
+        set schedule "always"
+    next
+    edit 3
+        set intf "wan1"
+        set srcaddr "ASN_lists_blocked"
+        set dstaddr "all"
+        set service "ALL"
+        set schedule "always"
+    next
+    edit 4
+        set intf "wan1"
+        set srcaddr "Block_VPN_Failed_IPv6"
+        set dstaddr "all"
+        set service "ALL"
+        set schedule "always"
+    next
+end
+
+
+
+
+
+
+#####################################################
+####config firewall profile-protocol-options
+#####################################################
+config firewall profile-protocol-options
+    edit "Core_Proxy"
+        set comment "Core_Proxy"
+        config http
+            set ports 80
+            unset options
+            unset post-lang
+        end
+        config ftp
+            set ports 21
+            unset options
+        end
+        config imap
+            set ports 143
+            unset options
+        end
+        config mapi
+            set ports 135
+            unset options
+        end
+        config pop3
+            set ports 110
+            unset options
+        end
+        config smtp
+            set ports 25
+            unset options
+        end
+        config nntp
+            set ports 119
+            unset options
+        end
+        config ssh
+            unset options
+        end
+        config dns
+            set ports 53
+        end
+        config cifs
+            set ports 445
+            unset options
+        end
+    next
+end
+
+
+
+
+
+
+#####################################################
+####config firewall policy
+#####################################################
+config firewall policy
+	edit 163
+        set name "HomeVPN-IPsec --> VLANXYZ"
+        set srcintf "HomeVPN-IPsec"
+        set dstintf "VLANXYZ"
+        set action accept
+        set srcaddr "HomeVPN-IPsec_range"
+        set dstaddr "Device_IP_device1"
+        set schedule "always"
+        set service "ALL"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+    next
+    edit 166
+        set name "HomeVPNv6-IKE2 --> VLANXYZ"
+        set srcintf "HomeVPNv6-IKE2"
+        set dstintf "VLANXYZ"
+        set action accept
+        set srcaddr "HomeVPN-IPsec_range"
+        set dstaddr "Device_IP_device1"
+        set schedule "always"
+        set service "ALL"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+    next
+    edit 131
+        set name "IPsec --> VLANXYZ"
+        set srcintf "HomeVPNv6"
+        set dstintf "VLANXYZ"
+        set action accept
+        set srcaddr "HomeVPN-IPsec_range"
+        set dstaddr "Device_IP_device1"
+        set schedule "always"
+        set service "ALL"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+    next
+    edit 165
+        set name "HomeVPN-IPsec --> VLANXYZ IPv6"
+        set srcintf "HomeVPN-IPsec"
+        set dstintf "VLANXYZ"
+        set action accept
+        set srcaddr6 "HomeVPN-IPsec_range"
+        set dstaddr6 "Device_IP_device1_IPv6"
+        set schedule "always"
+        set service "ALL"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+    next
+    edit 167
+        set name "HomeVPNv6-IKE2 --> VLANXYZ IPv6"
+        set srcintf "HomeVPNv6-IKE2"
+        set dstintf "VLANXYZ"
+        set action accept
+        set srcaddr6 "HomeVPN-IPsec_range"
+        set dstaddr6 "Device_IP_device1_IPv6"
+        set schedule "always"
+        set service "ALL"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+    next
+    edit 149
+        set name "IPsec --> VLANXYZ (IPv6)"
+        set srcintf "HomeVPNv6"
+        set dstintf "VLANXYZ"
+        set action accept
+        set srcaddr6 "HomeVPN-IPsec_range"
+        set dstaddr6 "Device_IP_device1_IPv6"
+        set schedule "always"
+        set service "ALL"
+        set profile-protocol-options "Core_Proxy"
+        set logtraffic all
+    next
+end
+	
