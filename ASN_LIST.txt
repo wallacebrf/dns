@@ -1,5 +1,5 @@
 #really good list here: https://github.com/brianhama/bad-asn-list/blob/master/bad-asn-list.csv#L353
-https://asn.ipinfo.app/api/text/list/AS44477 #STARK-INDUSTRIES
+https://asn.ipinfo.app/api/text/list/AS44477 #THE-HOSTING - PQ HOSTING PLUS S.R.L.
 https://asn.ipinfo.app/api/text/list/AS22612 #NAMECHEAP-NET
 https://asn.ipinfo.app/api/text/list/AS12312 #ECOTEL - ecotel communication ag
 https://asn.ipinfo.app/api/text/list/AS64419 #ECOTEL-AS - Ecotel, Ltd.
@@ -21,13 +21,13 @@ https://asn.ipinfo.app/api/text/list/AS204287 #HOSTROYALE_TECHNOLOGIES - HostRoy
 https://asn.ipinfo.app/api/text/list/AS207990 #HR-CUSTOMER - HostRoyale Technologies Pvt Ltd
 https://asn.ipinfo.app/api/text/list/AS11878 #tzulo, inc.
 https://asn.ipinfo.app/api/text/list/AS6939 #Hurricane Electric LLC (HURC)
-https://asn.ipinfo.app/api/text/list/AS60068 #DataCamp Limited
-https://asn.ipinfo.app/api/text/list/AS212238 #DataCamp Limited
-https://asn.ipinfo.app/api/text/list/AS211612 #DataCamp Limited
-https://asn.ipinfo.app/api/text/list/AS50446 #DataCamp Limited
-https://asn.ipinfo.app/api/text/list/AS9009 #M247
-https://asn.ipinfo.app/api/text/list/AS16247 #M247
-https://asn.ipinfo.app/api/text/list/AS42973 #M247
+https://asn.ipinfo.app/api/text/list/AS60068 #CDN77 - Datacamp Limited
+https://asn.ipinfo.app/api/text/list/AS212238 #CDNEXT - Datacamp Limited
+https://asn.ipinfo.app/api/text/list/AS211612 #CACHE77 - Datacamp Limited
+https://asn.ipinfo.app/api/text/list/AS50446 #DATACAMPUS - Datacampus SAS
+https://asn.ipinfo.app/api/text/list/AS9009 #M247 - M247 Europe SRL
+https://asn.ipinfo.app/api/text/list/AS16247 #M247-UK - M247 Ltd
+https://asn.ipinfo.app/api/text/list/AS42973 #METRONETUK_M24SEVEN - M247 UK Ltd
 https://asn.ipinfo.app/api/text/list/AS35536 #XTOM-35536 - xTom GmbH
 https://asn.ipinfo.app/api/text/list/AS9312 #XTOM xTom
 https://asn.ipinfo.app/api/text/list/AS8888 #XTOM - xTom Pty Ltd
@@ -38,27 +38,30 @@ https://asn.ipinfo.app/api/text/list/AS3214 #XTOM - xTom GmbH
 https://asn.ipinfo.app/api/text/list/AS949 #XTOM
 https://asn.ipinfo.app/api/text/list/AS14315 #1GSERVERS, LLC
 https://asn.ipinfo.app/api/text/list/AS18779 #EGIHosting
-https://asn.ipinfo.app/api/text/list/AS7005 #Interserver, Inc (INTER-83)
-https://asn.ipinfo.app/api/text/list/AS26666 #Interserver, Inc (INTER-83)
+https://asn.ipinfo.app/api/text/list/AS7005 #InterServer SA
+https://asn.ipinfo.app/api/text/list/AS26666 #INTERSERVER-LAX
 https://asn.ipinfo.app/api/text/list/AS13335 #CLOUDFLARENET
-https://asn.ipinfo.app/api/text/list/AS202623 #CLOUDFLARENET
-https://asn.ipinfo.app/api/text/list/AS395747 #CLOUDFLARENET
-https://asn.ipinfo.app/api/text/list/AS62651 #NETPROTECT
-https://asn.ipinfo.app/api/text/list/AS54203 #NETPROTECT
-https://asn.ipinfo.app/api/text/list/AS54138 #NETPROTECT
-https://asn.ipinfo.app/api/text/list/AS50667 #NETPROTECT
-https://asn.ipinfo.app/api/text/list/AS31362 #NETPROTECT
-https://asn.ipinfo.app/api/text/list/AS13926 #NETPROTECT
-https://asn.ipinfo.app/api/text/list/AS24940 #Hetzner 
-https://asn.ipinfo.app/api/text/list/AS212317 #Hetzner 
-https://asn.ipinfo.app/api/text/list/AS213230 #Hetzner 
-https://asn.ipinfo.app/api/text/list/AS213006 #Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS202623 #CLOUDFLARENET-CORE - Cloudflare Inc
+https://asn.ipinfo.app/api/text/list/AS395747 #CLOUDFLARENET-SFO05
+https://asn.ipinfo.app/api/text/list/AS62651 #NETPROTECT-62651
+https://asn.ipinfo.app/api/text/list/AS54203 #NETPROTECT-SP
+https://asn.ipinfo.app/api/text/list/AS54138 #NETPROTECT-OVP
+https://asn.ipinfo.app/api/text/list/AS50667 #MSP-ROMANIA-AS - NETPROTECT SRL
+https://asn.ipinfo.app/api/text/list/AS31362 #PROTECTNET - NETPROTECT SRL
+https://asn.ipinfo.app/api/text/list/AS13926 #NETPROTECT-PHX
+https://asn.ipinfo.app/api/text/list/AS24940 #HETZNER-AS - Hetzner Online GmbH 
+https://asn.ipinfo.app/api/text/list/AS212317 #HETZNER-CLOUD3-AS - Hetzner Online GmbH 
+https://asn.ipinfo.app/api/text/list/AS213230 #HETZNER-CLOUD2-AS - Hetzner Online GmbH 
+https://asn.ipinfo.app/api/text/list/AS213006 #NSFTELECOM - Invermae Solutions SL
 https://asn.ipinfo.app/api/text/list/AS213005 #Invermae Solutions SL
-https://asn.ipinfo.app/api/text/list/AS212862 #Invermae Solutions SL
-https://asn.ipinfo.app/api/text/list/AS212861 #Invermae Solutions SL
-https://asn.ipinfo.app/api/text/list/AS204286 #Invermae Solutions SL
-https://asn.ipinfo.app/api/text/list/AS202636 #Invermae Solutions SL
-https://asn.ipinfo.app/api/text/list/g #Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS212862 #PROXYSEO - Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS212861 #INTERCOLO - Invermae Solutions SLL
+https://asn.ipinfo.app/api/text/list/AS204286 #CDN4YOU - Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS202636 #ECHELON - Invermae Solutions SL
+https://asn.ipinfo.app/api/text/list/AS200908 #INTERMANAGED - Invermae Solutions SL
+
+#####
+
 https://asn.ipinfo.app/api/text/list/AS17470 #HUTCHISON-LK
 https://asn.ipinfo.app/api/text/list/AS209372 #SIA "Singularity Telecom"
 https://asn.ipinfo.app/api/text/list/AS45887 #GPLHOST
@@ -365,3 +368,7 @@ AS45609 #BHARTI-MOBILITY-AS-AP Bharti Airtel Ltd. AS for GPRS Service
 AS213790 #LIMITEDNETWORK-AS - Limited Network LTD
 AS4818 #DIGIIX-AP DiGi Telecommunications Sdn. Bhd.
 AS10081 #DIGI-MY DiGi Telecommunications Sdn Bhd
+
+#9/16/2025
+AS215929 #DATACAMPUS - Data Campus Limited
+AS207915 #SYMEETRIC - Invermae Solutions SL
