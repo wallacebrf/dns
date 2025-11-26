@@ -410,3 +410,6 @@ removed AS3209	#VODANET - Vodafone GmbH due to impacts on users
 10/2/2025
 Removed AS6167	#CELLCO-PART due to impacts on users
 removed AS680	#DFN - Verein zur Foerderung eines Deutschen Forschungsnetzes e.V. due to impacts on users
+
+11/26/2025
+removed AS398721	#OXIO-ASN-01
