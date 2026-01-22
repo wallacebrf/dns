@@ -26,6 +26,8 @@ To increase the security of the VPS I am using i also want to be able to use my 
 
 ```ufw_update.sh``` combined with ```ASN_hetzner.txt``` and ```geoblock.txt``` was written to allow for this. Please note this script requires the external binary ```aggregate6``` written by https://github.com/job/aggregate6. A copy of the aggregate6 binary is included in this repo as well. 
 
+NOTE: by default, docker does not respect UFW blocked connections which means by default, this blocking action is useless. There are ways of making UFW work with docker, but I am using SOCAT which i detail here: https://github.com/wallacebrf/IPsec-Reverse-Proxy. For my Pangolin docker container, I do not have ANY ports mapped to it. Instead, I use socat to proxy the port 443 traffic to the pangolin port and this does cause the panglin docker container to respect UFW. 
+
 If ASN based blocking is not desired, it can be turned off by setting the script variable ```block_ASN=1``` from a value of 1 to a value of 0. 
 
 The script will also download many different country code IPv4 IP ranges to allow for Geo based blocking. I have disabled all IPv6 incoming connections to my VPS, so I am not downloading the IPv6 addresses ranges. Currently the script downloads ALL countries IPv4 ranges EXCEPT for the United states and Germany. The US because that is the country I live in, but did not want to block Germany as Hetzner is a German company and I did not want to risk issues. 
