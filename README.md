@@ -24,7 +24,7 @@ I then use the WEB filter profile within my Fortigate firewall with the resultin
 
 To increase the security of the VPS I am using i also want to be able to use my ASN lists so I can add IP addresses to the ufw firewall to block connections, but I needed a easy way to add and or remove entries from the firewall as required. 
 
-```ufw_update.sh``` combined with ```ASN.txt``` and ```geoblock.txt``` was written to allow for this. 
+```ufw_update.sh``` combined with ```ASN_hetzner.txt``` and ```geoblock.txt``` was written to allow for this. 
 
 If ASN based blocking is not desired, it can be turned off by setting the script variable ```block_ASN=1``` from a value of 1 to a value of 0. 
 
