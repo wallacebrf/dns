@@ -413,3 +413,6 @@ removed AS680	#DFN - Verein zur Foerderung eines Deutschen Forschungsnetzes e.V.
 
 11/26/2025
 removed AS398721	#OXIO-ASN-01
+
+7/4/2026
+added AS202412
