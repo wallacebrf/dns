@@ -3002,5 +3002,16 @@ ASvZ7P0vwLYNzMnfz9BA - 192.168.1.20 - 192.168.111.20
 Z7PykNxdxbN5uy0MY2HB - 192.168.1.11 - 192.168.111.22
 KlVrFwadzAlHfOifDhwK - 192.168.1.14 - 192.168.111.23
 
+camera user:
+	user: ubnt
+	password: above
 
-user: ubnt
+
+
+
+to set date/time
+	windows command prompt
+		ssh root@192.168.111.105
+		password: MPD_Shocks_2027
+	date --set 2019-11-14 
+     	date --set 18:10:00
