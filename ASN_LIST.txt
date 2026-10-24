@@ -5,7 +5,6 @@ https://asn.ipinfo.app/api/text/list/AS12312 #ECOTEL - ecotel communication ag
 https://asn.ipinfo.app/api/text/list/AS64419 #ECOTEL-AS - Ecotel, Ltd.
 https://asn.ipinfo.app/api/text/list/AS204957 #GREENFLOID-AS - GREEN FLOID LLC
 https://asn.ipinfo.app/api/text/list/AS61112 #AKILECLOUD - AKILE LTD
-https://asn.ipinfo.app/api/text/list/AS8100 # ASN-QUADRANET-GLOBAL
 https://asn.ipinfo.app/api/text/list/AS16276 #OVH - OVH SAS
 https://asn.ipinfo.app/api/text/list/AS35540 #OVH-TELECOM - OVH SAS
 https://asn.ipinfo.app/api/text/list/AS394814 #ISP4Life
